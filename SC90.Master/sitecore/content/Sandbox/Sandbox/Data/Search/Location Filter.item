@@ -1,0 +1,66 @@
+----item----
+version: 1
+id: {0E378FE2-4883-4A2A-B38D-C304EC2BC9FA}
+database: master
+path: /sitecore/content/Sandbox/Sandbox/Data/Search/Location Filter
+parent: {4548D68E-AB6D-430D-8229-42B40A1D4817}
+name: Location Filter
+master: {957565A0-BF0D-4F8B-BF2C-4A8F40EC9080}
+template: {C8E2A53C-6EAC-49E2-BBC6-3EA8D0861834}
+templatekey: Location Filter Folder
+created: 20180519T021927Z
+
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{0A5BE50D-6D61-4A22-B28A-05C52AF9307D}
+----version----
+language: en
+version: 1
+revision: c0271ed5-6c69-4db7-9532-8d58b7f0e86e
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180519T021928Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+c0271ed5-6c69-4db7-9532-8d58b7f0e86e
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180519T021928Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 22
+
+sitecore\virtualssuser

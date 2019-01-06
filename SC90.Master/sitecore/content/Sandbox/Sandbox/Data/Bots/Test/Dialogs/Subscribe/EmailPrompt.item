@@ -1,0 +1,59 @@
+----item----
+version: 1
+id: {7133FBB1-19EB-4A4F-9EAE-B0185D568A7A}
+database: master
+path: /sitecore/content/Sandbox/Sandbox/Data/Bots/Test/Dialogs/Subscribe/EmailPrompt
+parent: {6F23B4EE-A84A-43FE-9490-3DC73C2EA489}
+name: EmailPrompt
+master: {00000000-0000-0000-0000-000000000000}
+template: {2376BA02-DC5F-41EB-A304-774E7D410088}
+templatekey: Prompt
+created: 20190104T052727Z
+
+----version----
+language: en
+version: 1
+revision: b92db89b-7ed5-4af1-bacb-4f4c1b302022
+
+----field----
+field: {074E9671-DC88-41A2-A84E-47B7015622D8}
+name: Type
+key: type
+content-length: 4
+
+Text
+----field----
+field: {84F8EC35-7D5A-478D-BD99-FB6441C10EB5}
+name: Message
+key: message
+content-length: 25
+
+Whats your email address?
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20190104T052727Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+b92db89b-7ed5-4af1-bacb-4f4c1b302022
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20190104T052736Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

@@ -1,0 +1,66 @@
+----item----
+version: 1
+id: {6976A630-4E27-4F18-94B1-1F9D618FFF60}
+database: master
+path: /sitecore/content/Sandbox/Sandbox/Settings/Site Grouping/Sandbox/CORS/default
+parent: {FA6C3BFC-1D1D-4E45-A52C-88D13F6E4600}
+name: default
+master: {F0E39DC1-6A4F-41ED-B0FE-B65BF09A1745}
+template: {5203732F-9512-4ADE-8E02-0CB085C10454}
+templatekey: CORS Entry
+created: 20180519T021848Z
+
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{10670D11-AD0B-4E03-9118-872819CBA6B2}
+----version----
+language: en
+version: 1
+revision: 17e8f67a-de7c-42a8-8132-d821dbe728a6
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180519T021848Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+17e8f67a-de7c-42a8-8132-d821dbe728a6
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180519T021848Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 22
+
+sitecore\virtualssuser
