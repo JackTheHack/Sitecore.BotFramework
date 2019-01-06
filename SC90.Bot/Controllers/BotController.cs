@@ -2,23 +2,27 @@
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.Results;
 using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
 using Microsoft.Bot.Builder.Dialogs;
 using Sitecore.ChatBot.Dialogs;
+using Sitecore.Services.Infrastructure.Web.Http;
 
 namespace Sitecore.ChatBot
 {
     [BotAuthentication]
-    public class MessagesController : ApiController
+    public class BotController : ServicesApiController
     {
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
         /// </summary>
+        [HttpPost]
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
             if (activity.Type == ActivityTypes.Message)
@@ -34,6 +38,12 @@ namespace Sitecore.ChatBot
 
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
+        }
+
+        [HttpGet]
+        public IHttpActionResult Status(string id)
+        {
+            return Json(new {id = id});
         }
 
         private Activity HandleSystemMessage(Activity message)

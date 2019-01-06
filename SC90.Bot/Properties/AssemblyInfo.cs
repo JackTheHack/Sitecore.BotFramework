@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Microsoft.Owin;
+using SC90.Bot;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
@@ -13,6 +15,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+[assembly: OwinStartup(typeof(Startup))]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
