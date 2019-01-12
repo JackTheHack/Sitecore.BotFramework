@@ -11,11 +11,7 @@ namespace SC90.Bot
         {
             AreaRegistration.RegisterAllAreas();
 
-            RouteTable.Routes.MapHttpRoute("BotApi", "sitecore/api/bot/{action}/{id}", new
-            {
-                controller = "Bot",
-                action = "Post"
-            });
+            
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             //GlobalConfiguration.Configure(WebApiConfig.Register);

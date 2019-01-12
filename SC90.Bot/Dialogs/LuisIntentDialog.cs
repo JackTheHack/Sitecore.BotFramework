@@ -38,6 +38,7 @@ namespace Sitecore.ChatBot.Dialogs
                 
                 var count = 0;
 
+                
                 await context.PostAsync($"There have been {count} requests to the server in the requested timeframe ({customPeriod})");
                 context.Wait(MessageReceived);
             }

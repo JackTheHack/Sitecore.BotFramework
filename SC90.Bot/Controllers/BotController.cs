@@ -23,13 +23,14 @@ namespace Sitecore.ChatBot
         /// Receive a message from a user and reply to it
         /// </summary>
         [HttpPost]
+        [AcceptVerbs("POST")]
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
             if (activity.Type == ActivityTypes.Message)
             {
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
                 
-                await Conversation.SendAsync(activity, () => new LuisIntentDialog());
+                await Conversation.SendAsync(activity, () => new TestDialog());
             }
             else
             {
@@ -41,9 +42,9 @@ namespace Sitecore.ChatBot
         }
 
         [HttpGet]
-        public IHttpActionResult Status(string id)
+        public IHttpActionResult Status()
         {
-            return Json(new {id = id});
+            return Json(new {Text = "Hello"});
         }
 
         private Activity HandleSystemMessage(Activity message)
