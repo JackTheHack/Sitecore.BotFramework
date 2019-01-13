@@ -10,7 +10,10 @@ using System.Web.Http.Results;
 using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
 using Microsoft.Bot.Builder.Dialogs;
+using SC90.Bot.Dialogs;
 using Sitecore.ChatBot.Dialogs;
+using Sitecore.Data;
+using Sitecore.Data.Items;
 using Sitecore.Services.Infrastructure.Web.Http;
 
 namespace Sitecore.ChatBot
@@ -18,6 +21,15 @@ namespace Sitecore.ChatBot
     [BotAuthentication]
     public class BotController : ServicesApiController
     {
+        private Item _botItem;
+        private string _startDialogId;
+
+        public BotController()
+        {            
+            _botItem = Sitecore.Context.Database.GetItem(ID.Parse("{E5F3FCCE-22DA-40AF-85F6-9F7D40E45EEF}"));
+            _startDialogId = _botItem.Fields["StartDialog"].Value;
+        }
+
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
@@ -29,8 +41,9 @@ namespace Sitecore.ChatBot
             if (activity.Type == ActivityTypes.Message)
             {
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-                
-                await Conversation.SendAsync(activity, () => new TestDialog());
+                  
+                await Conversation.SendAsync(activity,
+                    () => new RootDialog());                
             }
             else
             {
@@ -56,6 +69,11 @@ namespace Sitecore.ChatBot
             }
             else if (message.Type == ActivityTypes.ConversationUpdate)
             {
+                if (message.MembersAdded.Count > 0)
+                {
+                    //new user in the channel
+                }
+                
                 // Handle conversation state changes, like members being added and removed
                 // Use Activity.MembersAdded and Activity.MembersRemoved and Activity.Action for info
                 // Not available in all channels
