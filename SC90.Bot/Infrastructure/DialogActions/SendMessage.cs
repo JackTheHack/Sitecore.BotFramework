@@ -8,10 +8,12 @@ using Sitecore.Data.Items;
 
 namespace SC90.Bot.Infrastructure.DialogActions
 {
-    public class SendMessage : IDialogAction
+    [Serializable]
+    public class SendMessage : IMessageDialogAction
     {
-        private Item _dialogAction;
-        private string _message;
+        [NonSerialized]
+        private readonly Item _dialogAction;
+        private readonly string _message;
 
         public SendMessage(Item dialogAction)
         {
@@ -21,9 +23,9 @@ namespace SC90.Bot.Infrastructure.DialogActions
 
         public bool IsPromptDialog => false;
 
-        public async Task Execute(IDialogContext context, IDialog currentDialog)
+        public async Task Execute(DialogActionContext context)
         {
-            await context.PostAsync(_message);
+            await context.Context.PostAsync(_message);
         }
     }
 }

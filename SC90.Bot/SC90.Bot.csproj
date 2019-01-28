@@ -136,15 +136,21 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BotController.cs" />
     <Compile Include="Dialogs\LuisIntentDialog.cs" />
+    <Compile Include="Dialogs\SitecorePromptDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Dialogs\SitecoreDialog.cs" />
     <Compile Include="Dialogs\TestDialog.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\DialogActionContext.cs" />
     <Compile Include="Infrastructure\DialogActionFactory.cs" />
+    <Compile Include="Infrastructure\DialogActions\Prompt.cs" />
     <Compile Include="Infrastructure\DialogActions\SendMessage.cs" />
+    <Compile Include="Infrastructure\DialogSequenceRunner.cs" />
     <Compile Include="Infrastructure\IDialogAction.cs" />
+    <Compile Include="Infrastructure\IPromptDialogAction.cs" />
+    <Compile Include="Infrastructure\ISequenceDialogAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

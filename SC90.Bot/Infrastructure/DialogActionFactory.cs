@@ -16,6 +16,8 @@ namespace SC90.Bot.Infrastructure
             {
                 case "78aa458b-f1f1-4845-802f-50abc14ebd35":
                     return new SendMessage(actionItem);
+                case "2376ba02-dc5f-41eb-a304-774e7d410088":
+                    return new Prompt(actionItem);
             }
 
             throw new NotImplementedException("Dialog action not found.");
