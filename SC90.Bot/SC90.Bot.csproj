@@ -147,10 +147,15 @@
     <Compile Include="Infrastructure\DialogActionFactory.cs" />
     <Compile Include="Infrastructure\DialogActions\Prompt.cs" />
     <Compile Include="Infrastructure\DialogActions\SendMessage.cs" />
+    <Compile Include="Infrastructure\Rules\Actions\GoToDecision.cs" />
+    <Compile Include="Infrastructure\Rules\Actions\SendMessage.cs" />
+    <Compile Include="Infrastructure\Rules\Conditions\ComparePromptValueToString.cs" />
+    <Compile Include="Infrastructure\Rules\DialogRuleContext.cs" />
+    <Compile Include="Infrastructure\Rules\DialogRuleEngine.cs" />
     <Compile Include="Infrastructure\DialogSequenceRunner.cs" />
     <Compile Include="Infrastructure\IDialogAction.cs" />
     <Compile Include="Infrastructure\IPromptDialogAction.cs" />
-    <Compile Include="Infrastructure\ISequenceDialogAction.cs" />
+    <Compile Include="Infrastructure\IMessageDialogAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

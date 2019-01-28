@@ -9,7 +9,7 @@ using Sitecore.Data.Items;
 namespace SC90.Bot.Infrastructure
 {
     [Serializable]
-    public class DialogSequenceRunner
+    public class DialogSequenceEngine
     {
         [NonSerialized]
         private Item _dialogItem;
@@ -81,11 +81,11 @@ namespace SC90.Bot.Infrastructure
             LoadActions(ID.Parse(currentActionId));
 
             var currentAction = (IPromptDialogAction)DialogActionFactory.CreateHandler(_dialogActions[currentActionIndex]);
-            await currentAction.HandleDialogResult(context, dialogResult);            
+            currentAction.HandleDialogResult(context, dialogResult).Wait();            
 
             context.PrivateConversationData.SetValue("currentActionIndex", currentActionIndex + 1);
 
-            await RunActions(_dialog, context);
+            RunActions(_dialog, context).Wait();
         }
 
         public void LoadActions(ID currentActionId)

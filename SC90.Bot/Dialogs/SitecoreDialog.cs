@@ -13,12 +13,12 @@ namespace SC90.Bot.Dialogs
     {
         private readonly ID _sitecoreItemId;
         [NonSerialized]
-        private DialogSequenceRunner _dialogSequenceExecutor;
+        private DialogSequenceEngine _dialogSequenceExecutor;
 
         public SitecoreDialog(ID sitecoreItemId)
         {
             _sitecoreItemId = sitecoreItemId;
-            _dialogSequenceExecutor = new DialogSequenceRunner();
+            _dialogSequenceExecutor = new DialogSequenceEngine();
             _dialogSequenceExecutor.LoadActions(sitecoreItemId);
         }
 
@@ -40,7 +40,7 @@ namespace SC90.Bot.Dialogs
 
             var currentActionId = context.PrivateConversationData.GetValueOrDefault("currentAction", string.Empty);
 
-            _dialogSequenceExecutor = new DialogSequenceRunner();
+            _dialogSequenceExecutor = new DialogSequenceEngine();
             _dialogSequenceExecutor.LoadActions(ID.Parse(currentActionId));
             await _dialogSequenceExecutor.ContinueExecution(this, context);
         }

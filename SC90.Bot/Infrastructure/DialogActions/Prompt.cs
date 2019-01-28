@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using SC90.Bot.Dialogs;
+using SC90.Bot.Infrastructure.Rules;
 using Sitecore.Data.Items;
 
 namespace SC90.Bot.Infrastructure.DialogActions
@@ -13,11 +14,13 @@ namespace SC90.Bot.Infrastructure.DialogActions
         private readonly Item _item;
         
         private IDialog _dialog;
+        private readonly DialogRuleEngine _ruleEngine;
         public bool IsPromptDialog => true;
 
         public Prompt(Item item)
         {
             _item = item;
+            _ruleEngine = new DialogRuleEngine();
         }
 
         public Task Execute(DialogActionContext context, ResumeAfter<object> resumeAction)
@@ -27,9 +30,22 @@ namespace SC90.Bot.Infrastructure.DialogActions
             return Task.CompletedTask;
         }
 
-        public async Task HandleDialogResult(IDialogContext context, object dialogResult)
+        public Task HandleDialogResult(IDialogContext context, object dialogResult)
         {
-            await context.PostAsync("TODO: Handle response - " + dialogResult);
+            var ruleContext = new DialogRuleContext()
+            {
+                DialogContext = context,
+                Dialog = _dialog,
+                Action = this,
+                Result = dialogResult,
+                Item = _item
+            };
+
+            _ruleEngine.RunRules(_item, "Action", ruleContext);
+
+            //await context.PostAsync("TODO: Handle response - " + dialogResult);
+
+            return Task.CompletedTask;
         }
     }
 }
