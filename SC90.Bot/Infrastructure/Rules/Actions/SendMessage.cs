@@ -11,7 +11,8 @@ namespace SC90.Bot.Infrastructure.Rules.Actions
 
         public override async void Apply(T ruleContext)
         {
-            await ruleContext.DialogContext.PostAsync(Message);
+            Task.Run(async () => 
+                ruleContext.DialogContext.PostAsync(Message)).Wait();
         }
     }
 }

@@ -20,9 +20,10 @@ namespace SC90.Bot.Infrastructure.DialogActions
 
         public bool IsPromptDialog => false;
 
-        public async Task Execute(DialogActionContext context)
+        public Task Execute(DialogActionContext context)
         {
-            await context.Context.PostAsync(_message);
+            Task.Run(async () => context.Context.PostAsync(_message)).Wait();
+            return Task.CompletedTask;
         }
     }
 }
