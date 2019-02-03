@@ -147,6 +147,7 @@
     <Compile Include="Infrastructure\DialogActionFactory.cs" />
     <Compile Include="Infrastructure\DialogActions\Prompt.cs" />
     <Compile Include="Infrastructure\DialogActions\SendMessage.cs" />
+    <Compile Include="Infrastructure\Rules\Actions\GoToDialog.cs" />
     <Compile Include="Infrastructure\Rules\Actions\GoToDecision.cs" />
     <Compile Include="Infrastructure\Rules\Actions\SendMessage.cs" />
     <Compile Include="Infrastructure\Rules\Conditions\ComparePromptValueToString.cs" />
