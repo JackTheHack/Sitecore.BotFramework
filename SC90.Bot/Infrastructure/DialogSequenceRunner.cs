@@ -18,16 +18,23 @@ namespace SC90.Bot.Infrastructure
         [NonSerialized]
         private IDialog _dialog;
 
-        public async Task ContinueExecution(
+        private readonly ResumeAfter<IMessageActivity> _resumeAfter;
+
+        public DialogSequenceEngine(ResumeAfter<IMessageActivity> resumeAfter)
+        {
+            _resumeAfter = resumeAfter;
+        }
+
+        public void ContinueExecution(
             IDialog dialog,
             IDialogContext context)
         {
             _dialog = dialog;
 
-            await RunActions(dialog, context);
+            RunActions(dialog, context);
         }
 
-        private async Task RunActions(IDialog dialog, IDialogContext context)
+        private void RunActions(IDialog dialog, IDialogContext context)
         {
             var currentActionIndex = context.PrivateConversationData.GetValueOrDefault("currentActionIndex", 0);
             var currentActionId = context.PrivateConversationData.GetValueOrDefault("currentAction", string.Empty);
@@ -46,11 +53,11 @@ namespace SC90.Bot.Infrastructure
 
                 if (dialogActionHandler.IsPromptDialog)
                 {
-                    await ((IPromptDialogAction) dialogActionHandler).Execute(dialogActionContext, Resume);
+                    ((IPromptDialogAction)dialogActionHandler).Execute(dialogActionContext, Resume).Wait();
                 }
                 else
                 {
-                    await ((IMessageDialogAction) dialogActionHandler).Execute(dialogActionContext);
+                    ((IMessageDialogAction)dialogActionHandler).Execute(dialogActionContext).Wait();
                 }
 
                 if (dialogActionContext.ConversationCompleted)
@@ -85,7 +92,7 @@ namespace SC90.Bot.Infrastructure
 
             context.PrivateConversationData.SetValue("currentActionIndex", currentActionIndex + 1);
 
-            RunActions(_dialog, context).Wait();
+            RunActions(_dialog, context);
         }
 
         public void LoadActions(ID currentActionId)

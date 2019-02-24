@@ -14,7 +14,7 @@ namespace SC90.Bot.Infrastructure.Rules.Actions
         public override async void Apply(T ruleContext)
         {           
             ruleContext.GoToDialog = Dialog;
-            await ruleContext.DialogContext.PostAsync("TODO: Run decision branch " + Branch);
+            //await ruleContext.DialogContext.PostAsync("TODO: Run decision branch " + Dialog);
         }
 
     }

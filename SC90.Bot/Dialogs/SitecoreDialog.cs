@@ -18,31 +18,33 @@ namespace SC90.Bot.Dialogs
         public SitecoreDialog(ID sitecoreItemId)
         {
             _sitecoreItemId = sitecoreItemId;
-            _dialogSequenceExecutor = new DialogSequenceEngine();
+            _dialogSequenceExecutor = new DialogSequenceEngine(MessageReceivedAsync);
             _dialogSequenceExecutor.LoadActions(sitecoreItemId);
         }
 
         public async Task StartAsync(IDialogContext context)
         {
-            Log.Info("SitecoreDialog - Start Async", this);
-
             context.PrivateConversationData.SetValue(
                 "currentActionIndex", 0);
             context.PrivateConversationData.SetValue(
                 "currentAction", _sitecoreItemId.ToString());
 
-            context.Wait(MessageReceivedAsync);                        
+            var currentActionId = context.PrivateConversationData.GetValueOrDefault("currentAction", string.Empty);
+
+            _dialogSequenceExecutor = new DialogSequenceEngine(MessageReceivedAsync);
+            _dialogSequenceExecutor.LoadActions(ID.Parse(currentActionId));
+            _dialogSequenceExecutor.ContinueExecution(this, context);
         }
 
-        protected virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> item)
+        protected virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             Log.Info("SitecoreDialog - MessageReceivedAsync", this);                        
 
             var currentActionId = context.PrivateConversationData.GetValueOrDefault("currentAction", string.Empty);
 
-            _dialogSequenceExecutor = new DialogSequenceEngine();
+            _dialogSequenceExecutor = new DialogSequenceEngine(MessageReceivedAsync);
             _dialogSequenceExecutor.LoadActions(ID.Parse(currentActionId));
-            await _dialogSequenceExecutor.ContinueExecution(this, context);
+            _dialogSequenceExecutor.Resume(context, result).Wait();
         }
     }
 }

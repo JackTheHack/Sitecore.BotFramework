@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
-using System.Web.Http.Results;
 using Microsoft.Bot.Connector;
-using Newtonsoft.Json;
 using Microsoft.Bot.Builder.Dialogs;
 using SC90.Bot.Dialogs;
-using Sitecore.ChatBot.Dialogs;
 using Sitecore.Data;
 using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 using Sitecore.Services.Infrastructure.Web.Http;
 
 namespace Sitecore.ChatBot
@@ -21,6 +16,8 @@ namespace Sitecore.ChatBot
     [BotAuthentication]
     public class BotController : ServicesApiController
     {
+        //Based on 
+
         private Item _botItem;
         private string _startDialogId;
 
@@ -38,19 +35,41 @@ namespace Sitecore.ChatBot
         [AcceptVerbs("POST")]
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
+            var response = Request.CreateResponse(HttpStatusCode.OK);
+            
             if (activity.Type == ActivityTypes.Message)
             {
-                ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-                  
                 await Conversation.SendAsync(activity,
-                    () => new RootDialog());                
-            }
-            else
-            {
-                HandleSystemMessage(activity);
+                    () => new RootDialog());
+
+                return response;
             }
 
-            var response = Request.CreateResponse(HttpStatusCode.OK);
+            if (activity.Type == ActivityTypes.ConversationUpdate)
+            {
+                if (activity.MembersAdded != null)
+                {
+                    // Iterate over all new members added to the conversation
+                    foreach (var member in activity.MembersAdded)
+                    {
+                        // Greet anyone that was not the target (recipient) of this message
+                        // the 'bot' is the recipient for events from the channel,
+                        // turnContext.Activity.MembersAdded == turnContext.Activity.Recipient.Id indicates the
+                        // bot was added to the conversation.
+                        if (member.Id != activity.Recipient.Id)
+                        {                            
+                            ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));                                                                
+                            Activity reply = activity.CreateReply("Welcome and hello!");
+                            await connector.Conversations.ReplyToActivityAsync(reply);
+                            Log.Info("Welcome message to user", this);
+
+                        }
+                    }
+                }
+            }
+
+            HandleSystemMessage(activity);
+
             return response;
         }
 

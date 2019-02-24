@@ -31,14 +31,24 @@ namespace SC90.Bot.Dialogs
             _botItem = Sitecore.Context.Database.GetItem(ID.Parse("{E5F3FCCE-22DA-40AF-85F6-9F7D40E45EEF}"));
             _startDialogId = _botItem.Fields["StartDialog"].Value;
 
+            context.Wait(MessageReceivedAsync);
+        }
+
+        private Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
+        {
+            _botItem = Sitecore.Context.Database.GetItem(ID.Parse("{E5F3FCCE-22DA-40AF-85F6-9F7D40E45EEF}"));
+            _startDialogId = _botItem.Fields["StartDialog"].Value;
+
             context.Call(
                 new SitecoreDialog(ID.Parse(_startDialogId)),
                 ResumeAfterDialogCompleted);
+
+            return Task.CompletedTask;
         }
 
         protected async Task ResumeAfterDialogCompleted(IDialogContext context, IAwaitable<object> result)
         {
-            Log.Info("RootDialog - ResumeAfterDialogCompleted", this);
+            Log.Info("RootDialog - Restart dialog.", this);
 
             _botItem = Sitecore.Context.Database.GetItem(ID.Parse("{E5F3FCCE-22DA-40AF-85F6-9F7D40E45EEF}"));
             _startDialogId = _botItem.Fields["StartDialog"].Value;

@@ -26,7 +26,9 @@ namespace SC90.Bot.Infrastructure.DialogActions
         public Task Execute(DialogActionContext context, ResumeAfter<object> resumeAction)
         {
             _dialog = context.Dialog;
-            context.Context.Call(new SitecorePromptDialog(_item), resumeAction);
+            context.Context.Call(new SitecorePromptDialog(_item), resumeAction);                        
+            //context.Context.Wait(resumeAction);
+
             return Task.CompletedTask;
         }
 
