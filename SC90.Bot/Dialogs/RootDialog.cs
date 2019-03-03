@@ -55,10 +55,12 @@ namespace SC90.Bot.Dialogs
 
             //dialog complete run again root dialog
             context.PrivateConversationData.SetValue("currentActionIndex", 0);
+
+            context.Wait(MessageReceivedAsync);
             
-            context.Call(
-                new SitecoreDialog(ID.Parse(_startDialogId)),
-                ResumeAfterDialogCompleted);
+            //context.Call(
+            //    new SitecoreDialog(ID.Parse(_startDialogId)),
+            //    ResumeAfterDialogCompleted);
         }     
     }
 }
