@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using SC90.Bot.Dialogs;
+using SC90.Bot.Infrastructure.Rules;
 using Sitecore.Collections;
 using Sitecore.Data;
 using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 
 namespace SC90.Bot.Infrastructure
 {
@@ -19,6 +23,7 @@ namespace SC90.Bot.Infrastructure
         private IDialog _dialog;
 
         private readonly ResumeAfter<IMessageActivity> _resumeAfter;
+        private DialogStateContext _dialogStateContext;
 
         public DialogSequenceEngine(ResumeAfter<IMessageActivity> resumeAfter)
         {
@@ -30,6 +35,9 @@ namespace SC90.Bot.Infrastructure
             IDialogContext context)
         {
             _dialog = dialog;
+
+            context.PrivateConversationData.SetValue("branchToGo", string.Empty);
+            context.PrivateConversationData.SetValue("dialogToCall", string.Empty);
 
             RunActions(dialog, context);
         }
@@ -48,8 +56,12 @@ namespace SC90.Bot.Infrastructure
             for (int i = currentActionIndex; i < _dialogActions.Count; i++)
             {
                 var dialogActionHandler = DialogActionFactory.CreateHandler(_dialogActions[i]);
-
-                var dialogActionContext = new DialogActionContext(context, dialog);
+                _dialogStateContext = new DialogStateContext();
+                
+                var dialogActionContext = new DialogActionContext(context, dialog)
+                {
+                    ActionState = _dialogStateContext
+                };
 
                 if (dialogActionHandler.IsPromptDialog)
                 {
@@ -87,11 +99,70 @@ namespace SC90.Bot.Infrastructure
 
             LoadActions(ID.Parse(currentActionId));
 
-            var currentAction = (IPromptDialogAction)DialogActionFactory.CreateHandler(_dialogActions[currentActionIndex]);
-            currentAction.HandleDialogResult(context, dialogResult).Wait();            
+            var actionItem = _dialogActions[currentActionIndex];
 
-            context.PrivateConversationData.SetValue("currentActionIndex", currentActionIndex + 1);
+            var currentAction = (IPromptDialogAction)DialogActionFactory.CreateHandler(actionItem);
+            currentAction.HandleDialogResult(context, _dialogStateContext, dialogResult).Wait();
 
+            var branchToGo = context.PrivateConversationData.GetValueOrDefault("branchToGo", string.Empty);
+            var dialogToCall = context.PrivateConversationData.GetValueOrDefault("dialogToCall", string.Empty);            
+
+            if (!string.IsNullOrEmpty(branchToGo))
+            {
+                var branchItem = actionItem.Children[branchToGo];
+
+                if (branchItem != null)
+                {
+                    context.Call(
+                            child: new SitecoreBranchDialog(currentAction, branchItem.ID),
+                            resume: ResumeBranchExecution);
+                }
+
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(dialogToCall))
+            {
+                var dialogItem = Sitecore.Context.Database.GetItem(dialogToCall);
+
+                if(dialogItem != null){    context.Call(
+                        child: new SitecoreBranchDialog(currentAction, dialogItem.ID),
+                        resume: ResumeDialogExecution);
+                }
+
+                return;
+            }
+         
+            context.PrivateConversationData.SetValue("currentActionIndex", currentActionIndex + 1);            
+            RunActions(_dialog, context);
+        }
+
+        private Task ResumeDialogExecution(IDialogContext context, IAwaitable<object> result)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task ResumeBranchExecution<TResult>(IDialogContext context, IAwaitable<TResult> result)
+        {
+            var currentActionId = context.PrivateConversationData.GetValueOrDefault("currentAction", string.Empty);
+
+            var branchItem = Sitecore.Context.Database.GetItem(ID.Parse(currentActionId));
+
+            var parentExecutionRootItem = branchItem?.Parent?.Parent;
+            var parentActionItem = branchItem?.Parent;
+
+            if (parentActionItem == null || parentExecutionRootItem == null)
+            {
+                throw new InvalidOperationException("Something weird happened. Branch item expected.");
+            }
+
+            var parentActionItemIndex = parentExecutionRootItem.Children.IndexOf(parentActionItem);            
+
+            context.PrivateConversationData.SetValue("currentActionIndex", parentActionItemIndex + 1);            
+            context.PrivateConversationData.SetValue("currentAction", parentExecutionRootItem.ID.ToString());            
+
+            LoadActions(parentExecutionRootItem.ID);
+            
             RunActions(_dialog, context);
         }
 

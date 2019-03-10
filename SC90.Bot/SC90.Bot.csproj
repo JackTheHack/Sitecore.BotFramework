@@ -136,10 +136,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BotController.cs" />
     <Compile Include="Dialogs\LuisIntentDialog.cs" />
+    <Compile Include="Dialogs\SitecoreBranchDialog.cs" />
     <Compile Include="Dialogs\SitecorePromptDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Dialogs\SitecoreDialog.cs" />
     <Compile Include="Dialogs\TestDialog.cs" />
+    <Compile Include="Extensions\BotExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,6 +159,7 @@
     <Compile Include="Infrastructure\IDialogAction.cs" />
     <Compile Include="Infrastructure\IPromptDialogAction.cs" />
     <Compile Include="Infrastructure\IMessageDialogAction.cs" />
+    <Compile Include="Infrastructure\Rules\DialogStateContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

@@ -15,6 +15,7 @@ namespace SC90.Bot.Infrastructure.Rules.Actions
         {           
             ruleContext.GoToDialog = Dialog;
             //await ruleContext.DialogContext.PostAsync("TODO: Run decision branch " + Dialog);
+            ruleContext.Break = true;
         }
 
     }

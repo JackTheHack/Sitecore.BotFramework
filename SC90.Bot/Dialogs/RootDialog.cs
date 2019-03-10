@@ -57,10 +57,6 @@ namespace SC90.Bot.Dialogs
             context.PrivateConversationData.SetValue("currentActionIndex", 0);
 
             context.Wait(MessageReceivedAsync);
-            
-            //context.Call(
-            //    new SitecoreDialog(ID.Parse(_startDialogId)),
-            //    ResumeAfterDialogCompleted);
         }     
     }
 }

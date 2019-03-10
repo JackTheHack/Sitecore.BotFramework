@@ -27,12 +27,12 @@ namespace SC90.Bot.Infrastructure.DialogActions
         {
             _dialog = context.Dialog;
             context.Context.Call(new SitecorePromptDialog(_item), resumeAction);                        
-            //context.Context.Wait(resumeAction);
-
+            
             return Task.CompletedTask;
         }
 
-        public Task HandleDialogResult(IDialogContext context, object dialogResult)
+        public Task HandleDialogResult(IDialogContext context, DialogStateContext dialogStateContext,
+            object dialogResult)
         {
             var ruleContext = new DialogRuleContext()
             {
@@ -43,9 +43,7 @@ namespace SC90.Bot.Infrastructure.DialogActions
                 Item = _item
             };
 
-            _ruleEngine.RunRules(_item, "Action", ruleContext);
-
-            //await context.PostAsync("TODO: Handle response - " + dialogResult);
+            _ruleEngine.RunRules(_item, "Action", ruleContext);           
 
             return Task.CompletedTask;
         }

@@ -12,7 +12,7 @@ namespace SC90.Bot.Infrastructure.Rules.Actions
         public override async void Apply(T ruleContext)
         {
             ruleContext.GoToDecisionBranch = Branch;
-            await ruleContext.DialogContext.PostAsync("TODO: Run decision branch " + Branch);
+            ruleContext.Break = true;
         }
     }
 }

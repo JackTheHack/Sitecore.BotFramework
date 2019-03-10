@@ -1,4 +1,5 @@
 ﻿using System;
+using SC90.Bot.Extensions;
 using Sitecore.Data.Items;
 using Sitecore.Rules;
 
@@ -12,6 +13,11 @@ namespace SC90.Bot.Infrastructure.Rules
         {
             foreach (Rule<T> rule in RuleFactory.GetRules<T>(new[] { item }, fieldName).Rules)
             {
+                if (ruleContext.Break)
+                {
+                    break;
+                }
+
                 if (rule.Condition != null)
                 {
                     var stack = new RuleStack();
@@ -21,6 +27,7 @@ namespace SC90.Bot.Infrastructure.Rules
                     {
                         continue;
                     }
+
                     if ((stack.Count != 0) && ((bool)stack.Pop()))
                     {
                         rule.Execute(ruleContext);
@@ -29,6 +36,14 @@ namespace SC90.Bot.Infrastructure.Rules
                 else
                     rule.Execute(ruleContext);
             }
+
+                ruleContext.DialogContext.PrivateConversationData
+                    .SetValueOrRemoveIfNull("branchToGo",
+                    ruleContext.GoToDecisionBranch);
+         
+                ruleContext.DialogContext.PrivateConversationData
+                    .SetValueOrRemoveIfNull("dialogToCall", 
+                        ruleContext.GoToDialog);
         }
     }
 }

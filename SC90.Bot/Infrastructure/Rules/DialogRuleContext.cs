@@ -8,6 +8,7 @@ namespace SC90.Bot.Infrastructure.Rules
         public IDialog Dialog { get; set; }
         public IDialogAction Action { get; set; }
         public IDialogContext DialogContext { get; set; }
+        public bool Break { get; set; }
         public string GoToDecisionBranch { get; set; }
         public string GoToDialog { get; set; }
         public object Result { get; set; }
