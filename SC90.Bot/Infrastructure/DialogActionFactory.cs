@@ -1,26 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using SC90.Bot.Infrastructure.DialogActions;
+using Microsoft.Bot.Connector;
+using Sitecore.Configuration;
 using Sitecore.Data;
 using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 
 namespace SC90.Bot.Infrastructure
 {
     public class DialogActionFactory
     {
+        private static readonly Dictionary<ID, Type> MappingDictionary = new Dictionary<ID, Type>();
+
+        static DialogActionFactory()
+        {
+            LoadMappings();
+        }
+
+        private static void LoadMappings()
+        {
+            try
+            {
+                var mappings = Factory.GetConfigNodes("sitecoreBotFramework/actionMappings/actionMapping");
+
+                for (int i = 0; i < mappings.Count; i++)
+                {
+                    var mappingItem = mappings.Item(i);
+                    if (mappingItem != null)
+                    {
+                        ID.TryParse(mappingItem.Attributes["id"].Value, out var mappingId);
+                        MappingDictionary.Add(mappingId, Type.GetType(mappingItem.Attributes["type"].Value));
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Error(e.Message, e, typeof(DialogActionFactory));
+            }
+        }
+
         public static IDialogAction CreateHandler(Item actionItem)
         {
-            switch (actionItem.TemplateID.Guid.ToString())
+            if (!MappingDictionary.ContainsKey(actionItem.TemplateID))
             {
-                case "78aa458b-f1f1-4845-802f-50abc14ebd35":
-                    return new SendMessage(actionItem);
-                case "2376ba02-dc5f-41eb-a304-774e7d410088":
-                    return new Prompt(actionItem);
+                throw new InvalidOperationException("Mapping for this bot action template not found.");
             }
 
-            throw new NotImplementedException("Dialog action not found.");
+            var mappingType = MappingDictionary[actionItem.TemplateID];
+
+            return Activator.CreateInstance(mappingType, actionItem) as IDialogAction;
         }
     }
 }

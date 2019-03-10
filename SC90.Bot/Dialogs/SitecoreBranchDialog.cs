@@ -16,7 +16,7 @@ namespace SC90.Bot.Dialogs
 
         private ID _sitecoreItemId;
 
-        public SitecoreBranchDialog(IPromptDialogAction currentAction, ID sitecoreItemId)
+        public SitecoreBranchDialog(ID sitecoreItemId)
         {
             _sitecoreItemId = sitecoreItemId;
             _dialogSequenceExecutor = new DialogSequenceEngine(MessageReceivedAsync);

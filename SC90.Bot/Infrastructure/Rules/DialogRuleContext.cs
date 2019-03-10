@@ -11,6 +11,7 @@ namespace SC90.Bot.Infrastructure.Rules
         public bool Break { get; set; }
         public string GoToDecisionBranch { get; set; }
         public string GoToDialog { get; set; }
+        public string CallDialog { get; set; }
         public object Result { get; set; }
     }
 }

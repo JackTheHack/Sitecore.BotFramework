@@ -24,12 +24,20 @@ namespace SC90.Bot.Dialogs
         {
         }
 
+        public RootDialog(string startDialog)
+        {
+            _startDialogId = startDialog;
+        }
+
         public async Task StartAsync(IDialogContext context)
         {
             Log.Info("RootDialog - Start Async", this);
 
-            _botItem = Sitecore.Context.Database.GetItem(ID.Parse("{E5F3FCCE-22DA-40AF-85F6-9F7D40E45EEF}"));
-            _startDialogId = _botItem.Fields["StartDialog"].Value;
+            if (string.IsNullOrEmpty(_startDialogId))
+            {
+                _botItem = Sitecore.Context.Database.GetItem(ID.Parse("{E5F3FCCE-22DA-40AF-85F6-9F7D40E45EEF}"));
+                _startDialogId = _botItem.Fields["StartDialog"].Value;
+            }
 
             context.Wait(MessageReceivedAsync);
         }

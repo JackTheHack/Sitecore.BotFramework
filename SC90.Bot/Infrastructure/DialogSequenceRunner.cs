@@ -55,7 +55,8 @@ namespace SC90.Bot.Infrastructure
 
             for (int i = currentActionIndex; i < _dialogActions.Count; i++)
             {
-                var dialogActionHandler = DialogActionFactory.CreateHandler(_dialogActions[i]);
+                var dialogActionItem = _dialogActions[i];
+                var dialogActionHandler = DialogActionFactory.CreateHandler(dialogActionItem);
                 _dialogStateContext = new DialogStateContext();
                 
                 var dialogActionContext = new DialogActionContext(context, dialog)
@@ -83,6 +84,13 @@ namespace SC90.Bot.Infrastructure
                     context.PrivateConversationData.SetValue("currentAction", currentActionId);
                     return;
                 }
+
+                if (DoDialogBranchingIfRequired(dialogActionContext.Context, dialogActionItem))
+                {
+                    context.PrivateConversationData.SetValue("currentActionIndex", i);
+                    context.PrivateConversationData.SetValue("currentAction", currentActionId);
+                    return;
+                }
             }
 
             context.PrivateConversationData.SetValue("currentActionIndex", _dialogActions.Count);
@@ -104,8 +112,19 @@ namespace SC90.Bot.Infrastructure
             var currentAction = (IPromptDialogAction)DialogActionFactory.CreateHandler(actionItem);
             currentAction.HandleDialogResult(context, _dialogStateContext, dialogResult).Wait();
 
+            if (DoDialogBranchingIfRequired(context, actionItem))
+            {
+                return;
+            }
+
+            context.PrivateConversationData.SetValue("currentActionIndex", currentActionIndex + 1);            
+            RunActions(_dialog, context);
+        }
+
+        private bool DoDialogBranchingIfRequired(IDialogContext context, Item actionItem)
+        {
             var branchToGo = context.PrivateConversationData.GetValueOrDefault("branchToGo", string.Empty);
-            var dialogToCall = context.PrivateConversationData.GetValueOrDefault("dialogToCall", string.Empty);            
+            var dialogToCall = context.PrivateConversationData.GetValueOrDefault("dialogToCall", string.Empty);
 
             if (!string.IsNullOrEmpty(branchToGo))
             {
@@ -114,27 +133,28 @@ namespace SC90.Bot.Infrastructure
                 if (branchItem != null)
                 {
                     context.Call(
-                            child: new SitecoreBranchDialog(currentAction, branchItem.ID),
-                            resume: ResumeBranchExecution);
+                        child: new SitecoreBranchDialog(branchItem.ID),
+                        resume: ResumeBranchExecution);
                 }
 
-                return;
+                return true;
             }
 
             if (!string.IsNullOrEmpty(dialogToCall))
             {
                 var dialogItem = Sitecore.Context.Database.GetItem(dialogToCall);
 
-                if(dialogItem != null){    context.Call(
-                        child: new SitecoreBranchDialog(currentAction, dialogItem.ID),
+                if (dialogItem != null)
+                {
+                    context.Call(
+                        child: new SitecoreBranchDialog(dialogItem.ID),
                         resume: ResumeDialogExecution);
                 }
 
-                return;
+                return true;
             }
-         
-            context.PrivateConversationData.SetValue("currentActionIndex", currentActionIndex + 1);            
-            RunActions(_dialog, context);
+
+            return false;
         }
 
         private Task ResumeDialogExecution(IDialogContext context, IAwaitable<object> result)
