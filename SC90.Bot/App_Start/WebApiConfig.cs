@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using System.Web.Mvc;
+using SC90.Bot.Mvc;
 
 namespace Sitecore.ChatBot
 {
@@ -32,6 +35,9 @@ namespace Sitecore.ChatBot
             //    routeTemplate: "api/{controller}/{id}",
             //    defaults: new { id = RouteParameter.Optional }
             //);
+
+            config.Services.Replace(typeof(IHttpControllerActivator), new BotControllerActivator(config));
+            
         }
     }
 }

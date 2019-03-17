@@ -12,18 +12,12 @@ namespace SC90.Bot
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.MapHttpRoute("BotApi", "sitecore/api/bot/{action}", new
+            routes.MapHttpRoute("BotApi", "sitecore/bot/{botId}/{action}", new
             {
                 controller = "Bot",
                 action = "Post", 
                 id = RouteParameter.Optional
             });            
-
-            //routes.MapHttpRoute("BotStatus", "sitecore/api/bot/{action}/{id}", new
-            //{
-            //    controller = "Bot",
-            //    action = "Status"
-            //});
         }
     }
 }

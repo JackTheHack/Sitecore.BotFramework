@@ -95,6 +95,9 @@
     <Reference Include="Sitecore.Services.Infrastructure, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sitecore.Services.Infrastructure.NoReferences.9.0.180604\lib\NET462\Sitecore.Services.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.XA.Foundation.Multisite, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.XA.Foundation.Multisite.3.7.0\lib\NET462\Sitecore.XA.Foundation.Multisite.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Net" />
@@ -134,8 +137,6 @@
     <Compile Include="App_Start\GlassMapperScCustom.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Configuration\BotActionMappingNode.cs" />
-    <Compile Include="Configuration\BotFrameworkSettingsNode.cs" />
     <Compile Include="Controllers\BotController.cs" />
     <Compile Include="Dialogs\LuisIntentDialog.cs" />
     <Compile Include="Dialogs\SitecoreBranchDialog.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Infrastructure\IPromptDialogAction.cs" />
     <Compile Include="Infrastructure\IMessageDialogAction.cs" />
     <Compile Include="Infrastructure\Rules\DialogStateContext.cs" />
+    <Compile Include="Mvc\BotControllerActivator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

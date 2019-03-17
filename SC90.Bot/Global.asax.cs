@@ -11,10 +11,8 @@ namespace SC90.Bot
         {
             AreaRegistration.RegisterAllAreas();
 
-            
-
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //GlobalConfiguration.Configure(WebApiConfig.Register);
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
         }
     }
 }

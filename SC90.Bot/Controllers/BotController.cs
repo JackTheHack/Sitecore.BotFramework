@@ -20,11 +20,13 @@ namespace Sitecore.ChatBot
 
         private Item _botItem;
         private string _startDialogId;
+        private string _welcomeMessage;
 
-        public BotController()
+        public BotController(Item botItem)
         {            
-            _botItem = Sitecore.Context.Database.GetItem(ID.Parse("{E5F3FCCE-22DA-40AF-85F6-9F7D40E45EEF}"));
+            _botItem = botItem;
             _startDialogId = _botItem.Fields["StartDialog"].Value;
+            _welcomeMessage = _botItem.Fields["WelcomeMessage"].Value;
         }
 
         /// <summary>
@@ -34,7 +36,7 @@ namespace Sitecore.ChatBot
         [HttpPost]
         [AcceptVerbs("POST")]
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
-        {
+        {            
             var response = Request.CreateResponse(HttpStatusCode.OK);
             
             if (activity.Type == ActivityTypes.Message)
@@ -47,7 +49,7 @@ namespace Sitecore.ChatBot
 
             if (activity.Type == ActivityTypes.ConversationUpdate)
             {
-                if (activity.MembersAdded != null)
+                if (activity.MembersAdded != null && !string.IsNullOrEmpty(_welcomeMessage))
                 {
                     // Iterate over all new members added to the conversation
                     foreach (var member in activity.MembersAdded)
@@ -59,7 +61,7 @@ namespace Sitecore.ChatBot
                         if (member.Id != activity.Recipient.Id)
                         {                            
                             ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));                                                                
-                            Activity reply = activity.CreateReply("Welcome and hello!");
+                            Activity reply = activity.CreateReply(_welcomeMessage);
                             await connector.Conversations.ReplyToActivityAsync(reply);
                             Log.Info("Welcome message to user", this);
 
