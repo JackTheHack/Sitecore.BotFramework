@@ -1,30 +1,20 @@
 ﻿using System;
 using System.Linq;
 using System.Net.Http;
-using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
-using Sitecore.ChatBot;
+using SC90.Bot.Controllers;
 using Sitecore.Data.Items;
-using Sitecore.DependencyInjection;
-using Sitecore.Diagnostics;
-using Sitecore.Web;
-using Sitecore.XA.Foundation.Multisite.Providers;
-using Sitecore.XA.Foundation.Multisite.SiteResolvers;
 
 namespace SC90.Bot.Mvc
 {
     public class BotControllerActivator : IHttpControllerActivator
     {
-        private readonly HttpConfiguration _configuration;
         private readonly DefaultHttpControllerActivator  _defaultHttpControllerFactory;
-        private readonly IEnvironmentSitesResolver _sxaSiteProvider;
 
-        public BotControllerActivator(HttpConfiguration configuration)
+        public BotControllerActivator()
         {
-            _configuration = configuration;
             _defaultHttpControllerFactory = new DefaultHttpControllerActivator();
-            _sxaSiteProvider = ServiceLocator.ServiceProvider.GetService(typeof(IEnvironmentSitesResolver)) as IEnvironmentSitesResolver;
         }
 
         public IHttpController Create(HttpRequestMessage request, HttpControllerDescriptor controllerDescriptor, Type controllerType)

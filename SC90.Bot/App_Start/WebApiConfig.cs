@@ -1,14 +1,8 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Dispatcher;
-using System.Web.Mvc;
 using SC90.Bot.Mvc;
 
-namespace Sitecore.ChatBot
+namespace SC90.Bot
 {
     public static class WebApiConfig
     {
@@ -36,7 +30,7 @@ namespace Sitecore.ChatBot
             //    defaults: new { id = RouteParameter.Optional }
             //);
 
-            config.Services.Replace(typeof(IHttpControllerActivator), new BotControllerActivator(config));
+            config.Services.Replace(typeof(IHttpControllerActivator), new BotControllerActivator());
             
         }
     }

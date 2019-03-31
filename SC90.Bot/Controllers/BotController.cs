@@ -3,30 +3,25 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Connector;
 using SC90.Bot.Dialogs;
-using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.Services.Infrastructure.Web.Http;
 
-namespace Sitecore.ChatBot
+namespace SC90.Bot.Controllers
 {
     [BotAuthentication]
     public class BotController : ServicesApiController
     {
         //Based on 
 
-        private Item _botItem;
-        private string _startDialogId;
-        private string _welcomeMessage;
+        private readonly string _welcomeMessage;
 
         public BotController(Item botItem)
-        {            
-            _botItem = botItem;
-            _startDialogId = _botItem.Fields["StartDialog"].Value;
-            _welcomeMessage = _botItem.Fields["WelcomeMessage"].Value;
+        {
+            _welcomeMessage = botItem.Fields["WelcomeMessage"].Value;
         }
 
         /// <summary>
