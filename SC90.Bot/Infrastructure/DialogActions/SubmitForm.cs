@@ -8,13 +8,13 @@ using Sitecore.Data.Items;
 namespace SC90.Bot.Infrastructure.DialogActions
 {
     [Serializable]
-    public class SendCard : IMessageDialogAction
+    public class SubmitForm : IMessageDialogAction
     {
         [NonSerialized]
         private readonly Item _dialogAction;
         private readonly string _message;
 
-        public SendCard(Item dialogAction)
+        public SubmitForm(Item dialogAction)
         {
             _dialogAction = dialogAction;
             _message = _dialogAction["Text"];

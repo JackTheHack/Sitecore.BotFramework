@@ -1,5 +1,6 @@
 ﻿using Microsoft.Bot.Builder.Dialogs;
 using SC90.Bot.Dialogs;
+using SC90.Bot.Infrastructure.Dialogs;
 using Sitecore.Rules.Actions;
 
 namespace SC90.Bot.Infrastructure.Rules.Actions

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.Bot.Builder.Dialogs;
+﻿using Microsoft.Bot.Builder.Dialogs;
 
-namespace SC90.Bot.Extensions
+namespace SC90.Bot.Infrastructure.Extensions
 {
     public static class BotExtensions
     {

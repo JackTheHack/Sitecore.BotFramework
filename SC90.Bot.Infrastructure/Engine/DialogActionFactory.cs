@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Bot.Connector;
+using SC90.Bot.Infrastructure.Interfaces;
 using Sitecore.Configuration;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 
-namespace SC90.Bot.Infrastructure
+namespace SC90.Bot.Infrastructure.Engine
 {
     public class DialogActionFactory
     {

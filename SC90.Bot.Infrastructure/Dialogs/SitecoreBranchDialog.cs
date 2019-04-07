@@ -2,21 +2,21 @@
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
-using SC90.Bot.Infrastructure;
 using SC90.Bot.Infrastructure.Engine;
 using Sitecore.Data;
 using Sitecore.Diagnostics;
 
-namespace SC90.Bot.Dialogs
+namespace SC90.Bot.Infrastructure.Dialogs
 {
     [Serializable]
-    public class SitecoreDialog : IDialog
+    public class SitecoreBranchDialog: IDialog
     {
-        private readonly ID _sitecoreItemId;
         [NonSerialized]
         private DialogSequenceEngine _dialogSequenceExecutor;
 
-        public SitecoreDialog(ID sitecoreItemId)
+        private ID _sitecoreItemId;
+
+        public SitecoreBranchDialog(ID sitecoreItemId)
         {
             _sitecoreItemId = sitecoreItemId;
             _dialogSequenceExecutor = new DialogSequenceEngine(MessageReceivedAsync);
@@ -39,7 +39,7 @@ namespace SC90.Bot.Dialogs
 
         protected virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-            Log.Info("SitecoreDialog - MessageReceivedAsync", this);                        
+            Log.Info("SitecoreBranchDialog - MessageReceivedAsync", this);                        
 
             var currentActionId = context.PrivateConversationData.GetValueOrDefault("currentAction", string.Empty);
 

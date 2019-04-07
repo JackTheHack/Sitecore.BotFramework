@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Dispatcher;
-using SC90.Bot.Mvc;
+using BotControllerActivator = SC90.Bot.Mvc.BotControllerActivator;
 
 namespace SC90.Bot
 {

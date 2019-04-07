@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
+using SC90.Bot.Infrastructure.Dialogs;
+using SC90.Bot.Infrastructure.Interfaces;
 using SC90.Bot.Infrastructure.Rules;
 using Sitecore.Data.Items;
 
@@ -34,8 +36,6 @@ namespace SC90.Bot.Infrastructure.DialogActions
             };
 
             _ruleEngine.RunRules(_item, "Rule", ruleContext);           
-
-
 
             return Task.CompletedTask;
         }

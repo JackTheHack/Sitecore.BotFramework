@@ -1,5 +1,5 @@
 ﻿using System;
-using SC90.Bot.Extensions;
+using SC90.Bot.Infrastructure.Extensions;
 using Sitecore.Data.Items;
 using Sitecore.Rules;
 

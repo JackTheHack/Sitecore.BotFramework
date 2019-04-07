@@ -1,0 +1,15 @@
+This is a legally binding agreement and, like all contracts, you should read it carefully. Fortunately, we chose to use 302 words of plain English instead of legalese for this agreement, so hopefully it won't be too painful for you.
+
+If you install or otherwise use SitecoreBotFramework module, then you agree to be bound by the terms of this agreement. If you don't like the terms - or do not have the authority to accept the terms -- then don't install or use SitecoreBotFramework.
+
+SitecoreBotFramework is protected by all applicable local and international copyright laws.
+SitecoreBotFramework is licensed, not sold, and this license agreement grants you limited rights to use SitecoreBotFramework. You may not redistribute, sublicense, or transfer this license or rights.
+A valid license key is required to use SitecoreBotFramework. You may not circumvent this requirement, nor any of the restrictions imposed by the license key, such as time limitations, feature limitations, etc.
+License key is provided through a license file located in the root of the website.
+a.    A "Free Edition" key grants an access to all features of the framework with a non-optional welcome message to users. 
+b.    A "Commercial Edition" key grants a non-restricted access to all features of the framework and removes non-optional welcome message to users.
+You may only use your license key for a single installation of SitecoreBotFramework.
+You may not combine or otherwise connect multiple installations of SitecoreBotFramework Free.
+SitecoreBotFramework is provided "as is" with no warranties. You assume all risk when installing or using SitecoreBotFramework.
+You will not hold us liable for any damages that arise from installation or use of SitecoreBotFramework.
+This agreement is governed by the laws of New Zealand. The courts located in New Zealand will have sole jurisdiction any such dispute and you agree to irrevocably submit to the personal jurisdiction of such courts.

@@ -8,16 +8,16 @@ using Sitecore.Data.Items;
 namespace SC90.Bot.Infrastructure.DialogActions
 {
     [Serializable]
-    public class SendCard : IMessageDialogAction
+    public class SendFile : IMessageDialogAction
     {
         [NonSerialized]
         private readonly Item _dialogAction;
         private readonly string _message;
 
-        public SendCard(Item dialogAction)
+        public SendFile(Item dialogAction)
         {
             _dialogAction = dialogAction;
-            _message = _dialogAction["Text"];
+            _message = _dialogAction["Attachment"];
         }
 
         public bool IsPromptDialog => false;

@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
-using SC90.Bot.Dialogs;
+using SC90.Bot.Infrastructure.Dialogs;
+using SC90.Bot.Infrastructure.Interfaces;
 using SC90.Bot.Infrastructure.Rules;
 using Sitecore.Collections;
 using Sitecore.Data;
 using Sitecore.Data.Items;
-using Sitecore.Diagnostics;
 
-namespace SC90.Bot.Infrastructure
+namespace SC90.Bot.Infrastructure.Engine
 {
     [Serializable]
     public class DialogSequenceEngine

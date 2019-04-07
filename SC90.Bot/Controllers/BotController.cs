@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 using SC90.Bot.Dialogs;
+using SC90.Bot.Infrastructure.Dialogs;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.Services.Infrastructure.Web.Http;
