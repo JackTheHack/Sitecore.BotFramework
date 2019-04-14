@@ -138,6 +138,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Dialogs\SitecorePromptDialog.cs" />
+    <Compile Include="Infrastructure\DialogActions\Carousel.cs" />
+    <Compile Include="Infrastructure\Rules\Conditions\ComparePromptValueToBoolean.cs" />
+    <Compile Include="Infrastructure\Rules\Conditions\ComparePromptValueToDecimal.cs" />
     <Compile Include="Mvc\BotControllerActivator.cs" />
     <Compile Include="Controllers\BotController.cs" />
     <Compile Include="Dialogs\LuisIntentDialog.cs" />
@@ -149,7 +152,6 @@
     <Compile Include="Infrastructure\DialogActions\Prompt.cs" />
     <Compile Include="Infrastructure\DialogActions\SendFile.cs" />
     <Compile Include="Infrastructure\DialogActions\SendCard.cs" />
-    <Compile Include="Infrastructure\DialogActions\SubmitForm.cs" />
     <Compile Include="Infrastructure\DialogActions\SendMessage.cs" />
     <Compile Include="Infrastructure\Rules\Actions\GoToDialog.cs" />
     <Compile Include="Infrastructure\Rules\Actions\GoToDecision.cs" />

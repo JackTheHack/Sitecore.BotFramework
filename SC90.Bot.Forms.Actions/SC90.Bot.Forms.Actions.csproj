@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\InstanceHelper.cs" />
     <Compile Include="Infrastructure\DialogActions\SubmitForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

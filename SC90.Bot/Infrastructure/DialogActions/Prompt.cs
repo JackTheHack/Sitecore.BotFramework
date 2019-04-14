@@ -6,6 +6,7 @@ using SC90.Bot.Infrastructure.Dialogs;
 using SC90.Bot.Infrastructure.Interfaces;
 using SC90.Bot.Infrastructure.Rules;
 using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 
 namespace SC90.Bot.Infrastructure.DialogActions
 {
@@ -30,6 +31,8 @@ namespace SC90.Bot.Infrastructure.DialogActions
             _dialog = context.Dialog;
             context.Context.Call(new SitecorePromptDialog(_item), resumeAction);                        
             
+            Log.Info($"Prompt for {_item.Name} executed.", this);
+
             return Task.CompletedTask;
         }
 

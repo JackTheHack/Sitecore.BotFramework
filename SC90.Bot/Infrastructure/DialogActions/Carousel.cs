@@ -8,13 +8,13 @@ using Sitecore.Data.Items;
 namespace SC90.Bot.Infrastructure.DialogActions
 {
     [Serializable]
-    public class SubmitForm : IMessageDialogAction
+    public class Carousel : IMessageDialogAction
     {
         [NonSerialized]
         private readonly Item _dialogAction;
         private readonly string _message;
 
-        public SubmitForm(Item dialogAction)
+        public Carousel(Item dialogAction)
         {
             _dialogAction = dialogAction;
             _message = _dialogAction["Text"];

@@ -8,6 +8,7 @@ using SC90.Bot.Infrastructure.Rules;
 using Sitecore.Collections;
 using Sitecore.Data;
 using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 
 namespace SC90.Bot.Infrastructure.Engine
 {
@@ -55,6 +56,9 @@ namespace SC90.Bot.Infrastructure.Engine
             for (int i = currentActionIndex; i < _dialogActions.Count; i++)
             {
                 var dialogActionItem = _dialogActions[i];
+
+                Log.Audit($"Running action #{i} {dialogActionItem.Name} - {dialogActionItem.TemplateName}", this);
+
                 var dialogActionHandler = DialogActionFactory.CreateHandler(dialogActionItem);
                 _dialogStateContext = new DialogStateContext();
                 
@@ -122,6 +126,8 @@ namespace SC90.Bot.Infrastructure.Engine
 
         private bool DoDialogBranchingIfRequired(IDialogContext context, Item actionItem)
         {
+            Log.Audit($"Resume branch execution for {actionItem.Name}.", this);
+
             var branchToGo = context.PrivateConversationData.GetValueOrDefault("branchToGo", string.Empty);
             var dialogToCall = context.PrivateConversationData.GetValueOrDefault("dialogToCall", string.Empty);
 
@@ -189,6 +195,8 @@ namespace SC90.Bot.Infrastructure.Engine
         {
             _dialogItem = Sitecore.Context.Database.GetItem(currentActionId);
             _dialogActions = _dialogItem.Children;
+
+            Log.Audit($"Loading actions for ${_dialogItem.Name} - Total {_dialogActions.Count}", this);
         }
     }
 }
