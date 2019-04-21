@@ -25,6 +25,7 @@ namespace SC90.Bot.Dialogs
 
         public SitecorePromptDialog(Item promptDialogItem)
         {
+            _attempts = 3;
             _promptMessage = promptDialogItem["Message"];
             _validationMessage = promptDialogItem["ValidationMessage"];
 
@@ -75,13 +76,13 @@ namespace SC90.Bot.Dialogs
                 {
                     var basicCard = new HeroCard();                    
 
-                    _optionsStrings = _options.Split(new[]{'\n'}, StringSplitOptions.RemoveEmptyEntries);                                       
+                    _optionsStrings = _options.Split(new[]{'\n'}, StringSplitOptions.RemoveEmptyEntries).Select(i => i.Trim(' ','\r','\t')).ToArray();                                       
 
                     basicCard.Buttons = new List<CardAction>();
 
                     foreach (var suggestedString in _optionsStrings)
                     {
-                        var actionText = suggestedString.Trim(new char[] {' ', '\r'});
+                        var actionText = suggestedString;
                         basicCard.Buttons.Add(new CardAction(ActionTypes.MessageBack, 
                             actionText, 
                             value:actionText, 
@@ -105,12 +106,21 @@ namespace SC90.Bot.Dialogs
         {
             var message = await result;
 
+            string value = message.Text;
+
+            if (string.IsNullOrEmpty(value))
+            {
+                value = message.Value.ToString();
+            }
+
+            value = value.Trim(' ', '\n', '\t', '\n');
+
             /* If the message returned is a valid name, return it to the calling dialog. */
             if (ValidateInput(message))
             {
                 /* Completes the dialog, removes it from the dialog stack, and returns the result to the parent/calling
                     dialog. */
-                context.Done(message.Text);
+                context.Done(value);
             }
             /* Else, try again by re-prompting the user. */
             else
@@ -134,24 +144,33 @@ namespace SC90.Bot.Dialogs
 
         protected virtual bool ValidateInput(IMessageActivity message)
         {
-            if(string.IsNullOrEmpty(message.Text))
+            string value = message.Text;
+
+            if (string.IsNullOrEmpty(value))
+            {
+                value = message.Value.ToString();
+            }
+
+            if (string.IsNullOrEmpty(value))
             {
                 return false;
             }
+
+            value = value.Trim(' ', '\n', '\t', '\n');
 
             switch(_validationType)
 
             {
                 case "Number":
-                    return decimal.TryParse(message.Text.Trim(), out var result);
+                    return decimal.TryParse(value, out _);
                 case "Choice":
-                    return _optionsStrings != null && _optionsStrings.Contains(message.Text.Trim());
+                    return _optionsStrings != null && _optionsStrings.Contains(value);
                 case "Confirm":
-                    return bool.TryParse(message.Text.Trim(), out var result2) || 
-                           message.Text.ToLower() == "yes" ||
-                           message.Text.ToLower() == "no";
+                    return bool.TryParse(value, out _) || 
+                           value.ToLower() == "yes" ||
+                           value.ToLower() == "no";
                 case "DateTime":
-                    return DateTime.TryParse(message.Text.Trim(), out var result3);
+                    return DateTime.TryParse(value, out _);                
             }
 
             return true;
