@@ -10,10 +10,17 @@ template: {F0D16EEE-3A05-4E43-A082-795A32B873C0}
 templatekey: Condition
 created: 20190104T053355Z
 
+----field----
+field: {AB51C8B2-F0E1-4471-9AAE-CC080D774923}
+name: Type
+key: type
+content-length: 77
+
+SC90.Bot.Infrastructure.Rules.Conditions.ComparePromptValueToString, SC90.Bot
 ----version----
 language: en
 version: 1
-revision: 82378045-2840-4651-863c-1cf6bb18ea24
+revision: b383c477-6c9c-4152-b1b8-91ecd5f8e59b
 
 ----field----
 field: {AF321234-4EB9-4EF5-9197-65903351939C}
@@ -49,14 +56,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-82378045-2840-4651-863c-1cf6bb18ea24
+b383c477-6c9c-4152-b1b8-91ecd5f8e59b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20190104T053439Z
+20190128T081610Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

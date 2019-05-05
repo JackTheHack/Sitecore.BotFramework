@@ -1,33 +1,33 @@
 ----item----
 version: 1
-id: {A26361E1-CCE3-48C9-8BF3-9955F91C6360}
+id: {19C61BFF-ADD3-4446-A183-3A2E38C0E963}
 database: master
-path: /sitecore/templates/Foundation/SitecoreBotFramework/_Bot/Content/StartDialog
+path: /sitecore/templates/Foundation/SitecoreBotFramework/_Bot/Content/Image
 parent: {12A11EBF-BC59-4DA1-BEBF-A2FC8632B75A}
-name: StartDialog
+name: Image
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
-created: 20190112T080920Z
+created: 20190428T034502Z
 
 ----field----
 field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
 name: Type
 key: type
-content-length: 8
+content-length: 5
 
-Droptree
+Image
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
 key: __sortorder
 content-length: 3
 
-100
+500
 ----version----
 language: en
 version: 1
-revision: 954a90ba-97d8-48a6-9952-2c169a9b8dbf
+revision: b8d5e5d7-e4fc-475c-a249-2fffa7e607f5
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -35,14 +35,14 @@ name: __Created
 key: __created
 content-length: 16
 
-20190112T080920Z
+20190428T034502Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-954a90ba-97d8-48a6-9952-2c169a9b8dbf
+b8d5e5d7-e4fc-475c-a249-2fffa7e607f5
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated

@@ -10,10 +10,17 @@ template: {F90052A5-B4E6-4E6D-9812-1E1B88A6FCEA}
 templatekey: Action
 created: 20190104T232504Z
 
+----field----
+field: {FF55D5A7-6D4B-4CD1-83E0-BAC268073F66}
+name: Type
+key: type
+content-length: 60
+
+SC90.Bot.Infrastructure.Rules.Actions.GoToDecision, SC90.Bot
 ----version----
 language: en
 version: 1
-revision: a03e1a57-a3ae-4d20-9ec6-ebe181c87068
+revision: 60993eb5-f7b3-4220-803f-dce21fc6ce28
 
 ----field----
 field: {EEB36A3B-40D9-4AF5-862A-DE257B84DCA3}
@@ -49,14 +56,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a03e1a57-a3ae-4d20-9ec6-ebe181c87068
+60993eb5-f7b3-4220-803f-dce21fc6ce28
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20190104T232604Z
+20190128T083618Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
