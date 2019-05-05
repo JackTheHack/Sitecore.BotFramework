@@ -48,7 +48,14 @@ namespace SC90.Bot.Infrastructure.DialogActions
                 Item = _item
             };
 
-            _ruleEngine.RunRules(_item, "Action", ruleContext);           
+            try
+            {
+                _ruleEngine.RunRules(_item, "Action", ruleContext);
+            }
+            catch (Exception e)
+            {
+                Log.Error("Error happened running rules: ", e, this);
+            }
 
             return Task.CompletedTask;
         }

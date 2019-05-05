@@ -23,6 +23,7 @@ using Sitecore.ExperienceForms.Mvc.Pipelines.GetModel;
 using Sitecore.ExperienceForms.Processing.Actions;
 using Sitecore.Mvc.Pipelines;
 using System.Web;
+using Microsoft.Bot.Builder.Dialogs;
 
 namespace SC90.Bot.Forms.Actions.Infrastructure.DialogActions
 {
@@ -40,6 +41,8 @@ namespace SC90.Bot.Forms.Actions.Infrastructure.DialogActions
         private List<IViewModel> _fields;
         private string _buttonId;
         private Item _buttonItem;
+        private string _successMessage;
+        private string _errorMessage;
 
         const string SubmitFieldId = "{7CE25CAB-EF3A-4F73-AB13-D33BDC1E4EE2}";
 
@@ -48,7 +51,9 @@ namespace SC90.Bot.Forms.Actions.Infrastructure.DialogActions
         {
             _dialogAction = dialogAction;
             Guid.TryParse(_dialogAction["FormId"], out _formId);
-            _mappings = (NameValueListField)_dialogAction.Fields["Mapping"];
+            _mappings = _dialogAction.Fields["Mapping"];
+            _successMessage = _dialogAction.Fields["SuccessMessage"].Value;
+            _errorMessage = _dialogAction.Fields["ErrorMessage"].Value;
             _formSubmitHandler = ServiceLocator.ServiceProvider.GetService(typeof(IFormSubmitHandler)) as IFormSubmitHandler;            
         }
 
@@ -57,7 +62,7 @@ namespace SC90.Bot.Forms.Actions.Infrastructure.DialogActions
         public virtual IFormBuilderContext FormBuilderContext => (IFormBuilderContext)(_formBuilderContext ??
             (_formBuilderContext = ServiceLocator.ServiceProvider.GetService(typeof(IFormBuilderContext))));
 
-        public Task Execute(DialogActionContext context)
+        public async Task Execute(DialogActionContext context)
         {
 
             try
@@ -74,14 +79,20 @@ namespace SC90.Bot.Forms.Actions.Infrastructure.DialogActions
                 };               
 
                 ExecuteActions(formSubmitContext);
+
+                if (!string.IsNullOrEmpty(_successMessage))
+                {
+                    await context.Context.SayAsync(_successMessage);
+                }
             }
             catch (Exception e)
             {
                 Log.Warn("Failed to submit form", e);
-            }
-
-            return Task.CompletedTask;
-
+                if (!string.IsNullOrEmpty(_errorMessage))
+                {
+                    await context.Context.SayAsync(_errorMessage);
+                }
+            }            
         }
 
         private void ExecuteActions(FormSubmitContext formSubmitContext)

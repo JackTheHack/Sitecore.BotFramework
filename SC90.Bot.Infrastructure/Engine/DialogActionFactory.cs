@@ -26,10 +26,11 @@ namespace SC90.Bot.Infrastructure.Engine
                 for (int i = 0; i < mappings.Count; i++)
                 {
                     var mappingItem = mappings.Item(i);
-                    if (mappingItem != null)
+                    if (mappingItem?.Attributes != null)
                     {
                         ID.TryParse(mappingItem.Attributes["id"].Value, out var mappingId);
-                        MappingDictionary.Add(mappingId, Type.GetType(mappingItem.Attributes["type"].Value));
+                        string type = mappingItem.Attributes["type"].Value;
+                        MappingDictionary.Add(mappingId, Type.GetType(type));
                     }
                 }
             }

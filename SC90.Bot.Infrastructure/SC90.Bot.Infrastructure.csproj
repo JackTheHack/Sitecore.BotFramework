@@ -55,6 +55,7 @@
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Dialogs\SitecoreBranchDialog.cs" />
     <Compile Include="Dialogs\SitecoreDialog.cs" />
+    <Compile Include="Helpers\DialogueHelper.cs" />
     <Compile Include="Interfaces\DialogActionContext.cs" />
     <Compile Include="Engine\DialogActionFactory.cs" />
     <Compile Include="Engine\DialogSequenceRunner.cs" />

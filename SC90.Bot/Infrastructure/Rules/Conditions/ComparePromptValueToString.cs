@@ -13,7 +13,7 @@ namespace SC90.Bot.Infrastructure.Rules.Conditions
         {
             var promptValue = ruleContext.Result.ToString();
 
-            return Compare(Value, promptValue);
+            return Compare(Value?.Trim(), promptValue?.Trim());
         }
     }
 }

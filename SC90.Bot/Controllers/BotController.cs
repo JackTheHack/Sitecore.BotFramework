@@ -1,14 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Autofac;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
 using SC90.Bot.Dialogs;
+using SC90.Bot.Helpers;
 using SC90.Bot.Infrastructure.Dialogs;
+using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
+using Sitecore.Resources.Media;
 using Sitecore.Services.Infrastructure.Web.Http;
 
 namespace SC90.Bot.Controllers
@@ -16,13 +23,33 @@ namespace SC90.Bot.Controllers
     [BotAuthentication]
     public class BotController : ServicesApiController
     {
+        private static RootDialog Dialog;
+
         //Based on 
 
         private readonly string _welcomeMessage;
+        private string[] _optionsStrings;
+        private readonly string _options;
+        private string _image;
+        private ImageField _imageField;
+        private string _optionsTitle;
+        private Item _botItem;
 
         public BotController(Item botItem)
         {
             _welcomeMessage = botItem.Fields["WelcomeMessage"].Value;
+            _options = botItem.Fields["Options"].Value;
+            _optionsTitle = botItem.Fields["OptionsTitle"].Value;
+            if (!string.IsNullOrEmpty(botItem["Image"]))
+            {
+                _imageField = (ImageField) botItem.Fields["Image"];
+                _image = MediaManager.GetMediaUrl(_imageField.MediaItem, new MediaUrlOptions()
+                {
+                    AlwaysIncludeServerUrl = true
+                });
+            }
+
+            _botItem = botItem;
         }
 
         /// <summary>
@@ -34,33 +61,61 @@ namespace SC90.Bot.Controllers
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {            
             var response = Request.CreateResponse(HttpStatusCode.OK);
-            
+
+            //if (Dialog == null)
+            //{
+            //    Dialog = new RootDialog();
+            //}
+
+            var rootDialog = new RootDialog();
+
             if (activity.Type == ActivityTypes.Message)
             {
                 await Conversation.SendAsync(activity,
-                    () => new RootDialog());
-
-                return response;
+                    () =>  rootDialog);                
             }
 
             if (activity.Type == ActivityTypes.ConversationUpdate)
             {
                 if (activity.MembersAdded != null && !string.IsNullOrEmpty(_welcomeMessage))
                 {
-                    // Iterate over all new members added to the conversation
-                    foreach (var member in activity.MembersAdded)
+                    using (var scope = DialogModule.BeginLifetimeScope(Conversation.Container, activity))
                     {
-                        // Greet anyone that was not the target (recipient) of this message
-                        // the 'bot' is the recipient for events from the channel,
-                        // turnContext.Activity.MembersAdded == turnContext.Activity.Recipient.Id indicates the
-                        // bot was added to the conversation.
-                        if (member.Id != activity.Recipient.Id)
-                        {                            
-                            ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));                                                                
-                            Activity reply = activity.CreateReply(_welcomeMessage);
-                            await connector.Conversations.ReplyToActivityAsync(reply);
-                            Log.Info("Welcome message to user", this);
+                        // Iterate over all new members added to the conversation
+                        foreach (var member in activity.MembersAdded)
+                        {
+                            // Greet anyone that was not the target (recipient) of this message
+                            // the 'bot' is the recipient for events from the channel,
+                            // turnContext.Activity.MembersAdded == turnContext.Activity.Recipient.Id indicates the
+                            // bot was added to the conversation.
+                            if (member.Id != activity.Recipient.Id)
+                            {
+                                var connector = scope.Resolve<IConnectorClient>();                                
+                                
+                                //ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+                                Activity reply =
+                                    activity.CreateReply(_welcomeMessage);
 
+                                if (!string.IsNullOrEmpty(_options) || !string.IsNullOrEmpty(_image))
+                                {
+                                    var basicCard = DialogueHelper.CreateOptionsCard(_botItem);
+
+                                    if (!string.IsNullOrEmpty(_image))
+                                    {
+                                        var cardImage = new CardImage(_image);
+                                        basicCard.Images = new List<CardImage> {cardImage};
+                                    }                                    
+
+                                    reply.Attachments.Add(basicCard.ToAttachment());
+                                }
+
+                                
+
+                                await connector.Conversations.ReplyToActivityAsync(reply);
+
+                                return response;
+
+                            }
                         }
                     }
                 }
@@ -69,6 +124,14 @@ namespace SC90.Bot.Controllers
             HandleSystemMessage(activity);
 
             return response;
+        }
+
+        
+
+        private async Task Resume(IDialogContext context, IAwaitable<string> result)
+        {
+            var text = await result;
+
         }
 
         [HttpGet]

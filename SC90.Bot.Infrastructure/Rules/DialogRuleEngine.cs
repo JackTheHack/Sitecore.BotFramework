@@ -39,11 +39,11 @@ namespace SC90.Bot.Infrastructure.Rules
 
                 ruleContext.DialogContext.PrivateConversationData
                     .SetValueOrRemoveIfNull("branchToGo",
-                    ruleContext.GoToDecisionBranch);
+                    ruleContext.GoToDecisionBranch ?? string.Empty);
          
                 ruleContext.DialogContext.PrivateConversationData
                     .SetValueOrRemoveIfNull("dialogToCall", 
-                        ruleContext.GoToDialog);
+                        ruleContext.GoToDialog ?? string.Empty);
         }
     }
 }

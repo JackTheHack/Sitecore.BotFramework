@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using SC90.Bot.Helpers;
 using SC90.Bot.Infrastructure.Dialogs;
 using SC90.Bot.Infrastructure.Interfaces;
 using Sitecore.Data.Fields;
@@ -56,23 +57,11 @@ namespace SC90.Bot.Infrastructure.DialogActions
             }
             else
             {
-                var cardAction = 
-                    !string.IsNullOrEmpty(_url) ?
-                    new CardAction(ActionTypes.OpenUrl, _title, value: _url) : null;
-                
-                var cardImage = 
-                    !string.IsNullOrEmpty(_image) ?
-                    new CardImage(_image, _title, cardAction) : null;
-
-                var heroCard = new HeroCard(_title, _subtitle, _message, 
-                    cardImage != null?
-                    new List<CardImage>() {cardImage} : null, tap: cardAction);
+                var heroCard = DialogueHelper.CreateCard(_url, _title, _image, _subtitle, _message);
 
                 var message = context.Context.MakeMessage();
                 message.Attachments.Add(
                     heroCard.ToAttachment());
-
-                //await context.Context.PostAsync(message).Wait();
 
                 Task.Run( () =>
                     context.Context.PostAsync(message)).Wait();
@@ -82,5 +71,7 @@ namespace SC90.Bot.Infrastructure.DialogActions
 
             return Task.CompletedTask;
         }
+
+        
     }
 }

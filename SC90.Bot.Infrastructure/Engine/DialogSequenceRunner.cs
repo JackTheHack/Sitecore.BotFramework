@@ -147,12 +147,12 @@ namespace SC90.Bot.Infrastructure.Engine
 
             if (!string.IsNullOrEmpty(dialogToCall))
             {
-                var dialogItem = Sitecore.Context.Database.GetItem(dialogToCall);
-
-                if (dialogItem != null)
+                var botItem = Sitecore.Context.Database.GetItem(ID.Parse("{E5F3FCCE-22DA-40AF-85F6-9F7D40E45EEF}"));
+                var item = botItem?.Axes.SelectSingleItem("./Dialogs/" + dialogToCall);
+                if (item != null)
                 {
                     context.Call(
-                        child: new SitecoreBranchDialog(dialogItem.ID),
+                        child: new SitecoreDialog(item.ID), 
                         resume: ResumeDialogExecution);
                 }
 
@@ -162,9 +162,13 @@ namespace SC90.Bot.Infrastructure.Engine
             return false;
         }
 
-        private Task ResumeDialogExecution(IDialogContext context, IAwaitable<object> result)
+        private async Task ResumeDialogExecution(IDialogContext context, IAwaitable<object> result)
         {
-            throw new NotImplementedException();
+            var currentActionId = context.PrivateConversationData.GetValueOrDefault("currentAction", string.Empty);
+
+            LoadActions(ID.Parse(currentActionId));
+            
+            RunActions(_dialog, context);
         }
 
         private async Task ResumeBranchExecution<TResult>(IDialogContext context, IAwaitable<TResult> result)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Connector;
 using SC90.Bot.Infrastructure.Rules;
 
 namespace SC90.Bot.Infrastructure.Interfaces

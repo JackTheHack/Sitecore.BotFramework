@@ -26,12 +26,28 @@ namespace SC90.Bot.Infrastructure.DialogActions
 
         public Task Execute(DialogActionContext context)
         {
+            string result = null;
+
+            if (context.Context.Activity?.AsMessageActivity() != null)
+            {
+                var messageActivity = context.Context.Activity.AsMessageActivity();
+                if (!string.IsNullOrEmpty(messageActivity.Text))
+                {
+                    result = messageActivity.Text;
+                }
+
+                if (messageActivity.Value != null)
+                {
+                    result = (string) messageActivity.Value;
+                }
+            }
+
             var ruleContext = new DialogRuleContext()
             {
                 DialogContext = context.Context,
                 Dialog = context.Dialog,
                 Action = this,
-                Result = null,
+                Result = result,
                 Item = _item
             };
 
