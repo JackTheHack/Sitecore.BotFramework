@@ -82,7 +82,7 @@ namespace SC90.Bot.Forms.Actions.Infrastructure.DialogActions
 
                 if (!string.IsNullOrEmpty(_successMessage))
                 {
-                    await context.Context.SayAsync(_successMessage);
+                    Task.Run(() => context.Context.PostAsync(_successMessage)).Wait();
                 }
             }
             catch (Exception e)
@@ -90,7 +90,7 @@ namespace SC90.Bot.Forms.Actions.Infrastructure.DialogActions
                 Log.Warn("Failed to submit form", e);
                 if (!string.IsNullOrEmpty(_errorMessage))
                 {
-                    await context.Context.SayAsync(_errorMessage);
+                    Task.Run(() => context.Context.PostAsync(_errorMessage)).Wait();
                 }
             }            
         }

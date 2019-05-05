@@ -14,9 +14,9 @@ namespace SC90.Bot.Helpers
         public static HeroCard CreateCard(Item dialogAction)
         {
             string url = string.Empty;
-            if (!string.IsNullOrEmpty(dialogAction["Url"]))
+            if (!string.IsNullOrEmpty(dialogAction["Link"]))
             {
-                var linkField = (LinkField) dialogAction.Fields["Url"];
+                var linkField = (LinkField) dialogAction.Fields["Link"];
                 url = linkField.Url;
             }
             var title = dialogAction["Title"];
