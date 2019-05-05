@@ -40,6 +40,16 @@
     <LightningDeployMode>False</LightningDeployMode>
     <SitecoreDeployFolder>C:\inetpub\wwwroot\testing92.sc</SitecoreDeployFolder>
     <SitecoreAccessGuid>883571ca-4e5d-4d1e-92c8-6698ead0d7f1</SitecoreAccessGuid>
+    <PackageName>SitecoreBotFramework</PackageName>
+    <PackageAuthor>Yevgen Spektor</PackageAuthor>
+    <PackagePublisher>Yevgen Spektor</PackagePublisher>
+    <PackageVersion>0.1.0.0</PackageVersion>
+    <PackageReadme />
+    <SitecoreAssemblyPath />
+    <GeneratePackage>True</GeneratePackage>
+    <SeperateFilesAndItems>False</SeperateFilesAndItems>
+    <PackageExcludeCode>False</PackageExcludeCode>
+    <AddDateTimeToPackageName>False</AddDateTimeToPackageName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>false</DebugSymbols>
