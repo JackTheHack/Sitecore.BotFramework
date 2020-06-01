@@ -937,10 +937,6 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Sandbox\Sandbox\Presentation\Rendering Variants\POI\Default\Template.item">
-      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
-    </SitecoreItem>
     <SitecoreItem Include="sitecore\content\Sandbox\Sandbox\Presentation\Rendering Variants\POI\Default\Title.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -1486,26 +1482,6 @@
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\content\Sandbox\Sandbox\Settings\Social Media Groups\Default.item">
-      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
-    </SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Sandbox\Sandbox\Settings\Social Media Groups\Default\Facebook Like.item">
-      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
-    </SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Sandbox\Sandbox\Settings\Social Media Groups\Default\Google Plus.item">
-      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
-    </SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Sandbox\Sandbox\Settings\Social Media Groups\Default\LinkedIn.item">
-      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
-    </SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Sandbox\Sandbox\Settings\Social Media Groups\Default\Pinterest.item">
-      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
-    </SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Sandbox\Sandbox\Settings\Social Media Groups\Default\Twitter.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
@@ -2112,7 +2088,6 @@
       <Name>SC90.Bot</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets" 
-  Condition="Exists('packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets')" />
+  <Import Project="packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets" Condition="Exists('packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets')" />
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
 </Project>
