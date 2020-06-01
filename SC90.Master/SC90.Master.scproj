@@ -16,9 +16,6 @@
     <AssemblyName>SC90.Master</AssemblyName>
     <Name>SC90.Master</Name>
     <RootNamespace>SC90.Master</RootNamespace>
-    <SourceWebVirtualPath>/SC90.Bot.csproj</SourceWebVirtualPath>
-    <SourceWebProject>{d4e5e212-7352-4e81-9d28-0a072f481802}|SC90.Bot\SC90.Bot.csproj</SourceWebProject>
-    <SourceWebPhysicalPath>..\SC90.Bot</SourceWebPhysicalPath>
     <ManageRoles>False</ManageRoles>
     <SitecoreDatabase>master</SitecoreDatabase>
     <AssemblyStatus>Exclude</AssemblyStatus>
@@ -29,16 +26,19 @@
     <BaseNamespace>SC90.Bot.Models</BaseNamespace>
     <BaseTransformFile>GlassV5Item.tt</BaseTransformFile>
     <HeaderTransformFile>GlassV5Header.tt</HeaderTransformFile>
+    <SourceWebVirtualPath>/SC90.Bot.csproj</SourceWebVirtualPath>
+    <SourceWebProject>{d4e5e212-7352-4e81-9d28-0a072f481802}|SC90.Bot\SC90.Bot.csproj</SourceWebProject>
+    <SourceWebPhysicalPath>..\SC90.Bot</SourceWebPhysicalPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>.\bin\Debug\</OutputPath>
     <RecursiveDeployAction>Ignore</RecursiveDeployAction>
-    <SitecoreWebUrl>http://testing92.sc</SitecoreWebUrl>
+    <SitecoreWebUrl>https://test93sc.dev.local</SitecoreWebUrl>
     <InstallSitecoreConnector>True</InstallSitecoreConnector>
     <DisableFileDeployment>False</DisableFileDeployment>
     <LightningDeployMode>False</LightningDeployMode>
-    <SitecoreDeployFolder>C:\inetpub\wwwroot\testing92.sc</SitecoreDeployFolder>
+    <SitecoreDeployFolder>C:\inetpub\wwwroot\test93sc.dev.local</SitecoreDeployFolder>
     <SitecoreAccessGuid>883571ca-4e5d-4d1e-92c8-6698ead0d7f1</SitecoreAccessGuid>
     <PackageName>SitecoreBotFramework</PackageName>
     <PackageAuthor>Yevgen Spektor</PackageAuthor>
@@ -46,7 +46,7 @@
     <PackageVersion>0.1.0.0</PackageVersion>
     <PackageReadme />
     <SitecoreAssemblyPath />
-    <GeneratePackage>True</GeneratePackage>
+    <GeneratePackage>False</GeneratePackage>
     <SeperateFilesAndItems>False</SeperateFilesAndItems>
     <PackageExcludeCode>False</PackageExcludeCode>
     <AddDateTimeToPackageName>False</AddDateTimeToPackageName>
@@ -2112,5 +2112,7 @@
       <Name>SC90.Bot</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets" 
+  Condition="Exists('packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets')" />
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
 </Project>

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SC90.Bot.Forms.Actions</RootNamespace>
     <AssemblyName>SC90.Bot.Forms.Actions</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,26 +31,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Bot.Builder, Version=3.19.1.44133, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Microsoft.Bot.Connector, Version=3.19.1.44133, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Sitecore.ContentSearch, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sitecore.ContentSearch.NoReferences.9.0.180604\lib\NET462\Sitecore.ContentSearch.dll</HintPath>
+    <Reference Include="Microsoft.Bot.Builder">
+      <HintPath>..\packages\Microsoft.Bot.Builder.3.19.1.44133\lib\net46\Microsoft.Bot.Builder.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.ContentSearch.Linq, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sitecore.ContentSearch.Linq.NoReferences.9.0.180604\lib\NET462\Sitecore.ContentSearch.Linq.dll</HintPath>
+    <Reference Include="Microsoft.Bot.Connector">
+      <HintPath>..\packages\Microsoft.Bot.Connector.3.19.1.44133\lib\net46\Microsoft.Bot.Connector.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.ExperienceForms, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sitecore.ExperienceForms.NoReferences.9.0.180604\lib\NET462\Sitecore.ExperienceForms.dll</HintPath>
+    <Reference Include="Sitecore.ContentSearch">
+      <HintPath>..\packages\Sitecore.ContentSearch.9.3.0\lib\net471\Sitecore.ContentSearch.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.ExperienceForms.Mvc, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sitecore.ExperienceForms.Mvc.NoReferences.9.0.180604\lib\NET462\Sitecore.ExperienceForms.Mvc.dll</HintPath>
+    <Reference Include="Sitecore.ContentSearch.Linq">
+      <HintPath>..\packages\Sitecore.ContentSearch.Linq.9.3.0\lib\net471\Sitecore.ContentSearch.Linq.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Sitecore.Kernel.NoReferences.9.0.180604\lib\NET462\Sitecore.Kernel.dll</HintPath>
+    <Reference Include="Sitecore.ExperienceForms">
+      <HintPath>..\packages\Sitecore.ExperienceForms.9.3.0\lib\net471\Sitecore.ExperienceForms.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Mvc, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sitecore.Mvc.NoReferences.9.0.180604\lib\NET462\Sitecore.Mvc.dll</HintPath>
+    <Reference Include="Sitecore.ExperienceForms.Mvc">
+      <HintPath>..\packages\Sitecore.ExperienceForms.Mvc.9.3.0\lib\net471\Sitecore.ExperienceForms.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\packages\Sitecore.Kernel.9.3.0\lib\net471\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Mvc">
+      <HintPath>..\packages\Sitecore.Mvc.9.3.0\lib\net471\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
