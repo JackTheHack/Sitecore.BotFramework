@@ -1,0 +1,71 @@
+----item----
+version: 1
+id: {E8C36447-E830-475B-ABC3-D0BBDC927032}
+database: master
+path: /sitecore/content/Sandbox/Sandbox/Data/TelegramBots/QuestionBot/Scores/States/ScoresState/NewGame
+parent: {37A31049-53B0-42D6-8FC3-3B899F1B4010}
+name: NewGame
+master: {00000000-0000-0000-0000-000000000000}
+template: {C981C150-D7F1-4FF9-B29B-8CDEA06ACB0A}
+templatekey: Command
+
+----version----
+language: en
+version: 1
+revision: 207df526-6cf0-45db-8115-b7445cc2733a
+
+----field----
+field: {493B0FF8-DF3F-4321-9393-6B14D21A4930}
+name: Rule
+key: rule
+content-length: 267
+
+<ruleset>
+  <rule uid="{3D30A570-9C8E-4460-A960-EB598AFD53F2}">
+    <conditions>
+      <condition id="{8D0254CA-D645-4F51-B7FD-48BBD14215BC}" uid="D2A8BDA6011D4C088268D5145CCAA068" value="{{text}}" operatorid="/newgame" />
+    </conditions>
+  </rule>
+</ruleset>
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\Admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20200601T033709Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\Admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+207df526-6cf0-45db-8115-b7445cc2733a
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20200601T071615Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\Admin

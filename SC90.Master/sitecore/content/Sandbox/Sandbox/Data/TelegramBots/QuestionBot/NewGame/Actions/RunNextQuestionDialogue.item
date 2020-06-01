@@ -1,0 +1,72 @@
+----item----
+version: 1
+id: {288580E8-FE5B-430E-BD7E-C3103843C3FD}
+database: master
+path: /sitecore/content/Sandbox/Sandbox/Data/TelegramBots/QuestionBot/NewGame/Actions/RunNextQuestionDialogue
+parent: {EB78E801-FA52-4489-95DE-EA1A511B374C}
+name: RunNextQuestionDialogue
+master: {00000000-0000-0000-0000-000000000000}
+template: {466CA225-527E-4A78-9F47-D4B556FB3AD7}
+templatekey: RunDialogue
+
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 3
+
+200
+----version----
+language: en
+version: 1
+revision: b584e26a-cd4c-4877-bde0-e154cd509dd4
+
+----field----
+field: {8A2C5BEA-3440-4E77-AF8C-13FC298D02F2}
+name: Dialog
+key: dialog
+content-length: 38
+
+{F1DC47E0-9331-42AF-9720-F1F2E23B4A0B}
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\Admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20200601T053147Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\Admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+b584e26a-cd4c-4877-bde0-e154cd509dd4
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20200601T053207Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\Admin

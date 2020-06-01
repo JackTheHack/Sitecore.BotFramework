@@ -1,6 +1,6 @@
 ----item----
 version: 1
-id: {17A9763B-1A57-402A-971D-7751A2B359F5}
+id: {FF4D6339-D1D1-47AF-9D0E-BD1C46365635}
 database: master
 path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Actions/Condition/Content
 parent: {FA20C787-7C17-4E30-9F7C-2713A7E6A652}
@@ -12,7 +12,7 @@ templatekey: Template section
 ----version----
 language: en
 version: 1
-revision: 8edbec1e-5221-429a-89de-7fc9881678d3
+revision: 25f19d61-1fc6-4db3-8bd5-0d46d3d94943
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -20,32 +20,25 @@ name: __Created
 key: __created
 content-length: 16
 
-20190104T050512Z
-----field----
-field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
-name: __Created by
-key: __created by
-content-length: 14
-
-sitecore\admin
+20200601T044320Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-8edbec1e-5221-429a-89de-7fc9881678d3
+25f19d61-1fc6-4db3-8bd5-0d46d3d94943
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20190104T050513Z
+20200601T044320Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
 content-length: 14
 
-sitecore\admin
+sitecore\Admin

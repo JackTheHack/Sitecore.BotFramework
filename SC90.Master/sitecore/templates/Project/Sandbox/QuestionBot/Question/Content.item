@@ -1,0 +1,44 @@
+----item----
+version: 1
+id: {CC70F7F3-FD8E-4AD0-8390-623A0A4EF98E}
+database: master
+path: /sitecore/templates/Project/Sandbox/QuestionBot/Question/Content
+parent: {4E2F0CCD-FD86-4E8D-9715-59DC9ACAF246}
+name: Content
+master: {00000000-0000-0000-0000-000000000000}
+template: {E269FBB5-3750-427A-9149-7AA950B49301}
+templatekey: Template section
+
+----version----
+language: en
+version: 1
+revision: 048094d6-e460-467a-88db-f875a104fed0
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20200601T055148Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+048094d6-e460-467a-88db-f875a104fed0
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20200601T055204Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\Admin

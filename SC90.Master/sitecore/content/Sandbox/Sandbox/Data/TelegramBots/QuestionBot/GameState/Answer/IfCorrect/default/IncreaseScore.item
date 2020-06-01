@@ -1,0 +1,65 @@
+----item----
+version: 1
+id: {9CAE06A5-82F4-4486-A18F-65B3A2ABDACD}
+database: master
+path: /sitecore/content/Sandbox/Sandbox/Data/TelegramBots/QuestionBot/GameState/Answer/IfCorrect/default/IncreaseScore
+parent: {D4CFBE56-F7B0-4534-AC61-586614233742}
+name: IncreaseScore
+master: {00000000-0000-0000-0000-000000000000}
+template: {719BDBBA-9C8A-4312-A13D-10C2F57FF326}
+templatekey: SetSessionVariable
+
+----version----
+language: en
+version: 1
+revision: 864955bd-de43-4fe5-b731-11ff0656b7f4
+
+----field----
+field: {2635CF46-8BA6-4CCA-ABB5-A36DCF14A738}
+name: Variables
+key: variables
+content-length: 32
+
+UserScore=%24%7BUserScore%7D%2B1
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\Admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20200601T070240Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\Admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+864955bd-de43-4fe5-b731-11ff0656b7f4
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20200601T070908Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\Admin
