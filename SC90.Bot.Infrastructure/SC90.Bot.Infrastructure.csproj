@@ -31,8 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bot.Builder">
       <HintPath>..\packages\Microsoft.Bot.Builder.3.19.1.44133\lib\net46\Microsoft.Bot.Builder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bot.Builder.Autofac">
+      <HintPath>..\packages\Microsoft.Bot.Builder.3.19.1.44133\lib\net46\Microsoft.Bot.Builder.Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bot.Connector">
       <HintPath>..\packages\Microsoft.Bot.Connector.3.19.1.44133\lib\net46\Microsoft.Bot.Connector.dll</HintPath>
@@ -40,13 +46,40 @@
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\packages\Sitecore.Kernel.9.3.0\lib\net471\Sitecore.Kernel.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Services.Infrastructure">
+      <HintPath>..\packages\Sitecore.Services.Infrastructure.9.3.0\lib\net471\Sitecore.Services.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.XA.Foundation.Multisite">
       <HintPath>..\packages\Sitecore.XA.Foundation.Multisite.9.3.0\lib\net471\Sitecore.XA.Foundation.Multisite.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Http">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,10 +89,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BotController.cs" />
+    <Compile Include="Dialogs\LuisIntentDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Dialogs\SitecoreBranchDialog.cs" />
     <Compile Include="Dialogs\SitecoreDialog.cs" />
+    <Compile Include="Dialogs\SitecorePromptDialog.cs" />
+    <Compile Include="Dialogs\TestDialog.cs" />
     <Compile Include="Helpers\DialogueHelper.cs" />
+    <Compile Include="Infrastructure\DialogActions\Carousel.cs" />
+    <Compile Include="Infrastructure\DialogActions\Condition.cs" />
+    <Compile Include="Infrastructure\DialogActions\Prompt.cs" />
+    <Compile Include="Infrastructure\DialogActions\SendCard.cs" />
+    <Compile Include="Infrastructure\DialogActions\SendFile.cs" />
+    <Compile Include="Infrastructure\DialogActions\SendMessage.cs" />
+    <Compile Include="Infrastructure\Rules\Actions\CallDialog.cs" />
+    <Compile Include="Infrastructure\Rules\Actions\GoToDecision.cs" />
+    <Compile Include="Infrastructure\Rules\Actions\GoToDialog.cs" />
+    <Compile Include="Infrastructure\Rules\Actions\RestartConversation.cs" />
+    <Compile Include="Infrastructure\Rules\Actions\SaveToVariable.cs" />
+    <Compile Include="Infrastructure\Rules\Actions\SendMessage.cs" />
+    <Compile Include="Infrastructure\Rules\Conditions\ComparePromptValueToBoolean.cs" />
+    <Compile Include="Infrastructure\Rules\Conditions\ComparePromptValueToDecimal.cs" />
+    <Compile Include="Infrastructure\Rules\Conditions\ComparePromptValueToString.cs" />
     <Compile Include="Interfaces\DialogActionContext.cs" />
     <Compile Include="Engine\DialogActionFactory.cs" />
     <Compile Include="Engine\DialogSequenceRunner.cs" />

@@ -36,7 +36,9 @@ namespace SC90.Bot.Mvc
                     return _defaultHttpControllerFactory.Create(request, controllerDescriptor, controllerType);
                 }
 
-                return new BotController(botStartItemId);
+
+                var instance = Activator.CreateInstance(controllerType, botStartItemId);
+                return (IHttpController)instance;
             }
 
             return _defaultHttpControllerFactory.Create(request, controllerDescriptor, controllerType);

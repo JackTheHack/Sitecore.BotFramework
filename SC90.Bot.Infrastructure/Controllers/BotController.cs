@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -9,12 +7,10 @@ using Autofac;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
-using SC90.Bot.Dialogs;
 using SC90.Bot.Helpers;
 using SC90.Bot.Infrastructure.Dialogs;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
-using Sitecore.Diagnostics;
 using Sitecore.Resources.Media;
 using Sitecore.Services.Infrastructure.Web.Http;
 

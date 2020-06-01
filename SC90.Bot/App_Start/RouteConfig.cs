@@ -18,6 +18,13 @@ namespace SC90.Bot
                 action = "Post", 
                 id = RouteParameter.Optional
             });            
+
+            routes.MapHttpRoute("TelegramApi", "sitecore/telegram/{botId}/{action}", new
+            {
+                controller = "Telegram",
+                action = "Post", 
+                id = RouteParameter.Optional
+            });   
         }
     }
 }

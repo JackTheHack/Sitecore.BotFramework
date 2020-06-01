@@ -1,0 +1,65 @@
+----item----
+version: 1
+id: {B129B2B0-84CB-4988-B679-B39A943F8F2F}
+database: master
+path: /sitecore/templates/Foundation/SitecoreBotFrameworkV2/_Dialogue/__Standard Values
+parent: {5A0E560E-4300-406B-8756-C46C83B59B01}
+name: __Standard Values
+master: {00000000-0000-0000-0000-000000000000}
+template: {5A0E560E-4300-406B-8756-C46C83B59B01}
+templatekey: _Dialogue
+
+----field----
+field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
+name: __Masters
+key: __masters
+content-length: 38
+
+{C57F1056-6BB5-4D5A-92FA-62E94022A8F2}
+----version----
+language: en
+version: 1
+revision: 11656d5e-0c0b-4a44-9863-9c05f40ea674
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20190104T014300Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+11656d5e-0c0b-4a44-9863-9c05f40ea674
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20200601T023518Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\Admin
