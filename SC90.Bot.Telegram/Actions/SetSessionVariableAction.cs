@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFrameworkV2.Actions;
 using SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2;
 using SC90.Bot.Telegram.Abstractions;
+using SC90.Bot.Telegram.Constants;
 using SC90.Bot.Telegram.Models;
 using Sitecore.Data.Items;
 using Sitecore.DependencyInjection;
@@ -22,12 +23,15 @@ namespace SC90.Bot.Telegram.Actions
         
         private readonly ISitecoreContext _sitecoreContext;
         private readonly ITelegramService _telegramService;
+        private readonly ISessionProvider _sessionProvider;
+
         
         private ChatbotActionContext _context;
 
         public SetSessionVariableAction()
         {
             _sitecoreContext = ServiceLocator.ServiceProvider.GetService<ISitecoreContext>();
+            _sessionProvider = ServiceLocator.ServiceProvider.GetService<ISessionProvider>();
             _telegramService = ServiceLocator.ServiceProvider.GetService<ITelegramService>();
         }
 
@@ -40,7 +44,20 @@ namespace SC90.Bot.Telegram.Actions
 
         public async Task Execute()
         {
-            //TODO: Set session variable
+            foreach (var variable in _actionItem.Variables.AllKeys)
+            {
+                if (string.IsNullOrEmpty(variable))
+                {
+                    continue;
+                }
+
+                var value = _actionItem.Variables.Get(variable);
+                //TODO: replace tokens here for value
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _sessionProvider.Set(_context.SessionKey, SessionConstants.VariablePrefix+variable, value);
+                }
+            }
             throw new NotImplementedException();
         }
     }

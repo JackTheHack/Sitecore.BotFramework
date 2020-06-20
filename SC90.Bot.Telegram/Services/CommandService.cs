@@ -26,7 +26,8 @@ namespace SC90.Bot.Telegram.Services
                     CurrentState = context.CurrentState,
                     CommandContext = context.CommandContext,
                     Chatbot = context.Chatbot,
-                    ActionContext = action
+                    ActionContext = action,
+                    SessionKey = context.SessionKey
                 };
 
                 var actionHandler = _actionFactory.CreateHandler(action);

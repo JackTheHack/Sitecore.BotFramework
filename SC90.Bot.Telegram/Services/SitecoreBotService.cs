@@ -4,6 +4,7 @@ using Glass.Mapper.Sc;
 using MongoDB.Bson;
 using SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2;
 using SC90.Bot.Telegram.Abstractions;
+using SC90.Bot.Telegram.Constants;
 using SC90.Bot.Telegram.Models;
 using Sitecore.Data.Items;
 
@@ -143,7 +144,7 @@ namespace SC90.Bot.Telegram.Services
             var defaultDialogueItem = _sitecoreContext.GetItem<_Dialogue>(_chatBot.Start);
             var defaultStateItem = _sitecoreContext.GetItem<_State>(defaultDialogueItem.NewState);
 
-            if (_sessionDocument.TryGetValue("State", out var stateVal))
+            if (_sessionDocument.TryGetValue(SessionConstants.State, out var stateVal))
             {
                 _State stateItem = null;
                 
@@ -154,14 +155,14 @@ namespace SC90.Bot.Telegram.Services
 
                 if (stateItem == null)
                 {
-                    _sessionDocument.Set("State", defaultStateItem.Id);
+                    _sessionDocument.Set(SessionConstants.State, defaultStateItem.Id);
                     return defaultStateItem;
                 }
 
                 return stateItem;
             }
 
-            _sessionDocument.Set("State", defaultStateItem.Id);
+            _sessionDocument.Set(SessionConstants.State, defaultStateItem.Id);
             return defaultStateItem;
         }
 

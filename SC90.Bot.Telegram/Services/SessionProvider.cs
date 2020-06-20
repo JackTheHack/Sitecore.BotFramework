@@ -61,7 +61,7 @@ namespace SC90.Bot.Telegram.Services
             sessionDoc.Set("UpdatedAt", DateTime.UtcNow);
             sessionDoc.Set(fieldName, value);
 
-            await sessionCollection.UpdateOneAsync(filter, sessionDoc, new UpdateOptions()
+            await sessionCollection.UpdateOneAsync(filter, new BsonDocument(){{"$set", sessionDoc}}, new UpdateOptions()
             {
                 IsUpsert = true
             });
