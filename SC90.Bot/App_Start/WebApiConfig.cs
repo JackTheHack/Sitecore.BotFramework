@@ -1,4 +1,4 @@
-﻿using System.Web.Http;
+using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using BotControllerActivator = SC90.Bot.Mvc.BotControllerActivator;
 

@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
 using SC90.Bot.Controllers;
+using Sitecore.Configuration;
 using Sitecore.Data.Items;
 
 namespace SC90.Bot.Mvc
@@ -22,7 +23,6 @@ namespace SC90.Bot.Mvc
             var routeData = request.GetRouteData();
 
             if (Sitecore.Context.Site != null &&
-                (string)routeData.Values["controller"] == "Bot" &&
                 routeData.Values.ContainsKey("botId") &&
                 !string.IsNullOrEmpty((string)routeData.Values["botId"]))
             {
@@ -46,7 +46,9 @@ namespace SC90.Bot.Mvc
 
         private Item GetBotStartItem(object botName, string site)
         {
-            var botItemsRoot = Sitecore.Context.Database.GetItem(site + "/Data/Bots");
+            var botFolder = Settings.GetSetting("BotFramework:BotFolder", "/Data/Bots");
+
+            var botItemsRoot = Sitecore.Context.Database.GetItem(site + botFolder);
 
             if (botItemsRoot == null)
             {

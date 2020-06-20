@@ -19,13 +19,13 @@
     <ManageRoles>False</ManageRoles>
     <SitecoreDatabase>master</SitecoreDatabase>
     <AssemblyStatus>Exclude</AssemblyStatus>
-    <EnableCodeGeneration>False</EnableCodeGeneration>
+    <EnableCodeGeneration>True</EnableCodeGeneration>
     <FieldsForCodeGen>Title,Blob,Shared,Unversioned,Default value,Validation,ValidationText,__Long description,__Short description,__Display name,__Hidden,__Read Only,__Sortorder</FieldsForCodeGen>
-    <CodeGenTargetProject>SC90.Bot</CodeGenTargetProject>
-    <CodeGenFile>Models/Models.cs</CodeGenFile>
-    <BaseNamespace>SC90.Bot.Models</BaseNamespace>
-    <BaseTransformFile>GlassV5Item.tt</BaseTransformFile>
-    <HeaderTransformFile>GlassV5Header.tt</HeaderTransformFile>
+    <CodeGenTargetProject>SC90.Bot.CodeGen</CodeGenTargetProject>
+    <CodeGenFile>GeneratedCode.cs</CodeGenFile>
+    <BaseNamespace>SC90.Bot.CodeGen</BaseNamespace>
+    <BaseTransformFile>glassv3item.tt</BaseTransformFile>
+    <HeaderTransformFile>glassv3header.tt</HeaderTransformFile>
     <SourceWebVirtualPath>/SC90.Bot.csproj</SourceWebVirtualPath>
     <SourceWebProject>{d4e5e212-7352-4e81-9d28-0a072f481802}|SC90.Bot\SC90.Bot.csproj</SourceWebProject>
     <SourceWebPhysicalPath>..\SC90.Bot</SourceWebPhysicalPath>
@@ -2287,6 +2287,26 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content\EventName.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content\NewState.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content\TimeoutSeconds.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetSessionVariable.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -2296,6 +2316,26 @@
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetSessionVariable\Content\Variables.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout\Content.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout\Content\EventName.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout\Content\NewState.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout\Content\TimeoutSeconds.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
@@ -2587,6 +2627,18 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Foundation\SitecoreBotFrameworkV2\_Bot\Global.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Foundation\SitecoreBotFrameworkV2\_Bot\Global\ErrorHandler.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Foundation\SitecoreBotFrameworkV2\_Bot\Global\GlobalState.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Foundation\SitecoreBotFrameworkV2\_BotFolder.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -2799,7 +2851,7 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Project\Sandbox\QuestionBot\Question\Content\Question.item">
+    <SitecoreItem Include="sitecore\templates\Project\Sandbox\QuestionBot\Question\Content\QuestionText.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
@@ -2833,6 +2885,23 @@
       <Project>{d4e5e212-7352-4e81-9d28-0a072f481802}</Project>
       <Name>SC90.Bot</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeGenTemplate Include="Code Generation Templates\generalextensions.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\glassheader.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\glassitem.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\glassv3header.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\glassv3item.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\glassv5header.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\glassv5item.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\helpers.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\inflector.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\itempaths.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\mddocheader.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\mddocitem.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\stringextensions.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\velirheader.tt" />
+    <CodeGenTemplate Include="Code Generation Templates\veliritem.tt" />
   </ItemGroup>
   <Import Project="packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets" Condition="Exists('packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets')" />
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />

@@ -1,10 +1,10 @@
 ----item----
 version: 1
-id: {150F47FE-8B9C-4453-B0BE-8CEDB83A37A0}
+id: {9358105F-7B42-4246-B43A-100031B3029D}
 database: master
-path: /sitecore/templates/Project/Sandbox/QuestionBot/Question/Content/Question
-parent: {CC70F7F3-FD8E-4AD0-8390-623A0A4EF98E}
-name: Question
+path: /sitecore/templates/Foundation/SitecoreBotFrameworkV2/_Bot/Global/GlobalState
+parent: {3666CD35-EF92-4D99-94E6-921634F26B5C}
+name: GlobalState
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
@@ -13,20 +13,20 @@ templatekey: Template field
 field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
 name: Type
 key: type
-content-length: 16
+content-length: 8
 
-Single-Line Text
+Droptree
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
 key: __sortorder
 content-length: 3
 
-100
+200
 ----version----
 language: en
 version: 1
-revision: eba1974d-d6bd-41d1-9ed8-bcdc338a44fd
+revision: d83e04a9-568b-4b98-bf5d-37c02e1e9dba
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -34,21 +34,21 @@ name: __Created
 key: __created
 content-length: 16
 
-20200601T055148Z
+20200620T011940Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-eba1974d-d6bd-41d1-9ed8-bcdc338a44fd
+d83e04a9-568b-4b98-bf5d-37c02e1e9dba
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20200601T055204Z
+20200620T011940Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

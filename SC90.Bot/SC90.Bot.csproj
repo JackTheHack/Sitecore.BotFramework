@@ -144,16 +144,15 @@
     <Compile Include="App_Start\GlassMapperScCustom.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Pipelines\initialize\InitializeBotFramework.cs" />
+    <Compile Include="RegisterServices.cs" />
+    <Compile Include="Extensions\ServiceCollectionExtensions.cs" />
     <Compile Include="Mvc\BotControllerActivator.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
-    <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -163,8 +162,11 @@
     <Content Include="App_Config\Include\Glass\z.Glass.Mapper.Sc.ViewRender.config.exclude" />
     <Content Include="App_Config\Include\Glass\Glass.Mapper.Sc.Start.config" />
     <Content Include="App_Config\Include\Glass\Glass.Mapper.Sc.config" />
-    <Content Include="App_Config\Include\SitecoreBotFramework\SitecoreBotFramework.Actions.config" />
-    <Content Include="App_Config\Include\SitecoreBotFramework\SitecoreBotFramework.Telegram.config" />
+    <Content Include="App_Config\Include\SitecoreBotFramework\SitecoreBotFramework.Telegram.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Config\Include\SitecoreBotFramework\SitecoreBotFramework.Common.config" />
+    <Content Include="App_Config\Include\SitecoreBotFramework\SitecoreBotFramework.ActionMapping.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

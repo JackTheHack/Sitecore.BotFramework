@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,7 @@ namespace SC90.Bot.Telegram.Models
 {
     public class TelegramBotConfiguration
     {
-        public string BotToken { get; set; } 
+        public string BotToken { get; set; }
+        public string WebHookEndpoint { get; set; }
     }
 }

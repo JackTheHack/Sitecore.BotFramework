@@ -24,7 +24,7 @@ namespace SC90.Bot
                 controller = "Telegram",
                 action = "Post", 
                 id = RouteParameter.Optional
-            });   
+            });
         }
     }
 }

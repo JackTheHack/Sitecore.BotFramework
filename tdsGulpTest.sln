@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC90.Bot.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC90.Bot.Telegram", "SC90.Bot.Telegram\SC90.Bot.Telegram.csproj", "{62B55700-65DF-4002-AA4B-A62E9B7C9CD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC90.Bot.CodeGen", "SC90.Bot.CodeGen\SC90.Bot.CodeGen.csproj", "{17EF0BD4-F421-4E25-9401-C99434FA808A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,12 +43,16 @@ Global
 		{62B55700-65DF-4002-AA4B-A62E9B7C9CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62B55700-65DF-4002-AA4B-A62E9B7C9CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62B55700-65DF-4002-AA4B-A62E9B7C9CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17EF0BD4-F421-4E25-9401-C99434FA808A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17EF0BD4-F421-4E25-9401-C99434FA808A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17EF0BD4-F421-4E25-9401-C99434FA808A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17EF0BD4-F421-4E25-9401-C99434FA808A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 		SolutionGuid = {90E2EC12-7D1E-4966-88FB-35FF71D92C6A}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
