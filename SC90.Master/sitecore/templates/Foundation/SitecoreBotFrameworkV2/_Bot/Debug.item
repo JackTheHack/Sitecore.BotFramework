@@ -1,32 +1,25 @@
 ----item----
 version: 1
-id: {FE36A840-6B15-4135-9029-8F578A043934}
+id: {AD707DBC-82D0-4991-8AED-7FBF8AFBB5DD}
 database: master
-path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Actions/SetInterval/Content/TimeoutSeconds
-parent: {1287DB42-D737-49C3-84E2-03D73DA8B934}
-name: TimeoutSeconds
+path: /sitecore/templates/Foundation/SitecoreBotFrameworkV2/_Bot/Debug
+parent: {C3C635F1-9403-46AD-A40C-7AFFCE9120F2}
+name: Debug
 master: {00000000-0000-0000-0000-000000000000}
-template: {455A3E98-A627-4B40-8035-E683A0331AC7}
-templatekey: Template field
+template: {E269FBB5-3750-427A-9149-7AA950B49301}
+templatekey: Template section
 
-----field----
-field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
-name: Type
-key: type
-content-length: 6
-
-Number
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
 key: __sortorder
 content-length: 3
 
-100
+300
 ----version----
 language: en
 version: 1
-revision: 21f2efb7-1228-49c8-9486-01f46f27a3f2
+revision: eedbf419-0b37-4591-bb21-e6649d5cbdc6
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -34,21 +27,21 @@ name: __Created
 key: __created
 content-length: 16
 
-20200601T065347Z
+20200724T225002Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-21f2efb7-1228-49c8-9486-01f46f27a3f2
+eedbf419-0b37-4591-bb21-e6649d5cbdc6
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20200601T210924Z
+20200724T225002Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

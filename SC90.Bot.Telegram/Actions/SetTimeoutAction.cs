@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Glass.Mapper.Sc;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,10 +6,7 @@ using SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFr
 using SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2;
 using SC90.Bot.Telegram.Abstractions;
 using SC90.Bot.Telegram.Models;
-using Sitecore.Data.Items;
 using Sitecore.DependencyInjection;
-using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
 
 namespace SC90.Bot.Telegram.Actions
 {
@@ -20,15 +14,17 @@ namespace SC90.Bot.Telegram.Actions
     {
         private SetTimeout _actionItem;
         
-        private readonly ISitecoreContext _sitecoreContext;
+        private readonly ISitecoreService _sitecoreContext;
         private readonly ITelegramService _telegramService;
-        
-        private ChatbotActionContext _context;
+        private readonly ISchedulerService _schedulerService;
 
+        private ChatbotActionContext _context;
+        
         public SetTimeoutAction()
         {
-            _sitecoreContext = ServiceLocator.ServiceProvider.GetService<ISitecoreContext>();
+            _sitecoreContext = new SitecoreService("web");
             _telegramService = ServiceLocator.ServiceProvider.GetService<ITelegramService>();
+            _schedulerService = ServiceLocator.ServiceProvider.GetService<ISchedulerService>();
         }
 
         public void SetContextItem(_DialogAction action, ChatbotActionContext context)
@@ -40,8 +36,33 @@ namespace SC90.Bot.Telegram.Actions
 
         public async Task Execute()
         {
-            //TODO: Set timeout with Quartz
-            throw new NotImplementedException();
+            var jobData = new SchedulingJobData
+            {
+                EventName = _actionItem.EventName,
+                JobId = _actionItem.JobId,
+                SessionId = _context.SessionKey,
+                UserId = _context.ChatUpdate?.UserId,
+                Source = _context.ChatUpdate?.Source,
+                IsRecurrent = false,
+                IsGlobal = _actionItem.IsGlobal,
+                BotId = _context.Chatbot.Id,
+                Parameters = new Dictionary<string, string>()
+            };
+
+            if (_actionItem.Parameters != null)
+            {
+                foreach (string actionItemParameter in _actionItem.Parameters)
+                {
+                    jobData.Parameters.Add(actionItemParameter, _actionItem.Parameters[actionItemParameter]);
+                }
+            }
+
+            await _schedulerService.SetTimeout(
+                _context.Chatbot.Id.ToString(), 
+                _actionItem.IsGlobal ? string.Empty : _context.SessionKey, 
+                _actionItem.JobId, 
+                _actionItem.TimeoutSeconds, 
+                jobData);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace SC90.Bot.Telegram.Actions
     {
         private SetSessionVariable _actionItem;
         
-        private readonly ISitecoreContext _sitecoreContext;
+        private readonly ISitecoreService _sitecoreContext;
         private readonly ITelegramService _telegramService;
         private readonly ISessionProvider _sessionProvider;
 
@@ -30,7 +30,7 @@ namespace SC90.Bot.Telegram.Actions
 
         public SetSessionVariableAction()
         {
-            _sitecoreContext = ServiceLocator.ServiceProvider.GetService<ISitecoreContext>();
+            _sitecoreContext = new SitecoreService("web");
             _sessionProvider = ServiceLocator.ServiceProvider.GetService<ISessionProvider>();
             _telegramService = ServiceLocator.ServiceProvider.GetService<ITelegramService>();
         }

@@ -16,6 +16,10 @@ namespace SC90.Bot.Telegram
         {
             RegisterRoute(RouteTable.Routes);
 
+            var schedulerService = new SchedulerService();
+            schedulerService.Initialize().Wait();
+
+            services.AddSingleton<ISchedulerService, SchedulerService>(x => schedulerService);
             services.AddTransient<ITelegramService, TelegramService>();
             services.AddTransient<ISitecoreBotService, SitecoreBotService>();
             services.AddTransient<ISessionProvider, MongoSessionProvider>();

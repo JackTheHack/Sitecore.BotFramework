@@ -9,33 +9,36 @@ using Sitecore.Rules.Conditions;
 
 namespace SC90.Bot.Telegram.RuleActions
 {
-    public class CompareRequestValueEqualCondition<T> : StringOperatorCondition<T>
+    public class CompareSchedulingEventValueEqualCondition<T> : StringOperatorCondition<T>
         where T : ChatbotRuleContext
     {
         public string Value { get; set; }
 
         protected override bool Execute(T ruleContext)
         {
-            if (ruleContext.ChatUpdate == null)
-            {
-                return false;
-            }
-
             var pipelineContext = new ChatbotPipelineContext()
             {
                 CurrentState = ruleContext.CurrentState,
-                Chatbot                = ruleContext.Chatbot,
+                Chatbot = ruleContext.Chatbot,
                 CommandContext = ruleContext.CommandContext,
                 ChatUpdate = ruleContext.ChatUpdate
             };
 
-            var value1 = ruleContext.ChatUpdate?.Message;
+            if(ruleContext.SchedulingData == null)
+            {
+                return false;
+            }
+
+            var value1 = ruleContext.SchedulingData?.EventName;
+
             if (value1 == null) value1 = string.Empty;
 
-            var tokenArgs = new ResolveTokenPipelineArgs() {Value = Value, BotContext = pipelineContext};
+            var tokenArgs = new ResolveTokenPipelineArgs() { Value = Value, BotContext = pipelineContext };
             CorePipeline.Run("resolveBotTokens", tokenArgs);
             var value2 = tokenArgs.Value;
+
             if (value2 == null) value2 = string.Empty;
+
 
             return Compare(value1, value2);
         }

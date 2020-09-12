@@ -205,6 +205,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_Bot.cs" />
     <Compile Include="_Command.cs" />
+    <Compile Include="Condition.cs" />
+    <Compile Include="_DecisionBranch.cs" />
+    <Compile Include="_Dialogue.cs" />
     <Compile Include="_State.cs" />
   </ItemGroup>
   <ItemGroup>

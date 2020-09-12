@@ -50,6 +50,12 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen
 		[SitecoreInfo(SitecoreInfoType.TemplateId)]
         Guid TemplateId { get; }
 
+		[SitecoreInfo(SitecoreInfoType.FullPath)]
+        string FullPath { get; set; }
+
+        [SitecoreInfo(SitecoreInfoType.Name)]
+        string Name { get; set; }
+
 	}
 
 	public abstract partial class GlassBase : IGlassBase{
@@ -68,6 +74,12 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen
 
 		[SitecoreInfo(SitecoreInfoType.TemplateId)]
         public virtual Guid TemplateId { get; }
+
+		[SitecoreInfo(SitecoreInfoType.FullPath)]
+        public virtual string FullPath { get; set; }
+
+        [SitecoreInfo(SitecoreInfoType.Name)]
+        public virtual string Name { get; set; }
 	}
 }
 
@@ -85,6 +97,16 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	public partial interface ISetInterval : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
 	{
 								/// <summary>
+					/// The CronDescription field.
+					/// <para></para>
+					/// <para>Field Type: Single-Line Text</para>		
+					/// <para>Field ID: fe36a840-6b15-4135-9029-8f578a043934</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(ISetIntervalConstants.CronDescriptionFieldName)]
+					string CronDescription  {get; set;}
+			
+								/// <summary>
 					/// The EventName field.
 					/// <para></para>
 					/// <para>Field Type: Single-Line Text</para>		
@@ -93,6 +115,26 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 					/// </summary>
 					[SitecoreField(ISetIntervalConstants.EventNameFieldName)]
 					string EventName  {get; set;}
+			
+								/// <summary>
+					/// The IsGlobal field.
+					/// <para></para>
+					/// <para>Field Type: Checkbox</para>		
+					/// <para>Field ID: b86799bb-4ff7-47e0-84b1-6bd0f309cd77</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(ISetIntervalConstants.IsGlobalFieldName)]
+					bool IsGlobal  {get; set;}
+			
+								/// <summary>
+					/// The JobId field.
+					/// <para></para>
+					/// <para>Field Type: Single-Line Text</para>		
+					/// <para>Field ID: 1f38b3aa-a44d-4e60-ade0-c392788b4c39</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(ISetIntervalConstants.JobIdFieldName)]
+					string JobId  {get; set;}
 			
 								/// <summary>
 					/// The NewState field.
@@ -105,14 +147,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 					Guid NewState  {get; set;}
 			
 								/// <summary>
-					/// The TimeoutSeconds field.
+					/// The Parameters field.
 					/// <para></para>
-					/// <para>Field Type: Number</para>		
-					/// <para>Field ID: fe36a840-6b15-4135-9029-8f578a043934</para>
+					/// <para>Field Type: Name Value List</para>		
+					/// <para>Field ID: f2b4be8d-89dc-43fb-be99-5c59f9034f97</para>
 					/// <para>Custom Data: </para>
 					/// </summary>
-					[SitecoreField(ISetIntervalConstants.TimeoutSecondsFieldName)]
-					float TimeoutSeconds  {get; set;}
+					[SitecoreField(ISetIntervalConstants.ParametersFieldName)]
+					System.Collections.Specialized.NameValueCollection Parameters  {get; set;}
 			
 				}
 
@@ -124,16 +166,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public const string TemplateName = "SetInterval";
 
 					
+			public static readonly ID CronDescriptionFieldId = new ID("fe36a840-6b15-4135-9029-8f578a043934");
+			public const string CronDescriptionFieldName = "CronDescription";
+			
+					
 			public static readonly ID EventNameFieldId = new ID("59a70ac3-185a-4089-8d12-aa0e8f552e04");
 			public const string EventNameFieldName = "EventName";
+			
+					
+			public static readonly ID IsGlobalFieldId = new ID("b86799bb-4ff7-47e0-84b1-6bd0f309cd77");
+			public const string IsGlobalFieldName = "IsGlobal";
+			
+					
+			public static readonly ID JobIdFieldId = new ID("1f38b3aa-a44d-4e60-ade0-c392788b4c39");
+			public const string JobIdFieldName = "JobId";
 			
 					
 			public static readonly ID NewStateFieldId = new ID("1a6f83da-4852-46de-8530-057a85656c73");
 			public const string NewStateFieldName = "NewState";
 			
 					
-			public static readonly ID TimeoutSecondsFieldId = new ID("fe36a840-6b15-4135-9029-8f578a043934");
-			public const string TimeoutSecondsFieldName = "TimeoutSeconds";
+			public static readonly ID ParametersFieldId = new ID("f2b4be8d-89dc-43fb-be99-5c59f9034f97");
+			public const string ParametersFieldName = "Parameters";
 			
 			
 
@@ -151,6 +205,17 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	{
 	   
 						/// <summary>
+				/// The CronDescription field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: fe36a840-6b15-4135-9029-8f578a043934</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetIntervalConstants.CronDescriptionFieldName)]
+				public virtual string CronDescription  {get; set;}
+					
+						/// <summary>
 				/// The EventName field.
 				/// <para></para>
 				/// <para>Field Type: Single-Line Text</para>		
@@ -160,6 +225,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(ISetIntervalConstants.EventNameFieldName)]
 				public virtual string EventName  {get; set;}
+					
+						/// <summary>
+				/// The IsGlobal field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: b86799bb-4ff7-47e0-84b1-6bd0f309cd77</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetIntervalConstants.IsGlobalFieldName)]
+				public virtual bool IsGlobal  {get; set;}
+					
+						/// <summary>
+				/// The JobId field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 1f38b3aa-a44d-4e60-ade0-c392788b4c39</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetIntervalConstants.JobIdFieldName)]
+				public virtual string JobId  {get; set;}
 					
 						/// <summary>
 				/// The NewState field.
@@ -173,15 +260,15 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				public virtual Guid NewState  {get; set;}
 					
 						/// <summary>
-				/// The TimeoutSeconds field.
+				/// The Parameters field.
 				/// <para></para>
-				/// <para>Field Type: Number</para>		
-				/// <para>Field ID: fe36a840-6b15-4135-9029-8f578a043934</para>
+				/// <para>Field Type: Name Value List</para>		
+				/// <para>Field ID: f2b4be8d-89dc-43fb-be99-5c59f9034f97</para>
 				/// <para>Custom Data: </para>
 				/// </summary>
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISetIntervalConstants.TimeoutSecondsFieldName)]
-				public virtual float TimeoutSeconds  {get; set;}
+				[SitecoreField(ISetIntervalConstants.ParametersFieldName)]
+				public virtual System.Collections.Specialized.NameValueCollection Parameters  {get; set;}
 					
 			
 	}
@@ -1130,6 +1217,26 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 					string EventName  {get; set;}
 			
 								/// <summary>
+					/// The IsGlobal field.
+					/// <para></para>
+					/// <para>Field Type: Checkbox</para>		
+					/// <para>Field ID: 4bf8280a-cafe-4bee-8b7e-9b584391f56e</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(ISetTimeoutConstants.IsGlobalFieldName)]
+					bool IsGlobal  {get; set;}
+			
+								/// <summary>
+					/// The JobId field.
+					/// <para></para>
+					/// <para>Field Type: Single-Line Text</para>		
+					/// <para>Field ID: 0d0058c1-eb29-4691-815d-7654f980064c</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(ISetTimeoutConstants.JobIdFieldName)]
+					string JobId  {get; set;}
+			
+								/// <summary>
 					/// The NewState field.
 					/// <para></para>
 					/// <para>Field Type: Droptree</para>		
@@ -1138,6 +1245,16 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 					/// </summary>
 					[SitecoreField(ISetTimeoutConstants.NewStateFieldName)]
 					Guid NewState  {get; set;}
+			
+								/// <summary>
+					/// The Parameters field.
+					/// <para></para>
+					/// <para>Field Type: Name Value List</para>		
+					/// <para>Field ID: 37f0db0e-1600-45e0-97b6-c094f31f77cb</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(ISetTimeoutConstants.ParametersFieldName)]
+					System.Collections.Specialized.NameValueCollection Parameters  {get; set;}
 			
 								/// <summary>
 					/// The TimeoutSeconds field.
@@ -1163,8 +1280,20 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public const string EventNameFieldName = "EventName";
 			
 					
+			public static readonly ID IsGlobalFieldId = new ID("4bf8280a-cafe-4bee-8b7e-9b584391f56e");
+			public const string IsGlobalFieldName = "IsGlobal";
+			
+					
+			public static readonly ID JobIdFieldId = new ID("0d0058c1-eb29-4691-815d-7654f980064c");
+			public const string JobIdFieldName = "JobId";
+			
+					
 			public static readonly ID NewStateFieldId = new ID("91dc8e6b-cc15-4162-9960-cf6d5901555c");
 			public const string NewStateFieldName = "NewState";
+			
+					
+			public static readonly ID ParametersFieldId = new ID("37f0db0e-1600-45e0-97b6-c094f31f77cb");
+			public const string ParametersFieldName = "Parameters";
 			
 					
 			public static readonly ID TimeoutSecondsFieldId = new ID("d5cd9e91-b956-4fe7-9e74-5c67e3a08b54");
@@ -1197,6 +1326,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				public virtual string EventName  {get; set;}
 					
 						/// <summary>
+				/// The IsGlobal field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 4bf8280a-cafe-4bee-8b7e-9b584391f56e</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetTimeoutConstants.IsGlobalFieldName)]
+				public virtual bool IsGlobal  {get; set;}
+					
+						/// <summary>
+				/// The JobId field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 0d0058c1-eb29-4691-815d-7654f980064c</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetTimeoutConstants.JobIdFieldName)]
+				public virtual string JobId  {get; set;}
+					
+						/// <summary>
 				/// The NewState field.
 				/// <para></para>
 				/// <para>Field Type: Droptree</para>		
@@ -1206,6 +1357,17 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(ISetTimeoutConstants.NewStateFieldName)]
 				public virtual Guid NewState  {get; set;}
+					
+						/// <summary>
+				/// The Parameters field.
+				/// <para></para>
+				/// <para>Field Type: Name Value List</para>		
+				/// <para>Field ID: 37f0db0e-1600-45e0-97b6-c094f31f77cb</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetTimeoutConstants.ParametersFieldName)]
+				public virtual System.Collections.Specialized.NameValueCollection Parameters  {get; set;}
 					
 						/// <summary>
 				/// The TimeoutSeconds field.
@@ -3261,6 +3423,96 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			
 	}
 }
+namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFrameworkV2.Actions
+{
+
+
+ 	/// <summary>
+	/// IStopJob Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Actions/StopJob</para>	
+	/// <para>ID: 877a013a-8b95-48d7-b106-9b0459a9904a</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IStopJobConstants.TemplateIdString )] //, Cachable = true
+	public partial interface IStopJob : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	{
+								/// <summary>
+					/// The IsGlobal field.
+					/// <para></para>
+					/// <para>Field Type: Checkbox</para>		
+					/// <para>Field ID: 95cfd10f-715f-4851-8b1e-20f1b81e4a80</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(IStopJobConstants.IsGlobalFieldName)]
+					bool IsGlobal  {get; set;}
+			
+								/// <summary>
+					/// The JobId field.
+					/// <para></para>
+					/// <para>Field Type: Single-Line Text</para>		
+					/// <para>Field ID: 55e0dcf5-fbba-4dde-b923-ddfc17d26ab8</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(IStopJobConstants.JobIdFieldName)]
+					string JobId  {get; set;}
+			
+				}
+
+
+	public static partial class IStopJobConstants{
+
+			public const string TemplateIdString = "877a013a-8b95-48d7-b106-9b0459a9904a";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "StopJob";
+
+					
+			public static readonly ID IsGlobalFieldId = new ID("95cfd10f-715f-4851-8b1e-20f1b81e4a80");
+			public const string IsGlobalFieldName = "IsGlobal";
+			
+					
+			public static readonly ID JobIdFieldId = new ID("55e0dcf5-fbba-4dde-b923-ddfc17d26ab8");
+			public const string JobIdFieldName = "JobId";
+			
+			
+
+	}
+
+	
+	/// <summary>
+	/// StopJob
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Actions/StopJob</para>	
+	/// <para>ID: 877a013a-8b95-48d7-b106-9b0459a9904a</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IStopJobConstants.TemplateIdString)] //, Cachable = true
+	public partial class StopJob  : GlassBase, IStopJob 
+	{
+	   
+						/// <summary>
+				/// The IsGlobal field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: 95cfd10f-715f-4851-8b1e-20f1b81e4a80</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IStopJobConstants.IsGlobalFieldName)]
+				public virtual bool IsGlobal  {get; set;}
+					
+						/// <summary>
+				/// The JobId field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 55e0dcf5-fbba-4dde-b923-ddfc17d26ab8</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IStopJobConstants.JobIdFieldName)]
+				public virtual string JobId  {get; set;}
+					
+			
+	}
+}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
 {
 
@@ -3992,6 +4244,10 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public const string StartFieldName = "Start";
 			
 					
+			public static readonly ID EnableDebugModeFieldId = new ID("f8d769aa-0430-48b9-adde-6036029dfbc3");
+			public const string EnableDebugModeFieldName = "EnableDebugMode";
+			
+					
 			public static readonly ID ErrorHandlerFieldId = new ID("352528bb-c3d7-4a5e-9cb6-3fa8399f0b3d");
 			public const string ErrorHandlerFieldName = "ErrorHandler";
 			
@@ -4037,6 +4293,17 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				public virtual Guid Start  {get; set;}
 					
 						/// <summary>
+				/// The EnableDebugMode field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: f8d769aa-0430-48b9-adde-6036029dfbc3</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IBotConstants.EnableDebugModeFieldName)]
+				public virtual bool EnableDebugMode  {get; set;}
+					
+						/// <summary>
 				/// The ErrorHandler field.
 				/// <para></para>
 				/// <para>Field Type: Droptree</para>		
@@ -4058,6 +4325,46 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[SitecoreField(IBotConstants.GlobalStateFieldName)]
 				public virtual Guid GlobalState  {get; set;}
 					
+			
+	}
+}
+namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFrameworkV2.Actions
+{
+
+
+ 	/// <summary>
+	/// IClearSession Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Actions/ClearSession</para>	
+	/// <para>ID: b7f4bee9-0674-4e75-8846-bbf878e785c6</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IClearSessionConstants.TemplateIdString )] //, Cachable = true
+	public partial interface IClearSession : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	{
+				}
+
+
+	public static partial class IClearSessionConstants{
+
+			public const string TemplateIdString = "b7f4bee9-0674-4e75-8846-bbf878e785c6";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "ClearSession";
+
+			
+
+	}
+
+	
+	/// <summary>
+	/// ClearSession
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Actions/ClearSession</para>	
+	/// <para>ID: b7f4bee9-0674-4e75-8846-bbf878e785c6</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=IClearSessionConstants.TemplateIdString)] //, Cachable = true
+	public partial class ClearSession  : GlassBase, IClearSession 
+	{
+	   
 			
 	}
 }
@@ -4135,6 +4442,16 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 					Guid Start  {get; set;}
 			
 								/// <summary>
+					/// The EnableDebugMode field.
+					/// <para></para>
+					/// <para>Field Type: Checkbox</para>		
+					/// <para>Field ID: f8d769aa-0430-48b9-adde-6036029dfbc3</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(I_BotConstants.EnableDebugModeFieldName)]
+					bool EnableDebugMode  {get; set;}
+			
+								/// <summary>
 					/// The ErrorHandler field.
 					/// <para></para>
 					/// <para>Field Type: Droptree</para>		
@@ -4170,6 +4487,10 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 					
 			public static readonly ID StartFieldId = new ID("c5a306fe-8eeb-4397-89af-9c00f0c4e7b1");
 			public const string StartFieldName = "Start";
+			
+					
+			public static readonly ID EnableDebugModeFieldId = new ID("f8d769aa-0430-48b9-adde-6036029dfbc3");
+			public const string EnableDebugModeFieldName = "EnableDebugMode";
 			
 					
 			public static readonly ID ErrorHandlerFieldId = new ID("352528bb-c3d7-4a5e-9cb6-3fa8399f0b3d");
@@ -4215,6 +4536,17 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(I_BotConstants.StartFieldName)]
 				public virtual Guid Start  {get; set;}
+					
+						/// <summary>
+				/// The EnableDebugMode field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: f8d769aa-0430-48b9-adde-6036029dfbc3</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(I_BotConstants.EnableDebugModeFieldName)]
+				public virtual bool EnableDebugMode  {get; set;}
 					
 						/// <summary>
 				/// The ErrorHandler field.

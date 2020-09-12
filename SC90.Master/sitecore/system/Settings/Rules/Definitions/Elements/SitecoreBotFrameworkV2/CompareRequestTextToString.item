@@ -2,9 +2,9 @@
 version: 1
 id: {8D0254CA-D645-4F51-B7FD-48BBD14215BC}
 database: master
-path: /sitecore/system/Settings/Rules/Definitions/Elements/SitecoreBotFrameworkV2/BooleanCondition
+path: /sitecore/system/Settings/Rules/Definitions/Elements/SitecoreBotFrameworkV2/CompareRequestTextToString
 parent: {8C5CBD8B-19D2-499B-A514-5B3BF74ACBD1}
-name: BooleanCondition
+name: CompareRequestTextToString
 master: {00000000-0000-0000-0000-000000000000}
 template: {F0D16EEE-3A05-4E43-A082-795A32B873C0}
 templatekey: Condition
@@ -13,21 +13,21 @@ templatekey: Condition
 field: {AB51C8B2-F0E1-4471-9AAE-CC080D774923}
 name: Type
 key: type
-content-length: 78
+content-length: 82
 
-SC90.Bot.Infrastructure.Rules.Conditions.ComparePromptValueToBoolean, SC90.Bot
+SC90.Bot.Telegram.RuleActions.CompareRequestValueEqualCondition, SC90.Bot.Telegram
 ----version----
 language: en
 version: 1
-revision: a017e069-5b0b-4da4-bd36-d99e74354345
+revision: 2cc6278b-1600-4ad0-bb07-7e81abd0b8c5
 
 ----field----
 field: {AF321234-4EB9-4EF5-9197-65903351939C}
 name: Text
 key: text
-content-length: 63
+content-length: 72
 
-If [value,,,value] is  [operatorid,UnaryCondition,,compares to]
+If request text [operatorid,StringOperator,,compares to] [value,,,value]
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a017e069-5b0b-4da4-bd36-d99e74354345
+2cc6278b-1600-4ad0-bb07-7e81abd0b8c5
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20200601T071404Z
+20200620T051928Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

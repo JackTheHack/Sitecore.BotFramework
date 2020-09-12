@@ -21,7 +21,7 @@ namespace SC90.Bot.Telegram.Actions
     {
         private SetContextItem _actionItem;
         
-        private readonly ISitecoreContext _sitecoreContext;
+        private readonly ISitecoreService _sitecoreContext;
         private readonly ISessionProvider _sessionProvider;
         private readonly ITelegramService _telegramService;
         
@@ -29,7 +29,7 @@ namespace SC90.Bot.Telegram.Actions
 
         public SetContextItemAction()
         {
-            _sitecoreContext = ServiceLocator.ServiceProvider.GetService<ISitecoreContext>();
+            _sitecoreContext = new SitecoreService("web");
             _sessionProvider = ServiceLocator.ServiceProvider.GetService<ISessionProvider>();
             _telegramService = ServiceLocator.ServiceProvider.GetService<ITelegramService>();
         }
@@ -50,7 +50,6 @@ namespace SC90.Bot.Telegram.Actions
         public async Task Execute()
         {
             _sessionProvider.Set(_context.SessionKey, SessionConstants.Item, _actionItem.Item);
-            throw new NotImplementedException();
         }
     }
 }

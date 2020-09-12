@@ -16,16 +16,18 @@ namespace SC90.Bot.Telegram.Controllers
 {
     public class TelegramApiController : ApiController
     {
-        private readonly ISitecoreContext _sitecoreContext;
+        private readonly ISitecoreService _sitecoreContext;
         
         private readonly _Bot _chatBotItem;
         private _Dialogue _startDialog;
         private readonly ISitecoreBotService _sitecoreBotService;
+        private readonly ISchedulerService _schedulerService;
 
         public TelegramApiController(Item startItem)
         {
-            _sitecoreContext = ServiceLocator.ServiceProvider.GetService<ISitecoreContext>();
+            _sitecoreContext = new SitecoreService("web");
             _sitecoreBotService = ServiceLocator.ServiceProvider.GetService<ISitecoreBotService>();
+            _schedulerService = ServiceLocator.ServiceProvider.GetService<ISchedulerService>();
             _chatBotItem = _sitecoreContext.GetItem<_Bot>(startItem);
         }
 
@@ -64,6 +66,13 @@ namespace SC90.Bot.Telegram.Controllers
         {
             await _sitecoreBotService.Register("telegram", RequestContext.Url.Request.RequestUri.Host);
             return Content(HttpStatusCode.OK, "Registered.");
+        }
+
+        [HttpGet]
+        public async Task<IHttpActionResult> ClearJobs()
+        {
+            await _schedulerService.ClearJobs(_chatBotItem.Id.ToString());
+            return Content(HttpStatusCode.OK, "Jobs Cleared.");
         }
     }
 }

@@ -59,6 +59,12 @@ namespace <#=fullNamespace #>
 		[SitecoreInfo(SitecoreInfoType.TemplateId)]
         Guid TemplateId { get; }
 
+		[SitecoreInfo(SitecoreInfoType.FullPath)]
+        string FullPath { get; set; }
+
+        [SitecoreInfo(SitecoreInfoType.Name)]
+        string Name { get; set; }
+
 	}
 
 	public abstract partial class GlassBase : IGlassBase{
@@ -77,5 +83,11 @@ namespace <#=fullNamespace #>
 
 		[SitecoreInfo(SitecoreInfoType.TemplateId)]
         public virtual Guid TemplateId { get; }
+
+		[SitecoreInfo(SitecoreInfoType.FullPath)]
+        public virtual string FullPath { get; set; }
+
+        [SitecoreInfo(SitecoreInfoType.Name)]
+        public virtual string Name { get; set; }
 	}
 }

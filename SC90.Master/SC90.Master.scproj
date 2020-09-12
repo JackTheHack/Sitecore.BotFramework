@@ -26,6 +26,7 @@
     <BaseNamespace>SC90.Bot.CodeGen</BaseNamespace>
     <BaseTransformFile>glassv3item.tt</BaseTransformFile>
     <HeaderTransformFile>glassv3header.tt</HeaderTransformFile>
+    <CompactSitecoreItemsInProjectFile>False</CompactSitecoreItemsInProjectFile>
     <SourceWebVirtualPath>/SC90.Bot.csproj</SourceWebVirtualPath>
     <SourceWebProject>{d4e5e212-7352-4e81-9d28-0a072f481802}|SC90.Bot\SC90.Bot.csproj</SourceWebProject>
     <SourceWebPhysicalPath>..\SC90.Bot</SourceWebPhysicalPath>
@@ -1764,7 +1765,15 @@
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Settings\Rules\Definitions\Elements\SitecoreBotFrameworkV2\BooleanCondition.item">
+    <SitecoreItem Include="sitecore\system\Settings\Rules\Definitions\Elements\SitecoreBotFrameworkV2\CompareRequestTextToString.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\system\Settings\Rules\Definitions\Elements\SitecoreBotFrameworkV2\CompareSchedulingEventName.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\system\Settings\Rules\Definitions\Elements\SitecoreBotFrameworkV2\CompareToString.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
@@ -1781,6 +1790,10 @@
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Settings\Rules\Definitions\Elements\SitecoreBotFrameworkV2\Tags\Default.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\system\Settings\Rules\Definitions\Elements\SitecoreBotFrameworkV2\True.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
@@ -2171,6 +2184,10 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\ClearSession.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\Condition.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -2295,7 +2312,19 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content\CronDescription.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content\EventName.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content\IsGlobal.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content\JobId.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
@@ -2303,7 +2332,7 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content\TimeoutSeconds.item">
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetInterval\Content\Parameters.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
@@ -2331,11 +2360,39 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout\Content\IsGlobal.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout\Content\JobId.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout\Content\NewState.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout\Content\Parameters.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\SetTimeout\Content\TimeoutSeconds.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\StopJob.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\StopJob\Content.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\StopJob\Content\IsGlobal.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\SitecoreBotFrameworkV2\Actions\StopJob\Content\JobId.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
@@ -2627,6 +2684,14 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Foundation\SitecoreBotFrameworkV2\_Bot\Debug.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Foundation\SitecoreBotFrameworkV2\_Bot\Debug\EnableDebugMode.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Foundation\SitecoreBotFrameworkV2\_Bot\Global.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -2881,12 +2946,6 @@
     </SitecoreItem>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SC90.Bot\SC90.Bot.csproj">
-      <Project>{d4e5e212-7352-4e81-9d28-0a072f481802}</Project>
-      <Name>SC90.Bot</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <CodeGenTemplate Include="Code Generation Templates\generalextensions.tt" />
     <CodeGenTemplate Include="Code Generation Templates\glassheader.tt" />
     <CodeGenTemplate Include="Code Generation Templates\glassitem.tt" />
@@ -2902,6 +2961,15 @@
     <CodeGenTemplate Include="Code Generation Templates\stringextensions.tt" />
     <CodeGenTemplate Include="Code Generation Templates\velirheader.tt" />
     <CodeGenTemplate Include="Code Generation Templates\veliritem.tt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SC90.Bot\SC90.Bot.csproj">
+      <Project>{d4e5e212-7352-4e81-9d28-0a072f481802}</Project>
+      <Name>SC90.Bot</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="System.Buffers.dll" />
   </ItemGroup>
   <Import Project="packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets" Condition="Exists('packages\HedgehogDevelopment.TDS.6.0.0.14\build\HedgehogDevelopment.TDS.targets')" />
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />

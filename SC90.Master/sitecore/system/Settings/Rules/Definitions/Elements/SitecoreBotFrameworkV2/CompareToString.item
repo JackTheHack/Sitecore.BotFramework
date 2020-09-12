@@ -1,33 +1,33 @@
 ----item----
 version: 1
-id: {DA703243-17B6-4E07-BF77-B89E3340B2E8}
+id: {90E4F087-6BBB-4E1A-AF31-E4B7DC77AC20}
 database: master
-path: /sitecore/system/Settings/Rules/Definitions/Elements/SitecoreBotFrameworkV2/Go to decision branch
+path: /sitecore/system/Settings/Rules/Definitions/Elements/SitecoreBotFrameworkV2/CompareToString
 parent: {8C5CBD8B-19D2-499B-A514-5B3BF74ACBD1}
-name: Go to decision branch
+name: CompareToString
 master: {00000000-0000-0000-0000-000000000000}
-template: {F90052A5-B4E6-4E6D-9812-1E1B88A6FCEA}
-templatekey: Action
+template: {F0D16EEE-3A05-4E43-A082-795A32B873C0}
+templatekey: Condition
 
 ----field----
-field: {FF55D5A7-6D4B-4CD1-83E0-BAC268073F66}
+field: {AB51C8B2-F0E1-4471-9AAE-CC080D774923}
 name: Type
 key: type
-content-length: 77
+content-length: 81
 
-SC90.Bot.Telegram.RuleActions.GoToDecisionBranchRuleAction, SC90.Bot.Telegram
+SC90.Bot.Telegram.RuleActions.CompareStringValueEqualCondition, SC90.Bot.Telegram
 ----version----
 language: en
 version: 1
-revision: a82d66b3-c18d-412a-bf57-d4ff71b435fe
+revision: f3cde845-69ff-48a0-9eaf-da64a232ad24
 
 ----field----
-field: {EEB36A3B-40D9-4AF5-862A-DE257B84DCA3}
+field: {AF321234-4EB9-4EF5-9197-65903351939C}
 name: Text
 key: text
-content-length: 33
+content-length: 79
 
-Go to decision  [branch,,,branch]
+If [value1,,,value1] [operatorid,StringOperator,,compares to] [value2,,,value2]
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -41,7 +41,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20190104T232504Z
+20190104T053355Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a82d66b3-c18d-412a-bf57-d4ff71b435fe
+f3cde845-69ff-48a0-9eaf-da64a232ad24
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20200725T035705Z
+20200620T045517Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
