@@ -17,5 +17,6 @@ namespace SC90.Bot.Telegram.Models
         public _State CurrentState { get; set; }
         public _Command CommandContext { get; set; }
         public ChatUpdate ChatUpdate { get; set; }
+        public string SessionId { get; internal set; }
     }
 }

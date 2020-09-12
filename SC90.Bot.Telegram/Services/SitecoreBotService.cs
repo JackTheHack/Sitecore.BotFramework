@@ -28,7 +28,7 @@ namespace SC90.Bot.Telegram.Services
 
         private _State _currentState;
         private _State _globalState;
-
+        private string _sessionId;
         private BsonDocument _sessionDocument;
         private IDialogActionFactory _actionFactory;
 
@@ -55,6 +55,8 @@ namespace SC90.Bot.Telegram.Services
             }
             
             var bot = _sitecoreContext.GetItem<_Bot>(jobData.BotId);
+
+            _sessionId = jobData.SessionId;
 
             var sessionDocument = await _session.GetSessionDocument(jobData.SessionId);
 
@@ -101,6 +103,7 @@ namespace SC90.Bot.Telegram.Services
             _chatUpdate = update;
 
             Log.Info("Running chatbot update", this);
+            _sessionId = sessionKey;
             _sessionDocument = await _session.GetSessionDocument(sessionKey);
 
             try
@@ -212,7 +215,8 @@ namespace SC90.Bot.Telegram.Services
                         CurrentState = currentState,
                         CommandContext = stateCommand,
                         ChatUpdate = _chatUpdate,
-                        SchedulingData = schedulingData
+                        SchedulingData = schedulingData,
+                        SessionId = _sessionId
                     };
 
                     var commandItem = _sitecoreContext.GetItem<Item>(stateCommand.Id);
@@ -230,7 +234,8 @@ namespace SC90.Bot.Telegram.Services
                         Chatbot = _chatBot,
                         CurrentState = currentState,
                         CommandContext = globalStateCommand,
-                        ChatUpdate = _chatUpdate
+                        ChatUpdate = _chatUpdate,
+                        SessionId = _sessionId
                     };
 
                     var commandItem = _sitecoreContext.GetItem<Item>(globalStateCommand.Id);

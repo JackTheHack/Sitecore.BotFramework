@@ -18,5 +18,6 @@ namespace SC90.Bot.Telegram.Models
         public string SelectedDecisionBranch { get; set; }
         public bool Result { get; set; }
         public SchedulingJobData SchedulingData { get; set; }
+        public string SessionId { get; internal set; }
     }
 }

@@ -26,7 +26,8 @@ namespace SC90.Bot.Telegram.RuleActions
                 CurrentState = ruleContext.CurrentState,
                 Chatbot                = ruleContext.Chatbot,
                 CommandContext = ruleContext.CommandContext,
-                ChatUpdate = ruleContext.ChatUpdate
+                ChatUpdate = ruleContext.ChatUpdate,
+                SessionId = ruleContext.SessionId
             };
 
             var value1 = ruleContext.ChatUpdate?.Message;

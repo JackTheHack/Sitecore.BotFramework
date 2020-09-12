@@ -54,6 +54,7 @@ namespace SC90.Bot.Telegram.Actions
                 ChatUpdate = _context.ChatUpdate,
                 CommandContext =  _context.CommandContext,
                 CurrentState = _context.CurrentState,
+                SessionId = _context.SessionKey
             };
 
             if (_ruleEngineService.RunRules(item, IConditionConstants.RuleFieldName, conditionRuleContext))
