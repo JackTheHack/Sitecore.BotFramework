@@ -79,8 +79,8 @@ SOURCES AND CREDITS:
 I've used the following resources as listed during the SitecoreBotFramework development.
 
 Libraries:
- - Quartz
- - z.Eval
+ - Quartz.NET (https://github.com/quartznet/quartznet)
+ - z.EvalExpressions.NET (https://github.com/zzzprojects/Eval-Expression.NET)
 
 -------------------------------------------------------------------------------------------------------
 
