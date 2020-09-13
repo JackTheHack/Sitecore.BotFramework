@@ -20,7 +20,7 @@ namespace SC90.Bot.Telegram.Mvc
             } 
         }
 
-        public bool IsScheduler { get { return _isScheduler; } }
+        public bool IsBotCommand { get { return _isScheduler; } }
 
         public void SetBotContext(Guid botId, bool isScheduler)
         {

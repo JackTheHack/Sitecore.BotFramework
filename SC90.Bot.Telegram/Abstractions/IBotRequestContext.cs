@@ -6,6 +6,6 @@ namespace SC90.Bot.Telegram.Abstractions
     {
         void SetBotContext(Guid botId, bool isScheduler);
         Guid BotId { get;  }
-        bool IsScheduler { get;  }
+        bool IsBotCommand { get;  }
     }
 }
