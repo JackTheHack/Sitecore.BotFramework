@@ -44,7 +44,7 @@ namespace SC90.Bot.Telegram.Actions
 
         public async Task Execute()
         {
-            _sessionProvider.Set(_context.SessionKey, SessionConstants.State, _actionItem.NewState);
+            await _sessionProvider.Set(_context.SessionKey, SessionConstants.State, _actionItem.NewState);
         }
     }
 }

@@ -29,6 +29,7 @@ namespace SC90.Bot.Telegram.Services
         private _State _currentState;
         private _State _globalState;
         private string _sessionId;
+        private bool _isNewSession;
         private BsonDocument _sessionDocument;
         private IDialogActionFactory _actionFactory;
 
@@ -103,8 +104,10 @@ namespace SC90.Bot.Telegram.Services
             _chatUpdate = update;
 
             Log.Info("Running chatbot update", this);
+            
             _sessionId = sessionKey;
             _sessionDocument = await _session.GetSessionDocument(sessionKey);
+            _isNewSession = _sessionDocument == null;
 
             try
             {
@@ -112,15 +115,25 @@ namespace SC90.Bot.Telegram.Services
 
                 if (startDialog == null) throw new InvalidOperationException("Start dialog is not set.");
 
+                if(await RunClearSessionDebugCommandIfRequired().ConfigureAwait(false))
+                {
+                    return;
+                }
+
                 if (_sessionDocument == null) _sessionDocument = new BsonDocument();
 
                 _currentState = GetStateOrDefault();
+
+                if (_isNewSession && await RunStartCommandIfRequired(startDialog))
+                {
+                    return;
+                }
 
                 Log.Info($"Current chatbot state - {_currentState.Id}", this);
 
                 _globalState = _sitecoreContext.GetItem<_State>(_chatBot.GlobalState);
 
-                if (await RunDebugCommandsIfRequired()) return;
+                if (await RunDebugCommandsIfRequired(startDialog).ConfigureAwait(false)) return;
 
                 await _session.UpdateSessionDocument(sessionKey, _sessionDocument);
 
@@ -155,6 +168,46 @@ namespace SC90.Bot.Telegram.Services
             }
         }
 
+        private async Task<bool> RunClearSessionDebugCommandIfRequired()
+        {
+            if (_chatBot.EnableDebugMode)
+            {
+                if (_chatUpdate.Message == "/clearsession")
+                {
+                    await _session.Clear(_sessionId);
+
+                    await _telegramService.Client.SendTextMessageAsync(_chatUpdate.UserId,
+                            "Mongo session cleared.", global::Telegram.Bot.Types.Enums.ParseMode.Default).ConfigureAwait(false);
+
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> RunStartCommandIfRequired(_Dialogue startDialog)
+        {
+            //Run telegram start actions
+            if(_chatUpdate.Message == "/start" && _chatUpdate.Source == "telegram")
+            {
+                Log.Info("Running start dialogue for "+_sessionId, this);
+
+                var dialogueContext = new ChatbotDialogueContext
+                {
+                    Chatbot = _chatBot,
+                    ChatUpdate = _chatUpdate,
+                    DialogueContext = startDialog,
+                    CurrentState = _currentState,
+                    SessionKey = _sessionId
+                };
+
+                await _commandService.Execute(startDialog, dialogueContext).ConfigureAwait(false);
+                return true;
+            }
+
+            return false;
+        }
+
         private static string GetSessionKey(string source, string userId)
         {
             return $"{source}{userId}";
@@ -176,30 +229,46 @@ namespace SC90.Bot.Telegram.Services
             if (_chatBot.EnableDebugMode)
             {
                 var sb = new StringBuilder();
-                sb.AppendLine($"EXCEPTION - {e}");
-                sb.AppendLine($"SESSION - {_sessionDocument}");
-                sb.AppendLine($"STATE - *{_currentState?.Name}* {_currentState?.FullPath}");
-                sb.AppendLine($"GLOBAL STATE - *{_globalState?.Name}* {_globalState?.FullPath}");
-                await _telegramService.Client.SendTextMessageAsync(_chatUpdate.UserId, sb.ToString());
+                sb.AppendLine($"EXCEPTION \\- {e}");
+                sb.AppendLine($"SESSION \\- {_sessionDocument}");
+                sb.AppendLine($"STATE \\- *{_currentState?.Name}* {_currentState?.FullPath}");
+                sb.AppendLine($"GLOBAL STATE \\- *{_globalState?.Name}* {_globalState?.FullPath}");
+                await _telegramService.Client.SendTextMessageAsync(_chatUpdate.UserId, sb.ToString(), global::Telegram.Bot.Types.Enums.ParseMode.Default);
                 return true;
             }
 
             return false;
         }
 
-        private async Task<bool> RunDebugCommandsIfRequired()
+        private async Task<bool> RunDebugCommandsIfRequired(_Dialogue startDialog)
         {
             if (_chatBot.EnableDebugMode)
+            {
                 if (_chatUpdate.Message == "/debuginfo")
                 {
                     var sb = new StringBuilder();
-                    sb.AppendLine($"SESSION - {_sessionDocument}");
-                    sb.AppendLine($"STATE - *{_currentState?.Name}* {_currentState?.FullPath}");
-                    sb.AppendLine($"GLOBAL STATE - *{_globalState?.Name}* {_globalState?.FullPath}");
+                    sb.AppendLine($"SESSION \\- {_sessionDocument}");
+                    sb.AppendLine($"STATE \\- *{_currentState?.Name}* {_currentState?.FullPath}");
+                    sb.AppendLine($"GLOBAL STATE \\- *{_globalState?.Name}* {_globalState?.FullPath}");
                     await _telegramService.Client.SendTextMessageAsync(_chatUpdate.UserId,
-                        sb.ToString());
+                        sb.ToString(), global::Telegram.Bot.Types.Enums.ParseMode.Default).ConfigureAwait(false);
                     return true;
                 }
+
+                if (_chatUpdate.Message == "/restart")
+                {
+                    var defaultDialogueItem = _sitecoreContext.GetItem<_Dialogue>(_chatBot.Start);
+                    var defaultStateItem = _sitecoreContext.GetItem<_State>(defaultDialogueItem.NewState);
+
+                    await _telegramService.Client.SendTextMessageAsync(_chatUpdate.UserId,
+                            "Conversation restarted to default state.", global::Telegram.Bot.Types.Enums.ParseMode.Default).ConfigureAwait(false);
+
+                    await _session.Set(_sessionId, SessionConstants.State, defaultStateItem.Id);
+                    return true;
+                }
+
+                
+            }
 
             return false;
         }

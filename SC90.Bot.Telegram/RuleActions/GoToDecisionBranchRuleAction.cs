@@ -8,7 +8,7 @@ namespace SC90.Bot.Telegram.RuleActions
     {
         public string Branch { get;set; }
 
-        public override async void Apply(T ruleContext)
+        public override void Apply(T ruleContext)
         {
             ruleContext.SelectedDecisionBranch = Branch;
         }

@@ -254,6 +254,7 @@
     <Compile Include="Models\BsonSessionDocument.cs" />
     <Compile Include="Models\ChatbotActionContext.cs" />
     <Compile Include="Models\ChatbotCommandContext.cs" />
+    <Compile Include="Models\ChatbotDialogueContext.cs" />
     <Compile Include="Models\ChatbotPipelineContext.cs" />
     <Compile Include="Models\ChatbotRuleContext.cs" />
     <Compile Include="Models\ChatUpdate.cs" />

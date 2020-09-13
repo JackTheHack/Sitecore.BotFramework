@@ -1,5 +1,6 @@
 using System;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Glass.Mapper.Sc;
@@ -44,7 +45,7 @@ namespace SC90.Bot.Telegram.Controllers
                     Source = "telegram",
                     Message = update.Message.Text
                 };
-                await _sitecoreBotService.HandleUpdate(chatUpdate, _chatBotItem);
+                await _sitecoreBotService.HandleUpdate(chatUpdate, _chatBotItem).ConfigureAwait(false);
                 
                 return Content(HttpStatusCode.OK, "{}");
             }

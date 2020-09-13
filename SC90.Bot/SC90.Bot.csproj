@@ -172,14 +172,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SC90.Bot.Forms.Actions\SC90.Bot.Forms.Actions.csproj">
-      <Project>{4f1ee6fd-6cae-441b-9d27-ffc6e3ac732b}</Project>
-      <Name>SC90.Bot.Forms.Actions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SC90.Bot.Infrastructure\SC90.Bot.Infrastructure.csproj">
-      <Project>{cb3d4a9f-96eb-4bfb-bec2-9c5bdd0e00b8}</Project>
-      <Name>SC90.Bot.Infrastructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SC90.Bot.Telegram\SC90.Bot.Telegram.csproj">
       <Project>{62b55700-65df-4002-aa4b-a62e9b7c9cd1}</Project>
       <Name>SC90.Bot.Telegram</Name>

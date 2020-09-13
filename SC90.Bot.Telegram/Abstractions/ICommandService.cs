@@ -7,6 +7,8 @@ namespace SC90.Bot.Telegram.Abstractions
 {
     public interface ICommandService
     {
+        Task Execute(_DialogAction action, ChatbotActionContext context);
         Task Execute(_Command commandId, ChatbotCommandContext context);
+        Task Execute(_Dialogue dialogue, ChatbotDialogueContext context);
     }
 }

@@ -55,7 +55,7 @@ namespace SC90.Bot.Telegram.Actions
                 //TODO: replace tokens here for value
                 if (!string.IsNullOrEmpty(value))
                 {
-                    _sessionProvider.Set(_context.SessionKey, SessionConstants.VariablePrefix+variable, value);
+                    await _sessionProvider.Set(_context.SessionKey, SessionConstants.VariablePrefix+variable, value);
                 }
             }
             throw new NotImplementedException();

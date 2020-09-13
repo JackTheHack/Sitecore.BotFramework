@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
@@ -25,8 +26,6 @@ namespace SC90.Bot.Telegram.Services
 
         public async Task<BsonValue> Get(string sessionId, string fieldName)
         {
-           
-            
             var db = _mongoClient.GetDatabase(_dbName);
             var sessionCollection = db?.GetCollection<BsonDocument>("Sessions");
 
@@ -45,7 +44,7 @@ namespace SC90.Bot.Telegram.Services
 
         }
 
-        public async void Set(string sessionId, string fieldName, BsonValue value)
+        public async Task Set(string sessionId, string fieldName, BsonValue value)
         {
             var db = _mongoClient.GetDatabase(_dbName);
             var sessionCollection = db?.GetCollection<BsonDocument>("Sessions", new MongoCollectionSettings()
@@ -105,6 +104,45 @@ namespace SC90.Bot.Telegram.Services
             await sessionCollection.UpdateOneAsync(filter, 
                 new BsonDocument { {"$set", session }}, 
                 new UpdateOptions(){ IsUpsert = true});
+        }
+
+        public async Task Clear(string sessionId)
+        {
+            await _mongoClient.StartSessionAsync();
+
+            var db = _mongoClient.GetDatabase(_dbName);
+
+            var sessionCollection = db?.GetCollection<BsonDocument>("Sessions", new MongoCollectionSettings()
+            {
+                AssignIdOnInsert = true
+            });
+
+
+            var filter = new BsonDocument();
+            filter.Set("UserId", sessionId);
+
+            var deleteResult = await sessionCollection.DeleteManyAsync(filter);
+        }
+
+        public async Task<bool> HasSessionDocument(string sessionId)
+        {
+            await _mongoClient.StartSessionAsync();
+
+            var db = _mongoClient.GetDatabase(_dbName);
+
+            var sessionCollection = db?.GetCollection<BsonDocument>("Sessions", new MongoCollectionSettings()
+            {
+                AssignIdOnInsert = true
+            });
+
+            var filter = new BsonDocument();
+            filter.Set("UserId", sessionId);
+
+            var result = await sessionCollection.FindAsync(filter);
+
+            var sessionFound = result.Any();
+
+            return sessionFound;
         }
     }
 }

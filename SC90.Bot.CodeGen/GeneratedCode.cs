@@ -1841,6 +1841,16 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 					[SitecoreField(ISendMessageConstants.TitleFieldName)]
 					string Title  {get; set;}
 			
+								/// <summary>
+					/// The UseMarkdown field.
+					/// <para></para>
+					/// <para>Field Type: Checkbox</para>		
+					/// <para>Field ID: d2bc6e49-6b34-4921-beeb-7b14e081bf25</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(ISendMessageConstants.UseMarkdownFieldName)]
+					bool UseMarkdown  {get; set;}
+			
 				}
 
 
@@ -1877,6 +1887,10 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 					
 			public static readonly ID TitleFieldId = new ID("bb32d9cc-996a-4c95-8a58-1a90a835c8ad");
 			public const string TitleFieldName = "Title";
+			
+					
+			public static readonly ID UseMarkdownFieldId = new ID("d2bc6e49-6b34-4921-beeb-7b14e081bf25");
+			public const string UseMarkdownFieldName = "UseMarkdown";
 			
 			
 
@@ -1969,6 +1983,17 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(ISendMessageConstants.TitleFieldName)]
 				public virtual string Title  {get; set;}
+					
+						/// <summary>
+				/// The UseMarkdown field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: d2bc6e49-6b34-4921-beeb-7b14e081bf25</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISendMessageConstants.UseMarkdownFieldName)]
+				public virtual bool UseMarkdown  {get; set;}
 					
 			
 	}
