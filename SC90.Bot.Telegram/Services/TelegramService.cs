@@ -36,39 +36,21 @@ namespace SC90.Bot.Telegram.Services
                 throw new ArgumentException("Cannot load configuration for bot " + botId.ToString());
             }
 
+            var chatbotSettings = _sitecoreService.GetItem<_Settings>("/sitecore/system/Settings/Feature/SitecoreBotFrameworkV2/Settings");
+            var webHook = chatbotSettings?.HostUrl;
+
             var telegramConfiguration = Factory.GetConfigNode("sitecoreBotFramework/telegram");
 
-            if (telegramConfiguration == null)
+            if (string.IsNullOrEmpty(webHook))
             {
-                throw new InvalidOperationException("Telegram configuration is missing");
+                webHook = telegramConfiguration?.Attributes["webHookUrl"]?.Value;
             }
 
-            var webHook = telegramConfiguration?.Attributes["webHookUrl"]?.Value;
             var botToken = botItem.BotToken;
 
-            Configuration = new TelegramBotConfiguration
+            if(string.IsNullOrEmpty(botToken))
             {
-                BotToken = botToken,
-                WebHookEndpoint = webHook
-            };
-        }
-
-        [Obsolete]
-        private void GetConfigurationFromConfig()
-        {
-            var telegramConfiguration = Factory.GetConfigNode("sitecoreBotFramework/telegram");
-
-            if (telegramConfiguration == null)
-            {
-                throw new InvalidOperationException("Telegram configuration is missing");
-            }
-
-            var botToken = telegramConfiguration?.Attributes?["botToken"]?.Value;
-            var webHook = telegramConfiguration?.Attributes["webHookUrl"]?.Value;
-
-            if (string.IsNullOrEmpty(botToken))
-            {
-                throw new InvalidOperationException("botToken is null");
+                botToken = telegramConfiguration?.Attributes["botToken"]?.Value;
             }
 
             Configuration = new TelegramBotConfiguration

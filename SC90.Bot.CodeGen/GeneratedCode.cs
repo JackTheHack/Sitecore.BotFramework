@@ -94,7 +94,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 09a53c3b-f4ac-4877-9900-7d4c9da61f1e</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISetIntervalConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISetInterval : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ISetInterval : IGlassBase 
 	{
 								/// <summary>
 					/// The CronDescription field.
@@ -273,46 +273,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// IDecisionBranch Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/DecisionBranch</para>	
-	/// <para>ID: 0cd9851f-cc87-4ed9-8ac5-e2854c2b20b3</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IDecisionBranchConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IDecisionBranch : IGlassBase 
-	{
-				}
-
-
-	public static partial class IDecisionBranchConstants{
-
-			public const string TemplateIdString = "0cd9851f-cc87-4ed9-8ac5-e2854c2b20b3";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "DecisionBranch";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// DecisionBranch
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/DecisionBranch</para>	
-	/// <para>ID: 0cd9851f-cc87-4ed9-8ac5-e2854c2b20b3</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IDecisionBranchConstants.TemplateIdString)] //, Cachable = true
-	public partial class DecisionBranch  : GlassBase, IDecisionBranch 
-	{
-	   
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2
 {
 
@@ -443,311 +403,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
-{
-
-
- 	/// <summary>
-	/// ISendAttachmentCard Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/SendAttachmentCard</para>	
-	/// <para>ID: 223a986a-39a9-4f44-b540-af83752e097e</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ISendAttachmentCardConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISendAttachmentCard : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
-	{
-								/// <summary>
-					/// The Attachment field.
-					/// <para></para>
-					/// <para>Field Type: File</para>		
-					/// <para>Field ID: 09d69e4e-6f90-4c2b-9480-235f19503029</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendAttachmentCardConstants.AttachmentFieldName)]
-					File Attachment  {get; set;}
-			
-								/// <summary>
-					/// The Item field.
-					/// <para></para>
-					/// <para>Field Type: Droptree</para>		
-					/// <para>Field ID: 9e037751-4d69-43a2-8491-487328862b9a</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendAttachmentCardConstants.ItemFieldName)]
-					Guid Item  {get; set;}
-			
-				}
-
-
-	public static partial class ISendAttachmentCardConstants{
-
-			public const string TemplateIdString = "223a986a-39a9-4f44-b540-af83752e097e";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "SendAttachmentCard";
-
-					
-			public static readonly ID AttachmentFieldId = new ID("09d69e4e-6f90-4c2b-9480-235f19503029");
-			public const string AttachmentFieldName = "Attachment";
-			
-					
-			public static readonly ID ItemFieldId = new ID("9e037751-4d69-43a2-8491-487328862b9a");
-			public const string ItemFieldName = "Item";
-			
-			
-
-	}
-
-	
-	/// <summary>
-	/// SendAttachmentCard
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/SendAttachmentCard</para>	
-	/// <para>ID: 223a986a-39a9-4f44-b540-af83752e097e</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ISendAttachmentCardConstants.TemplateIdString)] //, Cachable = true
-	public partial class SendAttachmentCard  : GlassBase, ISendAttachmentCard 
-	{
-	   
-						/// <summary>
-				/// The Attachment field.
-				/// <para></para>
-				/// <para>Field Type: File</para>		
-				/// <para>Field ID: 09d69e4e-6f90-4c2b-9480-235f19503029</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendAttachmentCardConstants.AttachmentFieldName)]
-				public virtual File Attachment  {get; set;}
-					
-						/// <summary>
-				/// The Item field.
-				/// <para></para>
-				/// <para>Field Type: Droptree</para>		
-				/// <para>Field ID: 9e037751-4d69-43a2-8491-487328862b9a</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendAttachmentCardConstants.ItemFieldName)]
-				public virtual Guid Item  {get; set;}
-					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
-{
-
-
- 	/// <summary>
-	/// IPrompt Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/Prompt</para>	
-	/// <para>ID: 2376ba02-dc5f-41eb-a304-774e7d410088</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IPromptConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IPrompt : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
-	{
-								/// <summary>
-					/// The Action field.
-					/// <para></para>
-					/// <para>Field Type: Rules</para>		
-					/// <para>Field ID: eff8c571-5029-4b1b-8114-0d22197d17d9</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(IPromptConstants.ActionFieldName)]
-					object /* UNKNOWN */ Action  {get; set;}
-			
-								/// <summary>
-					/// The ChoiceOptions field.
-					/// <para></para>
-					/// <para>Field Type: Multi-Line Text</para>		
-					/// <para>Field ID: 6a6926a4-3d99-402b-ba2a-0b8c818c8cfa</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(IPromptConstants.ChoiceOptionsFieldName)]
-					string ChoiceOptions  {get; set;}
-			
-								/// <summary>
-					/// The Image field.
-					/// <para></para>
-					/// <para>Field Type: Image</para>		
-					/// <para>Field ID: aeafb7fa-747d-4a19-b583-9a602060136d</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(IPromptConstants.ImageFieldName)]
-					Image Image  {get; set;}
-			
-								/// <summary>
-					/// The Message field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: 84f8ec35-7d5a-478d-bd99-fb6441c10eb5</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(IPromptConstants.MessageFieldName)]
-					string Message  {get; set;}
-			
-								/// <summary>
-					/// The Title field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: af349405-5346-4bb2-b356-a46014d23e81</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(IPromptConstants.TitleFieldName)]
-					string Title  {get; set;}
-			
-								/// <summary>
-					/// The Type field.
-					/// <para></para>
-					/// <para>Field Type: Droplist</para>		
-					/// <para>Field ID: 074e9671-dc88-41a2-a84e-47b7015622d8</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(IPromptConstants.TypeFieldName)]
-					string Type  {get; set;}
-			
-								/// <summary>
-					/// The ValidationMessage field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: 05217258-7eb4-4f61-be14-1a4e9660df40</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(IPromptConstants.ValidationMessageFieldName)]
-					string ValidationMessage  {get; set;}
-			
-				}
-
-
-	public static partial class IPromptConstants{
-
-			public const string TemplateIdString = "2376ba02-dc5f-41eb-a304-774e7d410088";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "Prompt";
-
-					
-			public static readonly ID ActionFieldId = new ID("eff8c571-5029-4b1b-8114-0d22197d17d9");
-			public const string ActionFieldName = "Action";
-			
-					
-			public static readonly ID ChoiceOptionsFieldId = new ID("6a6926a4-3d99-402b-ba2a-0b8c818c8cfa");
-			public const string ChoiceOptionsFieldName = "ChoiceOptions";
-			
-					
-			public static readonly ID ImageFieldId = new ID("aeafb7fa-747d-4a19-b583-9a602060136d");
-			public const string ImageFieldName = "Image";
-			
-					
-			public static readonly ID MessageFieldId = new ID("84f8ec35-7d5a-478d-bd99-fb6441c10eb5");
-			public const string MessageFieldName = "Message";
-			
-					
-			public static readonly ID TitleFieldId = new ID("af349405-5346-4bb2-b356-a46014d23e81");
-			public const string TitleFieldName = "Title";
-			
-					
-			public static readonly ID TypeFieldId = new ID("074e9671-dc88-41a2-a84e-47b7015622d8");
-			public const string TypeFieldName = "Type";
-			
-					
-			public static readonly ID ValidationMessageFieldId = new ID("05217258-7eb4-4f61-be14-1a4e9660df40");
-			public const string ValidationMessageFieldName = "ValidationMessage";
-			
-			
-
-	}
-
-	
-	/// <summary>
-	/// Prompt
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/Prompt</para>	
-	/// <para>ID: 2376ba02-dc5f-41eb-a304-774e7d410088</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IPromptConstants.TemplateIdString)] //, Cachable = true
-	public partial class Prompt  : GlassBase, IPrompt 
-	{
-	   
-						/// <summary>
-				/// The Action field.
-				/// <para></para>
-				/// <para>Field Type: Rules</para>		
-				/// <para>Field ID: eff8c571-5029-4b1b-8114-0d22197d17d9</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IPromptConstants.ActionFieldName)]
-				public virtual object /* UNKNOWN */ Action  {get; set;}
-					
-						/// <summary>
-				/// The ChoiceOptions field.
-				/// <para></para>
-				/// <para>Field Type: Multi-Line Text</para>		
-				/// <para>Field ID: 6a6926a4-3d99-402b-ba2a-0b8c818c8cfa</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IPromptConstants.ChoiceOptionsFieldName)]
-				public virtual string ChoiceOptions  {get; set;}
-					
-						/// <summary>
-				/// The Image field.
-				/// <para></para>
-				/// <para>Field Type: Image</para>		
-				/// <para>Field ID: aeafb7fa-747d-4a19-b583-9a602060136d</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IPromptConstants.ImageFieldName)]
-				public virtual Image Image  {get; set;}
-					
-						/// <summary>
-				/// The Message field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 84f8ec35-7d5a-478d-bd99-fb6441c10eb5</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IPromptConstants.MessageFieldName)]
-				public virtual string Message  {get; set;}
-					
-						/// <summary>
-				/// The Title field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: af349405-5346-4bb2-b356-a46014d23e81</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IPromptConstants.TitleFieldName)]
-				public virtual string Title  {get; set;}
-					
-						/// <summary>
-				/// The Type field.
-				/// <para></para>
-				/// <para>Field Type: Droplist</para>		
-				/// <para>Field ID: 074e9671-dc88-41a2-a84e-47b7015622d8</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IPromptConstants.TypeFieldName)]
-				public virtual string Type  {get; set;}
-					
-						/// <summary>
-				/// The ValidationMessage field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 05217258-7eb4-4f61-be14-1a4e9660df40</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IPromptConstants.ValidationMessageFieldName)]
-				public virtual string ValidationMessage  {get; set;}
-					
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFrameworkV2
 {
 
@@ -783,86 +438,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// </summary>
 	[SitecoreType(TemplateId=IBotFolderConstants.TemplateIdString)] //, Cachable = true
 	public partial class BotFolder  : GlassBase, IBotFolder 
-	{
-	   
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// IIntentFolder Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/IntentFolder</para>	
-	/// <para>ID: 27ac411c-3065-4801-8081-d2c372a57659</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IIntentFolderConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IIntentFolder : IGlassBase 
-	{
-				}
-
-
-	public static partial class IIntentFolderConstants{
-
-			public const string TemplateIdString = "27ac411c-3065-4801-8081-d2c372a57659";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "IntentFolder";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// IntentFolder
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/IntentFolder</para>	
-	/// <para>ID: 27ac411c-3065-4801-8081-d2c372a57659</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IIntentFolderConstants.TemplateIdString)] //, Cachable = true
-	public partial class IntentFolder  : GlassBase, IIntentFolder 
-	{
-	   
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// IBot Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Bot</para>	
-	/// <para>ID: 27d16aa1-8852-4055-8551-1db05bc6ff49</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IBotConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IBot : IGlassBase 
-	{
-				}
-
-
-	public static partial class IBotConstants{
-
-			public const string TemplateIdString = "27d16aa1-8852-4055-8551-1db05bc6ff49";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "Bot";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// Bot
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Bot</para>	
-	/// <para>ID: 27d16aa1-8852-4055-8551-1db05bc6ff49</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IBotConstants.TemplateIdString)] //, Cachable = true
-	public partial class Bot  : GlassBase, IBot 
 	{
 	   
 			
@@ -948,71 +523,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Project.Sandbox
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
-{
-
-
- 	/// <summary>
-	/// IGoToDialog Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/GoToDialog</para>	
-	/// <para>ID: 2e540b0b-8d22-4401-b7f7-282e199bc90a</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IGoToDialogConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IGoToDialog : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
-	{
-								/// <summary>
-					/// The Dialog field.
-					/// <para></para>
-					/// <para>Field Type: Droptree</para>		
-					/// <para>Field ID: 66091011-dc3b-4729-b609-c073f9ae0cf9</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(IGoToDialogConstants.DialogFieldName)]
-					Guid Dialog  {get; set;}
-			
-				}
-
-
-	public static partial class IGoToDialogConstants{
-
-			public const string TemplateIdString = "2e540b0b-8d22-4401-b7f7-282e199bc90a";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "GoToDialog";
-
-					
-			public static readonly ID DialogFieldId = new ID("66091011-dc3b-4729-b609-c073f9ae0cf9");
-			public const string DialogFieldName = "Dialog";
-			
-			
-
-	}
-
-	
-	/// <summary>
-	/// GoToDialog
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/GoToDialog</para>	
-	/// <para>ID: 2e540b0b-8d22-4401-b7f7-282e199bc90a</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IGoToDialogConstants.TemplateIdString)] //, Cachable = true
-	public partial class GoToDialog  : GlassBase, IGoToDialog 
-	{
-	   
-						/// <summary>
-				/// The Dialog field.
-				/// <para></para>
-				/// <para>Field Type: Droptree</para>		
-				/// <para>Field ID: 66091011-dc3b-4729-b609-c073f9ae0cf9</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IGoToDialogConstants.DialogFieldName)]
-				public virtual Guid Dialog  {get; set;}
-					
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFrameworkV2.Actions
 {
 
@@ -1024,7 +534,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 2ecdf09d-0bb6-4071-9e59-b3135bae1248</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ICustomActionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ICustomAction : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ICustomAction : IGlassBase 
 	{
 								/// <summary>
 					/// The Item field.
@@ -1114,7 +624,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 2f2e8343-91ae-40b0-a0d0-f4fbd2bfed96</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISetTimeoutConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISetTimeout : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ISetTimeout : IGlassBase 
 	{
 								/// <summary>
 					/// The EventName field.
@@ -1293,46 +803,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// IIntentAction Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/IntentAction</para>	
-	/// <para>ID: 320aa079-c7a9-4fa7-9b59-c5cc87c27915</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IIntentActionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IIntentAction : IGlassBase 
-	{
-				}
-
-
-	public static partial class IIntentActionConstants{
-
-			public const string TemplateIdString = "320aa079-c7a9-4fa7-9b59-c5cc87c27915";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "IntentAction";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// IntentAction
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/IntentAction</para>	
-	/// <para>ID: 320aa079-c7a9-4fa7-9b59-c5cc87c27915</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IIntentActionConstants.TemplateIdString)] //, Cachable = true
-	public partial class IntentAction  : GlassBase, IIntentAction 
-	{
-	   
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Project.Sandbox
 {
 
@@ -1384,7 +854,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 374a576c-9474-4d09-8ca1-c76ae2f032bc</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IChangeStateConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IChangeState : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface IChangeState : IGlassBase 
 	{
 								/// <summary>
 					/// The NewState field.
@@ -1434,6 +904,71 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(IChangeStateConstants.NewStateFieldName)]
 				public virtual Guid NewState  {get; set;}
+					
+			
+	}
+}
+namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2
+{
+
+
+ 	/// <summary>
+	/// I_Settings Interface
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFrameworkV2/_Settings</para>	
+	/// <para>ID: 37b59837-088b-4b65-87d4-db6f22b106a0</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=I_SettingsConstants.TemplateIdString )] //, Cachable = true
+	public partial interface I_Settings : IGlassBase 
+	{
+								/// <summary>
+					/// The HostUrl field.
+					/// <para></para>
+					/// <para>Field Type: Single-Line Text</para>		
+					/// <para>Field ID: 80e151f5-f49d-4d90-91eb-bff6530d2c20</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(I_SettingsConstants.HostUrlFieldName)]
+					string HostUrl  {get; set;}
+			
+				}
+
+
+	public static partial class I_SettingsConstants{
+
+			public const string TemplateIdString = "37b59837-088b-4b65-87d4-db6f22b106a0";
+			public static readonly ID TemplateId = new ID(TemplateIdString);
+			public const string TemplateName = "_Settings";
+
+					
+			public static readonly ID HostUrlFieldId = new ID("80e151f5-f49d-4d90-91eb-bff6530d2c20");
+			public const string HostUrlFieldName = "HostUrl";
+			
+			
+
+	}
+
+	
+	/// <summary>
+	/// _Settings
+	/// <para></para>
+	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFrameworkV2/_Settings</para>	
+	/// <para>ID: 37b59837-088b-4b65-87d4-db6f22b106a0</para>	
+	/// </summary>
+	[SitecoreType(TemplateId=I_SettingsConstants.TemplateIdString)] //, Cachable = true
+	public partial class _Settings  : GlassBase, I_Settings 
+	{
+	   
+						/// <summary>
+				/// The HostUrl field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 80e151f5-f49d-4d90-91eb-bff6530d2c20</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(I_SettingsConstants.HostUrlFieldName)]
+				public virtual string HostUrl  {get; set;}
 					
 			
 	}
@@ -1569,7 +1104,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 3fb6cad6-c90e-498d-a198-b72be1e79d47</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISendMessageConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISendMessage : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ISendMessage : IGlassBase 
 	{
 								/// <summary>
 					/// The FieldName field.
@@ -1798,46 +1333,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// IDialog Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Dialog</para>	
-	/// <para>ID: 44518cd3-84f2-421f-979e-3e8862d0b4ae</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IDialogConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IDialog : IGlassBase 
-	{
-				}
-
-
-	public static partial class IDialogConstants{
-
-			public const string TemplateIdString = "44518cd3-84f2-421f-979e-3e8862d0b4ae";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "Dialog";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// Dialog
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Dialog</para>	
-	/// <para>ID: 44518cd3-84f2-421f-979e-3e8862d0b4ae</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IDialogConstants.TemplateIdString)] //, Cachable = true
-	public partial class Dialog  : GlassBase, IDialog 
-	{
-	   
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFrameworkV2.Dialogues
 {
 
@@ -1849,7 +1344,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 466ca225-527e-4a78-9f47-d4b556fb3ad7</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IRunDialogueConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IRunDialogue : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface IRunDialogue : IGlassBase 
 	{
 								/// <summary>
 					/// The Dialog field.
@@ -2135,46 +1630,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Project.Sandbox.Q
 				[SitecoreField(IQuestionConstants.QuestionTextFieldName)]
 				public virtual string QuestionText  {get; set;}
 					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// IDialogAction Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/DialogAction</para>	
-	/// <para>ID: 504cb6e2-55ff-473d-bb24-b8bf5e9de02f</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IDialogActionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IDialogAction : IGlassBase 
-	{
-				}
-
-
-	public static partial class IDialogActionConstants{
-
-			public const string TemplateIdString = "504cb6e2-55ff-473d-bb24-b8bf5e9de02f";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "DialogAction";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// DialogAction
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/DialogAction</para>	
-	/// <para>ID: 504cb6e2-55ff-473d-bb24-b8bf5e9de02f</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IDialogActionConstants.TemplateIdString)] //, Cachable = true
-	public partial class DialogAction  : GlassBase, IDialogAction 
-	{
-	   
 			
 	}
 }
@@ -2579,7 +2034,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 6e103180-f9d0-4e60-b940-8f336dbfe973</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISetContextItemConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISetContextItem : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ISetContextItem : IGlassBase 
 	{
 								/// <summary>
 					/// The Item field.
@@ -2669,7 +2124,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 719bdbba-9c8a-4312-a13d-10c2f57ff326</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISetSessionVariableConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISetSessionVariable : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ISetSessionVariable : IGlassBase 
 	{
 								/// <summary>
 					/// The Variables field.
@@ -2723,261 +2178,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
-{
-
-
- 	/// <summary>
-	/// ISendMessage Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/SendMessage</para>	
-	/// <para>ID: 78aa458b-f1f1-4845-802f-50abc14ebd35</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ISendMessageConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISendMessage : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
-	{
-								/// <summary>
-					/// The FieldName field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: d2740cf9-7575-490a-bb9e-fedcb2363c26</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendMessageConstants.FieldNameFieldName)]
-					string FieldName  {get; set;}
-			
-								/// <summary>
-					/// The Image field.
-					/// <para></para>
-					/// <para>Field Type: Image</para>		
-					/// <para>Field ID: 9794b252-d20e-4873-a6cd-aa346976b55c</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendMessageConstants.ImageFieldName)]
-					Image Image  {get; set;}
-			
-								/// <summary>
-					/// The Item field.
-					/// <para></para>
-					/// <para>Field Type: Droptree</para>		
-					/// <para>Field ID: db834052-e710-4009-bc3f-9a8e4615e5c6</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendMessageConstants.ItemFieldName)]
-					Guid Item  {get; set;}
-			
-								/// <summary>
-					/// The Link field.
-					/// <para></para>
-					/// <para>Field Type: General Link</para>		
-					/// <para>Field ID: 9e15dc8a-e3a7-4db6-8ae5-6015f7e8aa14</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendMessageConstants.LinkFieldName)]
-					Link Link  {get; set;}
-			
-								/// <summary>
-					/// The Subtitle field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: 208423d5-3820-4952-be5f-c405642f192e</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendMessageConstants.SubtitleFieldName)]
-					string Subtitle  {get; set;}
-			
-								/// <summary>
-					/// The Text field.
-					/// <para></para>
-					/// <para>Field Type: Multi-Line Text</para>		
-					/// <para>Field ID: 53aea5af-8580-435b-8b58-d5a0cb768be2</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendMessageConstants.TextFieldName)]
-					string Text  {get; set;}
-			
-								/// <summary>
-					/// The Title field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: e2da7985-59d0-478f-9b6e-423606e6e18a</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendMessageConstants.TitleFieldName)]
-					string Title  {get; set;}
-			
-				}
-
-
-	public static partial class ISendMessageConstants{
-
-			public const string TemplateIdString = "78aa458b-f1f1-4845-802f-50abc14ebd35";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "SendMessage";
-
-					
-			public static readonly ID FieldNameFieldId = new ID("d2740cf9-7575-490a-bb9e-fedcb2363c26");
-			public const string FieldNameFieldName = "FieldName";
-			
-					
-			public static readonly ID ImageFieldId = new ID("9794b252-d20e-4873-a6cd-aa346976b55c");
-			public const string ImageFieldName = "Image";
-			
-					
-			public static readonly ID ItemFieldId = new ID("db834052-e710-4009-bc3f-9a8e4615e5c6");
-			public const string ItemFieldName = "Item";
-			
-					
-			public static readonly ID LinkFieldId = new ID("9e15dc8a-e3a7-4db6-8ae5-6015f7e8aa14");
-			public const string LinkFieldName = "Link";
-			
-					
-			public static readonly ID SubtitleFieldId = new ID("208423d5-3820-4952-be5f-c405642f192e");
-			public const string SubtitleFieldName = "Subtitle";
-			
-					
-			public static readonly ID TextFieldId = new ID("53aea5af-8580-435b-8b58-d5a0cb768be2");
-			public const string TextFieldName = "Text";
-			
-					
-			public static readonly ID TitleFieldId = new ID("e2da7985-59d0-478f-9b6e-423606e6e18a");
-			public const string TitleFieldName = "Title";
-			
-			
-
-	}
-
-	
-	/// <summary>
-	/// SendMessage
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/SendMessage</para>	
-	/// <para>ID: 78aa458b-f1f1-4845-802f-50abc14ebd35</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ISendMessageConstants.TemplateIdString)] //, Cachable = true
-	public partial class SendMessage  : GlassBase, ISendMessage 
-	{
-	   
-						/// <summary>
-				/// The FieldName field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: d2740cf9-7575-490a-bb9e-fedcb2363c26</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendMessageConstants.FieldNameFieldName)]
-				public virtual string FieldName  {get; set;}
-					
-						/// <summary>
-				/// The Image field.
-				/// <para></para>
-				/// <para>Field Type: Image</para>		
-				/// <para>Field ID: 9794b252-d20e-4873-a6cd-aa346976b55c</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendMessageConstants.ImageFieldName)]
-				public virtual Image Image  {get; set;}
-					
-						/// <summary>
-				/// The Item field.
-				/// <para></para>
-				/// <para>Field Type: Droptree</para>		
-				/// <para>Field ID: db834052-e710-4009-bc3f-9a8e4615e5c6</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendMessageConstants.ItemFieldName)]
-				public virtual Guid Item  {get; set;}
-					
-						/// <summary>
-				/// The Link field.
-				/// <para></para>
-				/// <para>Field Type: General Link</para>		
-				/// <para>Field ID: 9e15dc8a-e3a7-4db6-8ae5-6015f7e8aa14</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendMessageConstants.LinkFieldName)]
-				public virtual Link Link  {get; set;}
-					
-						/// <summary>
-				/// The Subtitle field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 208423d5-3820-4952-be5f-c405642f192e</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendMessageConstants.SubtitleFieldName)]
-				public virtual string Subtitle  {get; set;}
-					
-						/// <summary>
-				/// The Text field.
-				/// <para></para>
-				/// <para>Field Type: Multi-Line Text</para>		
-				/// <para>Field ID: 53aea5af-8580-435b-8b58-d5a0cb768be2</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendMessageConstants.TextFieldName)]
-				public virtual string Text  {get; set;}
-					
-						/// <summary>
-				/// The Title field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: e2da7985-59d0-478f-9b6e-423606e6e18a</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendMessageConstants.TitleFieldName)]
-				public virtual string Title  {get; set;}
-					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// IBotFolder Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/BotFolder</para>	
-	/// <para>ID: 7e3cc5d6-9e27-49b8-a0af-75cddb786d52</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IBotFolderConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IBotFolder : IGlassBase 
-	{
-				}
-
-
-	public static partial class IBotFolderConstants{
-
-			public const string TemplateIdString = "7e3cc5d6-9e27-49b8-a0af-75cddb786d52";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "BotFolder";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// BotFolder
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/BotFolder</para>	
-	/// <para>ID: 7e3cc5d6-9e27-49b8-a0af-75cddb786d52</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IBotFolderConstants.TemplateIdString)] //, Cachable = true
-	public partial class BotFolder  : GlassBase, IBotFolder 
-	{
-	   
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFrameworkV2.Actions
 {
 
@@ -2989,7 +2189,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 877a013a-8b95-48d7-b106-9b0459a9904a</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IStopJobConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IStopJob : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface IStopJob : IGlassBase 
 	{
 								/// <summary>
 					/// The IsGlobal field.
@@ -3065,46 +2265,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[SitecoreField(IStopJobConstants.JobIdFieldName)]
 				public virtual string JobId  {get; set;}
 					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// IDialogFolder Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/DialogFolder</para>	
-	/// <para>ID: 888f0d97-06a2-4282-bbde-cf846ab0ad2f</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IDialogFolderConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IDialogFolder : IGlassBase 
-	{
-				}
-
-
-	public static partial class IDialogFolderConstants{
-
-			public const string TemplateIdString = "888f0d97-06a2-4282-bbde-cf846ab0ad2f";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "DialogFolder";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// DialogFolder
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/DialogFolder</para>	
-	/// <para>ID: 888f0d97-06a2-4282-bbde-cf846ab0ad2f</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IDialogFolderConstants.TemplateIdString)] //, Cachable = true
-	public partial class DialogFolder  : GlassBase, IDialogFolder 
-	{
-	   
 			
 	}
 }
@@ -3188,161 +2348,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Project.Sandbox
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
-{
-
-
- 	/// <summary>
-	/// ICustomAction Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/CustomAction</para>	
-	/// <para>ID: 94a7a6b7-4a32-4c0d-91bb-31f90fd41193</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ICustomActionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ICustomAction : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
-	{
-								/// <summary>
-					/// The Item field.
-					/// <para></para>
-					/// <para>Field Type: Treelist</para>		
-					/// <para>Field ID: 2eb011a0-6448-44c3-8efa-2a46bb0b72a9</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ICustomActionConstants.ItemsFieldName)]
-					IEnumerable<Guid> Items  {get; set;}
-			
-								/// <summary>
-					/// The Type field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: 4d618db0-6a02-4fc8-b7b6-5d706e0c04e2</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ICustomActionConstants.TypeFieldName)]
-					string Type  {get; set;}
-			
-				}
-
-
-	public static partial class ICustomActionConstants{
-
-			public const string TemplateIdString = "94a7a6b7-4a32-4c0d-91bb-31f90fd41193";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "CustomAction";
-
-					
-			public static readonly ID ItemsFieldId = new ID("2eb011a0-6448-44c3-8efa-2a46bb0b72a9");
-			public const string ItemsFieldName = "Item";
-			
-					
-			public static readonly ID TypeFieldId = new ID("4d618db0-6a02-4fc8-b7b6-5d706e0c04e2");
-			public const string TypeFieldName = "Type";
-			
-			
-
-	}
-
-	
-	/// <summary>
-	/// CustomAction
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/CustomAction</para>	
-	/// <para>ID: 94a7a6b7-4a32-4c0d-91bb-31f90fd41193</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ICustomActionConstants.TemplateIdString)] //, Cachable = true
-	public partial class CustomAction  : GlassBase, ICustomAction 
-	{
-	   
-						/// <summary>
-				/// The Item field.
-				/// <para></para>
-				/// <para>Field Type: Treelist</para>		
-				/// <para>Field ID: 2eb011a0-6448-44c3-8efa-2a46bb0b72a9</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ICustomActionConstants.ItemsFieldName)]
-				public virtual IEnumerable<Guid> Items  {get; set;}
-					
-						/// <summary>
-				/// The Type field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 4d618db0-6a02-4fc8-b7b6-5d706e0c04e2</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ICustomActionConstants.TypeFieldName)]
-				public virtual string Type  {get; set;}
-					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
-{
-
-
- 	/// <summary>
-	/// ICondition Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/Condition</para>	
-	/// <para>ID: 9901d858-53dc-4d25-84de-299745a0f829</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IConditionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ICondition : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
-	{
-								/// <summary>
-					/// The Rule field.
-					/// <para></para>
-					/// <para>Field Type: Rules</para>		
-					/// <para>Field ID: fd430f29-ba54-4769-bba4-5b7300b5b7e9</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(IConditionConstants.RuleFieldName)]
-					object /* UNKNOWN */ Rule  {get; set;}
-			
-				}
-
-
-	public static partial class IConditionConstants{
-
-			public const string TemplateIdString = "9901d858-53dc-4d25-84de-299745a0f829";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "Condition";
-
-					
-			public static readonly ID RuleFieldId = new ID("fd430f29-ba54-4769-bba4-5b7300b5b7e9");
-			public const string RuleFieldName = "Rule";
-			
-			
-
-	}
-
-	
-	/// <summary>
-	/// Condition
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/Condition</para>	
-	/// <para>ID: 9901d858-53dc-4d25-84de-299745a0f829</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=IConditionConstants.TemplateIdString)] //, Cachable = true
-	public partial class Condition  : GlassBase, ICondition 
-	{
-	   
-						/// <summary>
-				/// The Rule field.
-				/// <para></para>
-				/// <para>Field Type: Rules</para>		
-				/// <para>Field ID: fd430f29-ba54-4769-bba4-5b7300b5b7e9</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IConditionConstants.RuleFieldName)]
-				public virtual object /* UNKNOWN */ Rule  {get; set;}
-					
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2
 {
 
@@ -3378,46 +2383,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 	/// </summary>
 	[SitecoreType(TemplateId=I_StateConstants.TemplateIdString)] //, Cachable = true
 	public partial class _State  : GlassBase, I_State 
-	{
-	   
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
-{
-
-
- 	/// <summary>
-	/// ICarousel Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/Carousel</para>	
-	/// <para>ID: a3b5863b-72ec-4b6a-a0f0-72472d4aaed3</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ICarouselConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ICarousel : IGlassBase 
-	{
-				}
-
-
-	public static partial class ICarouselConstants{
-
-			public const string TemplateIdString = "a3b5863b-72ec-4b6a-a0f0-72472d4aaed3";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "Carousel";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// Carousel
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/Carousel</para>	
-	/// <para>ID: a3b5863b-72ec-4b6a-a0f0-72472d4aaed3</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ICarouselConstants.TemplateIdString)] //, Cachable = true
-	public partial class Carousel  : GlassBase, ICarousel 
 	{
 	   
 			
@@ -3524,7 +2489,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: a5361670-cd10-465f-838a-7cba035afc83</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISubmitFormConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISubmitForm : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ISubmitForm : IGlassBase 
 	{
 								/// <summary>
 					/// The ErrorMessage field.
@@ -3909,7 +2874,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: b7f4bee9-0674-4e75-8846-bbf878e785c6</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IClearSessionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IClearSession : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface IClearSession : IGlassBase 
 	{
 				}
 
@@ -4329,7 +3294,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: d83af18f-54f5-4744-9efe-cd4aa78e0575</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISendImageCardConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISendImageCard : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ISendImageCard : IGlassBase 
 	{
 								/// <summary>
 					/// The Image field.
@@ -4404,171 +3369,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(ISendImageCardConstants.ItemFieldName)]
 				public virtual Guid Item  {get; set;}
-					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
-{
-
-
- 	/// <summary>
-	/// ISubmitForm Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/SubmitForm</para>	
-	/// <para>ID: e3ee4f79-f59d-40c3-9394-1651dfc1cef9</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ISubmitFormConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISubmitForm : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
-	{
-								/// <summary>
-					/// The ErrorMessage field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: 276f8141-f9d5-4aea-9ee7-850dfd6af77a</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISubmitFormConstants.ErrorMessageFieldName)]
-					string ErrorMessage  {get; set;}
-			
-								/// <summary>
-					/// The FormId field.
-					/// <para></para>
-					/// <para>Field Type: Droptree</para>		
-					/// <para>Field ID: 0578c644-4c3b-4784-a89a-b1c71280a568</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISubmitFormConstants.FormIdFieldName)]
-					Guid FormId  {get; set;}
-			
-								/// <summary>
-					/// The Item field.
-					/// <para></para>
-					/// <para>Field Type: Droptree</para>		
-					/// <para>Field ID: c3573b96-0645-4482-89a3-7dad03f95dc1</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISubmitFormConstants.ItemFieldName)]
-					Guid Item  {get; set;}
-			
-								/// <summary>
-					/// The Mapping field.
-					/// <para></para>
-					/// <para>Field Type: Name Value List</para>		
-					/// <para>Field ID: d4a0de6b-f0b4-46a3-8a3d-6889cf0e2848</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISubmitFormConstants.MappingFieldName)]
-					System.Collections.Specialized.NameValueCollection Mapping  {get; set;}
-			
-								/// <summary>
-					/// The SuccessMessage field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: 824e59cb-50a6-4601-b836-79293cf650c7</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISubmitFormConstants.SuccessMessageFieldName)]
-					string SuccessMessage  {get; set;}
-			
-				}
-
-
-	public static partial class ISubmitFormConstants{
-
-			public const string TemplateIdString = "e3ee4f79-f59d-40c3-9394-1651dfc1cef9";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "SubmitForm";
-
-					
-			public static readonly ID ErrorMessageFieldId = new ID("276f8141-f9d5-4aea-9ee7-850dfd6af77a");
-			public const string ErrorMessageFieldName = "ErrorMessage";
-			
-					
-			public static readonly ID FormIdFieldId = new ID("0578c644-4c3b-4784-a89a-b1c71280a568");
-			public const string FormIdFieldName = "FormId";
-			
-					
-			public static readonly ID ItemFieldId = new ID("c3573b96-0645-4482-89a3-7dad03f95dc1");
-			public const string ItemFieldName = "Item";
-			
-					
-			public static readonly ID MappingFieldId = new ID("d4a0de6b-f0b4-46a3-8a3d-6889cf0e2848");
-			public const string MappingFieldName = "Mapping";
-			
-					
-			public static readonly ID SuccessMessageFieldId = new ID("824e59cb-50a6-4601-b836-79293cf650c7");
-			public const string SuccessMessageFieldName = "SuccessMessage";
-			
-			
-
-	}
-
-	
-	/// <summary>
-	/// SubmitForm
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/SubmitForm</para>	
-	/// <para>ID: e3ee4f79-f59d-40c3-9394-1651dfc1cef9</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=ISubmitFormConstants.TemplateIdString)] //, Cachable = true
-	public partial class SubmitForm  : GlassBase, ISubmitForm 
-	{
-	   
-						/// <summary>
-				/// The ErrorMessage field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 276f8141-f9d5-4aea-9ee7-850dfd6af77a</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISubmitFormConstants.ErrorMessageFieldName)]
-				public virtual string ErrorMessage  {get; set;}
-					
-						/// <summary>
-				/// The FormId field.
-				/// <para></para>
-				/// <para>Field Type: Droptree</para>		
-				/// <para>Field ID: 0578c644-4c3b-4784-a89a-b1c71280a568</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISubmitFormConstants.FormIdFieldName)]
-				public virtual Guid FormId  {get; set;}
-					
-						/// <summary>
-				/// The Item field.
-				/// <para></para>
-				/// <para>Field Type: Droptree</para>		
-				/// <para>Field ID: c3573b96-0645-4482-89a3-7dad03f95dc1</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISubmitFormConstants.ItemFieldName)]
-				public virtual Guid Item  {get; set;}
-					
-						/// <summary>
-				/// The Mapping field.
-				/// <para></para>
-				/// <para>Field Type: Name Value List</para>		
-				/// <para>Field ID: d4a0de6b-f0b4-46a3-8a3d-6889cf0e2848</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISubmitFormConstants.MappingFieldName)]
-				public virtual System.Collections.Specialized.NameValueCollection Mapping  {get; set;}
-					
-						/// <summary>
-				/// The SuccessMessage field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 824e59cb-50a6-4601-b836-79293cf650c7</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISubmitFormConstants.SuccessMessageFieldName)]
-				public virtual string SuccessMessage  {get; set;}
 					
 			
 	}
@@ -4664,7 +3464,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: eaed557d-2b31-4a25-be11-99a6db070a38</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISendAttachmentCardConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISendAttachmentCard : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ISendAttachmentCard : IGlassBase 
 	{
 								/// <summary>
 					/// The Attachment field.
@@ -4743,55 +3543,31 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
+namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFrameworkV2
 {
 
 
  	/// <summary>
-	/// ISendImageCard Interface
+	/// ISettings Interface
 	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/SendImageCard</para>	
-	/// <para>ID: eff2fab5-f206-412e-b08f-c2726eb0ab73</para>	
+	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Settings</para>	
+	/// <para>ID: ee25b120-e15d-4bca-b50c-9906776cf52b</para>	
 	/// </summary>
-	[SitecoreType(TemplateId=ISendImageCardConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISendImageCard : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	[SitecoreType(TemplateId=ISettingsConstants.TemplateIdString )] //, Cachable = true
+	public partial interface ISettings : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_Settings
 	{
-								/// <summary>
-					/// The Image field.
-					/// <para></para>
-					/// <para>Field Type: Image</para>		
-					/// <para>Field ID: 852568db-7110-404c-93f0-07c41808920f</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendImageCardConstants.ImageFieldName)]
-					Image Image  {get; set;}
-			
-								/// <summary>
-					/// The Item field.
-					/// <para></para>
-					/// <para>Field Type: Droptree</para>		
-					/// <para>Field ID: f613d715-799f-4c40-951c-9a5ba931de82</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(ISendImageCardConstants.ItemFieldName)]
-					Guid Item  {get; set;}
-			
 				}
 
 
-	public static partial class ISendImageCardConstants{
+	public static partial class ISettingsConstants{
 
-			public const string TemplateIdString = "eff2fab5-f206-412e-b08f-c2726eb0ab73";
+			public const string TemplateIdString = "ee25b120-e15d-4bca-b50c-9906776cf52b";
 			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "SendImageCard";
+			public const string TemplateName = "Settings";
 
 					
-			public static readonly ID ImageFieldId = new ID("852568db-7110-404c-93f0-07c41808920f");
-			public const string ImageFieldName = "Image";
-			
-					
-			public static readonly ID ItemFieldId = new ID("f613d715-799f-4c40-951c-9a5ba931de82");
-			public const string ItemFieldName = "Item";
+			public static readonly ID HostUrlFieldId = new ID("80e151f5-f49d-4d90-91eb-bff6530d2c20");
+			public const string HostUrlFieldName = "HostUrl";
 			
 			
 
@@ -4799,36 +3575,25 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 
 	
 	/// <summary>
-	/// SendImageCard
+	/// Settings
 	/// <para></para>
-	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFramework/Actions/SendImageCard</para>	
-	/// <para>ID: eff2fab5-f206-412e-b08f-c2726eb0ab73</para>	
+	/// <para>Path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Settings</para>	
+	/// <para>ID: ee25b120-e15d-4bca-b50c-9906776cf52b</para>	
 	/// </summary>
-	[SitecoreType(TemplateId=ISendImageCardConstants.TemplateIdString)] //, Cachable = true
-	public partial class SendImageCard  : GlassBase, ISendImageCard 
+	[SitecoreType(TemplateId=ISettingsConstants.TemplateIdString)] //, Cachable = true
+	public partial class Settings  : GlassBase, ISettings 
 	{
 	   
 						/// <summary>
-				/// The Image field.
+				/// The HostUrl field.
 				/// <para></para>
-				/// <para>Field Type: Image</para>		
-				/// <para>Field ID: 852568db-7110-404c-93f0-07c41808920f</para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 80e151f5-f49d-4d90-91eb-bff6530d2c20</para>
 				/// <para>Custom Data: </para>
 				/// </summary>
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendImageCardConstants.ImageFieldName)]
-				public virtual Image Image  {get; set;}
-					
-						/// <summary>
-				/// The Item field.
-				/// <para></para>
-				/// <para>Field Type: Droptree</para>		
-				/// <para>Field ID: f613d715-799f-4c40-951c-9a5ba931de82</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISendImageCardConstants.ItemFieldName)]
-				public virtual Guid Item  {get; set;}
+				[SitecoreField(ISettingsConstants.HostUrlFieldName)]
+				public virtual string HostUrl  {get; set;}
 					
 			
 	}
@@ -4844,7 +3609,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: fa20c787-7c17-4e30-9f7c-2713a7e6a652</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IConditionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ICondition : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface ICondition : IGlassBase 
 	{
 								/// <summary>
 					/// The Rule field.
@@ -4909,7 +3674,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: ff9c74fa-4731-4efc-9089-0b9325664702</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IPromptConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IPrompt : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.IDialogAction
+	public partial interface IPrompt : IGlassBase 
 	{
 								/// <summary>
 					/// The Action field.

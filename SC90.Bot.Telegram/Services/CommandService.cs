@@ -51,7 +51,8 @@ namespace SC90.Bot.Telegram.Services
                     CommandContext = context.CommandContext,
                     Chatbot = context.Chatbot,
                     ActionContext = action,
-                    SessionKey = context.SessionKey
+                    SessionKey = context.SessionKey,
+                    SchedulingData = context.SchedulingData
                 };
 
                 await Execute(action, actionContext);
@@ -79,7 +80,8 @@ namespace SC90.Bot.Telegram.Services
                         ActionContext= command,
                         CurrentState = context.CurrentState,
                         SessionKey = context.SessionKey,
-                        DialogueContext = dialogue
+                        DialogueContext = dialogue,
+                        SchedulingData = context.SchedulingData
                     };
 
                     await Execute(command, commandContext);

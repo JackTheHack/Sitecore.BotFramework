@@ -14,19 +14,15 @@ namespace SC90.Bot.Telegram.Actions
         private RunDialogue _actionItem;
         
         private readonly ISitecoreService _sitecoreContext;
-        private readonly ITelegramService _telegramService;
-        private readonly ISessionProvider _sessionProvider;
+        private readonly ICommandService _commandService;
 
         
         private ChatbotActionContext _context;
-        private IDialogActionFactory _actionFactory;
 
         public RunDialogueAction()
         {
             _sitecoreContext = new SitecoreService("web");
-            _actionFactory = ServiceLocator.ServiceProvider.GetService<IDialogActionFactory>();
-            _sessionProvider = ServiceLocator.ServiceProvider.GetService<ISessionProvider>();
-            _telegramService = ServiceLocator.ServiceProvider.GetService<ITelegramService>();
+            _commandService = ServiceLocator.ServiceProvider.GetService<ICommandService>();
         }
 
         public void SetContextItem(_DialogAction action, ChatbotActionContext context)
@@ -42,10 +38,18 @@ namespace SC90.Bot.Telegram.Actions
 
             if (dialogue != null)
             {
-                //TODO: Run actions
-            }
+                var dialogueContext = new ChatbotDialogueContext()
+                {
+                    Chatbot = _context.Chatbot,
+                    ChatUpdate = _context.ChatUpdate,
+                    CurrentState = _context.CurrentState,
+                    DialogueContext = dialogue,
+                    SchedulingData = _context.SchedulingData,
+                    SessionKey = _context.SessionKey
+                };
 
-            //todo: set state
+                await _commandService.Execute(dialogue, dialogueContext);
+            }
         }
     }
 }

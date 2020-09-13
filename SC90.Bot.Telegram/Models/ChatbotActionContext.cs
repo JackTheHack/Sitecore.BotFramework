@@ -20,5 +20,6 @@ namespace SC90.Bot.Telegram.Models
         public ChatUpdate ChatUpdate { get; set; }
         public string SessionKey { get; set; }
         public _Dialogue DialogueContext { get; set; }
+        public SchedulingJobData SchedulingData { get; set; }
     }
 }

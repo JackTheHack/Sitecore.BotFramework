@@ -319,6 +319,11 @@ namespace SC90.Bot.Telegram.Services
             var defaultDialogueItem = _sitecoreContext.GetItem<_Dialogue>(_chatBot.Start);
             var defaultStateItem = _sitecoreContext.GetItem<_State>(defaultDialogueItem.NewState);
 
+            if(defaultStateItem == null)
+            {
+                throw new InvalidOperationException("Please set default state on your start dialogue item.");
+            }
+
             if (_sessionDocument.TryGetValue(SessionConstants.State, out var stateVal))
             {
                 _State stateItem = null;
