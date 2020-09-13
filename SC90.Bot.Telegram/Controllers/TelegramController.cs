@@ -1,6 +1,5 @@
 using System;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Glass.Mapper.Sc;
@@ -10,7 +9,7 @@ using SC90.Bot.Telegram.Abstractions;
 using SC90.Bot.Telegram.Models;
 using Sitecore.Data.Items;
 using Sitecore.DependencyInjection;
-using Sitecore.Services.Infrastructure.Web.Http;
+using Sitecore.Diagnostics;
 using Telegram.Bot.Types;
 
 namespace SC90.Bot.Telegram.Controllers
@@ -18,7 +17,6 @@ namespace SC90.Bot.Telegram.Controllers
     public class TelegramApiController : ApiController
     {
         private readonly ISitecoreService _sitecoreContext;
-        
         private readonly _Bot _chatBotItem;
         private _Dialogue _startDialog;
         private readonly ISitecoreBotService _sitecoreBotService;
@@ -65,7 +63,11 @@ namespace SC90.Bot.Telegram.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> Register()
         {
-            await _sitecoreBotService.Register("telegram", RequestContext.Url.Request.RequestUri.Host);
+            string botName = RequestContext.RouteData.Values["botId"]?.ToString();
+
+            Assert.IsNotNullOrEmpty(botName, "Bot name can't be empty");
+
+            await _sitecoreBotService.Register("telegram", botName, RequestContext.Url.Request.RequestUri.Host);
             return Content(HttpStatusCode.OK, "Registered.");
         }
 

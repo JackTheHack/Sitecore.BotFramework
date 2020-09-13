@@ -2,15 +2,12 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using Glass.Mapper.Sc;
-using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
-using Quartz;
 using SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2;
 using SC90.Bot.Telegram.Abstractions;
 using SC90.Bot.Telegram.Constants;
 using SC90.Bot.Telegram.Models;
 using Sitecore.Data.Items;
-using Sitecore.DependencyInjection;
 using Log = Sitecore.Diagnostics.Log;
 
 namespace SC90.Bot.Telegram.Services
@@ -46,11 +43,9 @@ namespace SC90.Bot.Telegram.Services
             _ruleEngine = ruleEngineService;
         }
 
-        public async Task HandleSchedulingJob(IJobExecutionContext context)
+        public async Task HandleSchedulingJob(SchedulingJobData jobData)
         {
-            var jobData = new SchedulingJobData(context.Trigger.JobDataMap);
-
-            if(jobData.BotId == Guid.Empty || string.IsNullOrEmpty(jobData.SessionId))
+            if(jobData == null || jobData.BotId == Guid.Empty || string.IsNullOrEmpty(jobData.SessionId))
             {
                 return;
             }
@@ -213,13 +208,13 @@ namespace SC90.Bot.Telegram.Services
             return $"{source}{userId}";
         }
 
-        public async Task Register(string source, string requestUriHost)
+        public async Task Register(string source, string botName, string requestUriHost)
         {
             switch (source)
             {
                 case "telegram":
                     var webHookUrl = _telegramService.Configuration.WebHookEndpoint;
-                    await _telegramService.Client.SetWebhookAsync(webHookUrl);
+                    await _telegramService.Client.SetWebhookAsync(string.Format(webHookUrl, botName));
                     break;
             }
         }

@@ -230,6 +230,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\IBotRequestContext.cs" />
     <Compile Include="Abstractions\ICommandService.cs" />
     <Compile Include="Abstractions\IDialogActionFactory.cs" />
     <Compile Include="Abstractions\IDialogueAction.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="ConfigureServices.cs" />
     <Compile Include="Constants\SessionConstants.cs" />
     <Compile Include="Controllers\TelegramController.cs" />
+    <Compile Include="Mvc\BotRequestContext.cs" />
     <Compile Include="Models\BsonSessionDocument.cs" />
     <Compile Include="Models\ChatbotActionContext.cs" />
     <Compile Include="Models\ChatbotCommandContext.cs" />
@@ -287,6 +289,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
+    <Folder Include="Pipelines\onPublish\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets" Condition="Exists('..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets')" />

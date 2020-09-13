@@ -3,19 +3,23 @@ using System.Linq;
 using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
-using SC90.Bot.Controllers;
+using SC90.Bot.Telegram.Abstractions;
 using Sitecore.Configuration;
 using Sitecore.Data.Items;
+using Microsoft.Extensions.DependencyInjection;
+using Sitecore.DependencyInjection;
 
 namespace SC90.Bot.Mvc
 {
     public class BotControllerActivator : IHttpControllerActivator
     {
         private readonly DefaultHttpControllerActivator  _defaultHttpControllerFactory;
+        private readonly IBotRequestContext _botContext;
 
         public BotControllerActivator()
         {
             _defaultHttpControllerFactory = new DefaultHttpControllerActivator();
+            _botContext = ServiceLocator.ServiceProvider.GetService<IBotRequestContext>();
         }
 
         public IHttpController Create(HttpRequestMessage request, HttpControllerDescriptor controllerDescriptor, Type controllerType)
@@ -26,7 +30,9 @@ namespace SC90.Bot.Mvc
                 routeData.Values.ContainsKey("botId") &&
                 !string.IsNullOrEmpty((string)routeData.Values["botId"]))
             {
-                var botName = routeData.Values["botId"];
+                var botName = (string)routeData.Values["botId"];
+
+
                 var siteItemPath = Sitecore.Context.Site.ContentStartPath;
 
                 var botStartItemId = GetBotStartItem(botName, siteItemPath);
@@ -36,6 +42,7 @@ namespace SC90.Bot.Mvc
                     return _defaultHttpControllerFactory.Create(request, controllerDescriptor, controllerType);
                 }
 
+                _botContext.SetBotContext(botStartItemId.ID.Guid, false);
 
                 var instance = Activator.CreateInstance(controllerType, botStartItemId);
                 return (IHttpController)instance;
@@ -44,7 +51,7 @@ namespace SC90.Bot.Mvc
             return _defaultHttpControllerFactory.Create(request, controllerDescriptor, controllerType);
         }
 
-        private Item GetBotStartItem(object botName, string site)
+        private Item GetBotStartItem(string botName, string site)
         {
             var botFolder = Settings.GetSetting("BotFramework:BotFolder", "/Data/Bots");
 
@@ -56,7 +63,7 @@ namespace SC90.Bot.Mvc
             }
 
             var botItem = botItemsRoot.Children
-                .FirstOrDefault(i => i["Route"] == (string) botName);
+                .FirstOrDefault(i => i["Route"] == botName);
 
             return botItem;
 

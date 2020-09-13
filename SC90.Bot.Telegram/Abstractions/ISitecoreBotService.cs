@@ -8,7 +8,7 @@ namespace SC90.Bot.Telegram.Abstractions
     public interface ISitecoreBotService
     {
         Task HandleUpdate(ChatUpdate update, _Bot chatBotItem);
-        Task Register(string uriHost, string requestUriHost);
-        Task HandleSchedulingJob(IJobExecutionContext jobContext);
+        Task Register(string uriHost, string botName, string requestUriHost);
+        Task HandleSchedulingJob(SchedulingJobData jobData);
     }
 }

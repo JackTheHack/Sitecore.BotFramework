@@ -284,7 +284,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 0cd9851f-cc87-4ed9-8ac5-e2854c2b20b3</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IDecisionBranchConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IDecisionBranch : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework.I_DecisionBranch
+	public partial interface IDecisionBranch : IGlassBase 
 	{
 				}
 
@@ -799,7 +799,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 27ac411c-3065-4801-8081-d2c372a57659</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IIntentFolderConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IIntentFolder : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework.I_IntentFolder
+	public partial interface IIntentFolder : IGlassBase 
 	{
 				}
 
@@ -839,7 +839,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 27d16aa1-8852-4055-8551-1db05bc6ff49</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IBotConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IBot : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework.I_Bot
+	public partial interface IBot : IGlassBase 
 	{
 				}
 
@@ -850,30 +850,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID TemplateId = new ID(TemplateIdString);
 			public const string TemplateName = "Bot";
 
-					
-			public static readonly ID ImageFieldId = new ID("19c61bff-add3-4446-a183-3a2e38c0e963");
-			public const string ImageFieldName = "Image";
-			
-					
-			public static readonly ID OptionsFieldId = new ID("d3a9f8b1-5648-4945-bd33-f992610fccda");
-			public const string OptionsFieldName = "Options";
-			
-					
-			public static readonly ID OptionsTitleFieldId = new ID("9e35df08-453b-43e1-bce4-2423b719b420");
-			public const string OptionsTitleFieldName = "OptionsTitle";
-			
-					
-			public static readonly ID RouteFieldId = new ID("b5f440fc-d358-45b9-9a9b-eebdfb7a4e30");
-			public const string RouteFieldName = "Route";
-			
-					
-			public static readonly ID StartDialogFieldId = new ID("a26361e1-cce3-48c9-8bf3-9955f91c6360");
-			public const string StartDialogFieldName = "StartDialog";
-			
-					
-			public static readonly ID WelcomeMessageFieldId = new ID("77209dcf-ffe3-4b90-8793-114f3f7e9ba9");
-			public const string WelcomeMessageFieldName = "WelcomeMessage";
-			
 			
 
 	}
@@ -889,72 +865,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	public partial class Bot  : GlassBase, IBot 
 	{
 	   
-						/// <summary>
-				/// The Image field.
-				/// <para></para>
-				/// <para>Field Type: Image</para>		
-				/// <para>Field ID: 19c61bff-add3-4446-a183-3a2e38c0e963</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IBotConstants.ImageFieldName)]
-				public virtual Image Image  {get; set;}
-					
-						/// <summary>
-				/// The Options field.
-				/// <para></para>
-				/// <para>Field Type: Multi-Line Text</para>		
-				/// <para>Field ID: d3a9f8b1-5648-4945-bd33-f992610fccda</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IBotConstants.OptionsFieldName)]
-				public virtual string Options  {get; set;}
-					
-						/// <summary>
-				/// The OptionsTitle field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 9e35df08-453b-43e1-bce4-2423b719b420</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IBotConstants.OptionsTitleFieldName)]
-				public virtual string OptionsTitle  {get; set;}
-					
-						/// <summary>
-				/// The Route field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: b5f440fc-d358-45b9-9a9b-eebdfb7a4e30</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IBotConstants.RouteFieldName)]
-				public virtual string Route  {get; set;}
-					
-						/// <summary>
-				/// The StartDialog field.
-				/// <para></para>
-				/// <para>Field Type: Droptree</para>		
-				/// <para>Field ID: a26361e1-cce3-48c9-8bf3-9955f91c6360</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IBotConstants.StartDialogFieldName)]
-				public virtual Guid StartDialog  {get; set;}
-					
-						/// <summary>
-				/// The WelcomeMessage field.
-				/// <para></para>
-				/// <para>Field Type: Multi-Line Text</para>		
-				/// <para>Field ID: 77209dcf-ffe3-4b90-8793-114f3f7e9ba9</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IBotConstants.WelcomeMessageFieldName)]
-				public virtual string WelcomeMessage  {get; set;}
-					
 			
 	}
 }
@@ -1383,46 +1293,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// I_DecisionBranch Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_DecisionBranch</para>	
-	/// <para>ID: 311495ce-74aa-4bbd-819c-3dcd9ec3007e</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_DecisionBranchConstants.TemplateIdString )] //, Cachable = true
-	public partial interface I_DecisionBranch : IGlassBase 
-	{
-				}
-
-
-	public static partial class I_DecisionBranchConstants{
-
-			public const string TemplateIdString = "311495ce-74aa-4bbd-819c-3dcd9ec3007e";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "_DecisionBranch";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// _DecisionBranch
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_DecisionBranch</para>	
-	/// <para>ID: 311495ce-74aa-4bbd-819c-3dcd9ec3007e</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_DecisionBranchConstants.TemplateIdString)] //, Cachable = true
-	public partial class _DecisionBranch  : GlassBase, I_DecisionBranch 
-	{
-	   
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
 {
 
@@ -1434,7 +1304,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 320aa079-c7a9-4fa7-9b59-c5cc87c27915</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IIntentActionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IIntentAction : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework.I_IntentAction
+	public partial interface IIntentAction : IGlassBase 
 	{
 				}
 
@@ -1445,14 +1315,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID TemplateId = new ID(TemplateIdString);
 			public const string TemplateName = "IntentAction";
 
-					
-			public static readonly ID NameFieldId = new ID("6967fb63-63ac-405d-96a3-f52928b29742");
-			public const string NameFieldName = "Name";
-			
-					
-			public static readonly ID RuleFieldId = new ID("65077d1d-7042-4bd7-a65a-ff0daf3c1aa6");
-			public const string RuleFieldName = "Rule";
-			
 			
 
 	}
@@ -1468,28 +1330,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	public partial class IntentAction  : GlassBase, IIntentAction 
 	{
 	   
-						/// <summary>
-				/// The Name field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 6967fb63-63ac-405d-96a3-f52928b29742</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IIntentActionConstants.NameFieldName)]
-				public virtual string Name  {get; set;}
-					
-						/// <summary>
-				/// The Rule field.
-				/// <para></para>
-				/// <para>Field Type: Rules</para>		
-				/// <para>Field ID: 65077d1d-7042-4bd7-a65a-ff0daf3c1aa6</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(IIntentActionConstants.RuleFieldName)]
-				public virtual object /* UNKNOWN */ Rule  {get; set;}
-					
 			
 	}
 }
@@ -1528,46 +1368,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Project.Sandbox
 	/// </summary>
 	[SitecoreType(TemplateId=IMetadata_Partial_DesignConstants.TemplateIdString)] //, Cachable = true
 	public partial class Metadata_Partial_Design  : GlassBase, IMetadata_Partial_Design 
-	{
-	   
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// I_IntentFolder Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_IntentFolder</para>	
-	/// <para>ID: 34012025-eac9-4a6a-86a7-85750239e364</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_IntentFolderConstants.TemplateIdString )] //, Cachable = true
-	public partial interface I_IntentFolder : IGlassBase 
-	{
-				}
-
-
-	public static partial class I_IntentFolderConstants{
-
-			public const string TemplateIdString = "34012025-eac9-4a6a-86a7-85750239e364";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "_IntentFolder";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// _IntentFolder
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_IntentFolder</para>	
-	/// <para>ID: 34012025-eac9-4a6a-86a7-85750239e364</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_IntentFolderConstants.TemplateIdString)] //, Cachable = true
-	public partial class _IntentFolder  : GlassBase, I_IntentFolder 
 	{
 	   
 			
@@ -1998,196 +1798,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// I_Bot Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_Bot</para>	
-	/// <para>ID: 4401b77d-1ab3-4811-81ca-fd83d944f08c</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_BotConstants.TemplateIdString )] //, Cachable = true
-	public partial interface I_Bot : IGlassBase 
-	{
-								/// <summary>
-					/// The Image field.
-					/// <para></para>
-					/// <para>Field Type: Image</para>		
-					/// <para>Field ID: 19c61bff-add3-4446-a183-3a2e38c0e963</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(I_BotConstants.ImageFieldName)]
-					Image Image  {get; set;}
-			
-								/// <summary>
-					/// The Options field.
-					/// <para></para>
-					/// <para>Field Type: Multi-Line Text</para>		
-					/// <para>Field ID: d3a9f8b1-5648-4945-bd33-f992610fccda</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(I_BotConstants.OptionsFieldName)]
-					string Options  {get; set;}
-			
-								/// <summary>
-					/// The OptionsTitle field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: 9e35df08-453b-43e1-bce4-2423b719b420</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(I_BotConstants.OptionsTitleFieldName)]
-					string OptionsTitle  {get; set;}
-			
-								/// <summary>
-					/// The Route field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: b5f440fc-d358-45b9-9a9b-eebdfb7a4e30</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(I_BotConstants.RouteFieldName)]
-					string Route  {get; set;}
-			
-								/// <summary>
-					/// The StartDialog field.
-					/// <para></para>
-					/// <para>Field Type: Droptree</para>		
-					/// <para>Field ID: a26361e1-cce3-48c9-8bf3-9955f91c6360</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(I_BotConstants.StartDialogFieldName)]
-					Guid StartDialog  {get; set;}
-			
-								/// <summary>
-					/// The WelcomeMessage field.
-					/// <para></para>
-					/// <para>Field Type: Multi-Line Text</para>		
-					/// <para>Field ID: 77209dcf-ffe3-4b90-8793-114f3f7e9ba9</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(I_BotConstants.WelcomeMessageFieldName)]
-					string WelcomeMessage  {get; set;}
-			
-				}
-
-
-	public static partial class I_BotConstants{
-
-			public const string TemplateIdString = "4401b77d-1ab3-4811-81ca-fd83d944f08c";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "_Bot";
-
-					
-			public static readonly ID ImageFieldId = new ID("19c61bff-add3-4446-a183-3a2e38c0e963");
-			public const string ImageFieldName = "Image";
-			
-					
-			public static readonly ID OptionsFieldId = new ID("d3a9f8b1-5648-4945-bd33-f992610fccda");
-			public const string OptionsFieldName = "Options";
-			
-					
-			public static readonly ID OptionsTitleFieldId = new ID("9e35df08-453b-43e1-bce4-2423b719b420");
-			public const string OptionsTitleFieldName = "OptionsTitle";
-			
-					
-			public static readonly ID RouteFieldId = new ID("b5f440fc-d358-45b9-9a9b-eebdfb7a4e30");
-			public const string RouteFieldName = "Route";
-			
-					
-			public static readonly ID StartDialogFieldId = new ID("a26361e1-cce3-48c9-8bf3-9955f91c6360");
-			public const string StartDialogFieldName = "StartDialog";
-			
-					
-			public static readonly ID WelcomeMessageFieldId = new ID("77209dcf-ffe3-4b90-8793-114f3f7e9ba9");
-			public const string WelcomeMessageFieldName = "WelcomeMessage";
-			
-			
-
-	}
-
-	
-	/// <summary>
-	/// _Bot
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_Bot</para>	
-	/// <para>ID: 4401b77d-1ab3-4811-81ca-fd83d944f08c</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_BotConstants.TemplateIdString)] //, Cachable = true
-	public partial class _Bot  : GlassBase, I_Bot 
-	{
-	   
-						/// <summary>
-				/// The Image field.
-				/// <para></para>
-				/// <para>Field Type: Image</para>		
-				/// <para>Field ID: 19c61bff-add3-4446-a183-3a2e38c0e963</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(I_BotConstants.ImageFieldName)]
-				public virtual Image Image  {get; set;}
-					
-						/// <summary>
-				/// The Options field.
-				/// <para></para>
-				/// <para>Field Type: Multi-Line Text</para>		
-				/// <para>Field ID: d3a9f8b1-5648-4945-bd33-f992610fccda</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(I_BotConstants.OptionsFieldName)]
-				public virtual string Options  {get; set;}
-					
-						/// <summary>
-				/// The OptionsTitle field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 9e35df08-453b-43e1-bce4-2423b719b420</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(I_BotConstants.OptionsTitleFieldName)]
-				public virtual string OptionsTitle  {get; set;}
-					
-						/// <summary>
-				/// The Route field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: b5f440fc-d358-45b9-9a9b-eebdfb7a4e30</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(I_BotConstants.RouteFieldName)]
-				public virtual string Route  {get; set;}
-					
-						/// <summary>
-				/// The StartDialog field.
-				/// <para></para>
-				/// <para>Field Type: Droptree</para>		
-				/// <para>Field ID: a26361e1-cce3-48c9-8bf3-9955f91c6360</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(I_BotConstants.StartDialogFieldName)]
-				public virtual Guid StartDialog  {get; set;}
-					
-						/// <summary>
-				/// The WelcomeMessage field.
-				/// <para></para>
-				/// <para>Field Type: Multi-Line Text</para>		
-				/// <para>Field ID: 77209dcf-ffe3-4b90-8793-114f3f7e9ba9</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(I_BotConstants.WelcomeMessageFieldName)]
-				public virtual string WelcomeMessage  {get; set;}
-					
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework
 {
 
@@ -2199,7 +1809,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 44518cd3-84f2-421f-979e-3e8862d0b4ae</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IDialogConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IDialog : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework.I_Dialog
+	public partial interface IDialog : IGlassBase 
 	{
 				}
 
@@ -2360,46 +1970,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[SitecoreField(IIntentActionConstants.RuleFieldName)]
 				public virtual object /* UNKNOWN */ Rule  {get; set;}
 					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// I_BotFolder Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_BotFolder</para>	
-	/// <para>ID: 4aecd19d-9048-40ef-b336-cc02fa777129</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_BotFolderConstants.TemplateIdString )] //, Cachable = true
-	public partial interface I_BotFolder : IGlassBase 
-	{
-				}
-
-
-	public static partial class I_BotFolderConstants{
-
-			public const string TemplateIdString = "4aecd19d-9048-40ef-b336-cc02fa777129";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "_BotFolder";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// _BotFolder
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_BotFolder</para>	
-	/// <para>ID: 4aecd19d-9048-40ef-b336-cc02fa777129</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_BotFolderConstants.TemplateIdString)] //, Cachable = true
-	public partial class _BotFolder  : GlassBase, I_BotFolder 
-	{
-	   
 			
 	}
 }
@@ -2579,7 +2149,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 504cb6e2-55ff-473d-bb24-b8bf5e9de02f</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IDialogActionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IDialogAction : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework.I_DialogAction
+	public partial interface IDialogAction : IGlassBase 
 	{
 				}
 
@@ -3153,46 +2723,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			
 	}
 }
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// I_DialogAction Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_DialogAction</para>	
-	/// <para>ID: 7469ece3-2b13-4e26-96bf-2d18a46f200c</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_DialogActionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface I_DialogAction : IGlassBase 
-	{
-				}
-
-
-	public static partial class I_DialogActionConstants{
-
-			public const string TemplateIdString = "7469ece3-2b13-4e26-96bf-2d18a46f200c";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "_DialogAction";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// _DialogAction
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_DialogAction</para>	
-	/// <para>ID: 7469ece3-2b13-4e26-96bf-2d18a46f200c</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_DialogActionConstants.TemplateIdString)] //, Cachable = true
-	public partial class _DialogAction  : GlassBase, I_DialogAction 
-	{
-	   
-			
-	}
-}
 namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreBotFramework.Actions
 {
 
@@ -3419,7 +2949,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 7e3cc5d6-9e27-49b8-a0af-75cddb786d52</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IBotFolderConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IBotFolder : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework.I_BotFolder
+	public partial interface IBotFolder : IGlassBase 
 	{
 				}
 
@@ -3549,7 +3079,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 888f0d97-06a2-4282-bbde-cf846ab0ad2f</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IDialogFolderConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IDialogFolder : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework.I_DialogFolder
+	public partial interface IDialogFolder : IGlassBase 
 	{
 				}
 
@@ -4280,6 +3810,10 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID GlobalStateFieldId = new ID("9358105f-7b42-4246-b43a-100031b3029d");
 			public const string GlobalStateFieldName = "GlobalState";
 			
+					
+			public static readonly ID BotTokenFieldId = new ID("6590905c-e879-4675-a318-aa5d276f44c6");
+			public const string BotTokenFieldName = "BotToken";
+			
 			
 
 	}
@@ -4349,6 +3883,17 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(IBotConstants.GlobalStateFieldName)]
 				public virtual Guid GlobalState  {get; set;}
+					
+						/// <summary>
+				/// The BotToken field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6590905c-e879-4675-a318-aa5d276f44c6</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IBotConstants.BotTokenFieldName)]
+				public virtual string BotToken  {get; set;}
 					
 			
 	}
@@ -4496,6 +4041,16 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 					[SitecoreField(I_BotConstants.GlobalStateFieldName)]
 					Guid GlobalState  {get; set;}
 			
+								/// <summary>
+					/// The BotToken field.
+					/// <para></para>
+					/// <para>Field Type: Single-Line Text</para>		
+					/// <para>Field ID: 6590905c-e879-4675-a318-aa5d276f44c6</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(I_BotConstants.BotTokenFieldName)]
+					string BotToken  {get; set;}
+			
 				}
 
 
@@ -4524,6 +4079,10 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 					
 			public static readonly ID GlobalStateFieldId = new ID("9358105f-7b42-4246-b43a-100031b3029d");
 			public const string GlobalStateFieldName = "GlobalState";
+			
+					
+			public static readonly ID BotTokenFieldId = new ID("6590905c-e879-4675-a318-aa5d276f44c6");
+			public const string BotTokenFieldName = "BotToken";
 			
 			
 
@@ -4595,46 +4154,17 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 				[SitecoreField(I_BotConstants.GlobalStateFieldName)]
 				public virtual Guid GlobalState  {get; set;}
 					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// I_Dialog Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_Dialog</para>	
-	/// <para>ID: c57f1056-6bb5-4d5a-92fa-62e94022a8f2</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_DialogConstants.TemplateIdString )] //, Cachable = true
-	public partial interface I_Dialog : IGlassBase 
-	{
-				}
-
-
-	public static partial class I_DialogConstants{
-
-			public const string TemplateIdString = "c57f1056-6bb5-4d5a-92fa-62e94022a8f2";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "_Dialog";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// _Dialog
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_Dialog</para>	
-	/// <para>ID: c57f1056-6bb5-4d5a-92fa-62e94022a8f2</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_DialogConstants.TemplateIdString)] //, Cachable = true
-	public partial class _Dialog  : GlassBase, I_Dialog 
-	{
-	   
+						/// <summary>
+				/// The BotToken field.
+				/// <para></para>
+				/// <para>Field Type: Single-Line Text</para>		
+				/// <para>Field ID: 6590905c-e879-4675-a318-aa5d276f44c6</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(I_BotConstants.BotTokenFieldName)]
+				public virtual string BotToken  {get; set;}
+					
 			
 	}
 }
@@ -4745,46 +4275,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[SitecoreField(ICommandConstants.RuleFieldName)]
 				public virtual object /* UNKNOWN */ Rule  {get; set;}
 					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// I_DialogFolder Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_DialogFolder</para>	
-	/// <para>ID: cad489a5-4222-467a-a4c4-fe1c9ecc3432</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_DialogFolderConstants.TemplateIdString )] //, Cachable = true
-	public partial interface I_DialogFolder : IGlassBase 
-	{
-				}
-
-
-	public static partial class I_DialogFolderConstants{
-
-			public const string TemplateIdString = "cad489a5-4222-467a-a4c4-fe1c9ecc3432";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "_DialogFolder";
-
-			
-
-	}
-
-	
-	/// <summary>
-	/// _DialogFolder
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_DialogFolder</para>	
-	/// <para>ID: cad489a5-4222-467a-a4c4-fe1c9ecc3432</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_DialogFolderConstants.TemplateIdString)] //, Cachable = true
-	public partial class _DialogFolder  : GlassBase, I_DialogFolder 
-	{
-	   
 			
 	}
 }
@@ -5339,96 +4829,6 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(ISendImageCardConstants.ItemFieldName)]
 				public virtual Guid Item  {get; set;}
-					
-			
-	}
-}
-namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFramework
-{
-
-
- 	/// <summary>
-	/// I_IntentAction Interface
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_IntentAction</para>	
-	/// <para>ID: f08da896-b3a6-493b-88d4-48507031b779</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_IntentActionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface I_IntentAction : IGlassBase 
-	{
-								/// <summary>
-					/// The Name field.
-					/// <para></para>
-					/// <para>Field Type: Single-Line Text</para>		
-					/// <para>Field ID: 6967fb63-63ac-405d-96a3-f52928b29742</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(I_IntentActionConstants.NameFieldName)]
-					string Name  {get; set;}
-			
-								/// <summary>
-					/// The Rule field.
-					/// <para></para>
-					/// <para>Field Type: Rules</para>		
-					/// <para>Field ID: 65077d1d-7042-4bd7-a65a-ff0daf3c1aa6</para>
-					/// <para>Custom Data: </para>
-					/// </summary>
-					[SitecoreField(I_IntentActionConstants.RuleFieldName)]
-					object /* UNKNOWN */ Rule  {get; set;}
-			
-				}
-
-
-	public static partial class I_IntentActionConstants{
-
-			public const string TemplateIdString = "f08da896-b3a6-493b-88d4-48507031b779";
-			public static readonly ID TemplateId = new ID(TemplateIdString);
-			public const string TemplateName = "_IntentAction";
-
-					
-			public static readonly ID NameFieldId = new ID("6967fb63-63ac-405d-96a3-f52928b29742");
-			public const string NameFieldName = "Name";
-			
-					
-			public static readonly ID RuleFieldId = new ID("65077d1d-7042-4bd7-a65a-ff0daf3c1aa6");
-			public const string RuleFieldName = "Rule";
-			
-			
-
-	}
-
-	
-	/// <summary>
-	/// _IntentAction
-	/// <para></para>
-	/// <para>Path: /sitecore/templates/Foundation/SitecoreBotFramework/_IntentAction</para>	
-	/// <para>ID: f08da896-b3a6-493b-88d4-48507031b779</para>	
-	/// </summary>
-	[SitecoreType(TemplateId=I_IntentActionConstants.TemplateIdString)] //, Cachable = true
-	public partial class _IntentAction  : GlassBase, I_IntentAction 
-	{
-	   
-						/// <summary>
-				/// The Name field.
-				/// <para></para>
-				/// <para>Field Type: Single-Line Text</para>		
-				/// <para>Field ID: 6967fb63-63ac-405d-96a3-f52928b29742</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(I_IntentActionConstants.NameFieldName)]
-				public virtual string Name  {get; set;}
-					
-						/// <summary>
-				/// The Rule field.
-				/// <para></para>
-				/// <para>Field Type: Rules</para>		
-				/// <para>Field ID: 65077d1d-7042-4bd7-a65a-ff0daf3c1aa6</para>
-				/// <para>Custom Data: </para>
-				/// </summary>
-				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(I_IntentActionConstants.RuleFieldName)]
-				public virtual object /* UNKNOWN */ Rule  {get; set;}
 					
 			
 	}
