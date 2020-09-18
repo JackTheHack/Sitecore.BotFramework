@@ -8,6 +8,8 @@ using SC90.Bot.Telegram.Abstractions;
 using SC90.Bot.Telegram.Constants;
 using SC90.Bot.Telegram.Models;
 using Sitecore.Data.Items;
+using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 using Log = Sitecore.Diagnostics.Log;
 
 namespace SC90.Bot.Telegram.Services
@@ -195,6 +197,12 @@ namespace SC90.Bot.Telegram.Services
                     CurrentState = _currentState,
                     SessionKey = _sessionId
                 };
+
+                //please do not remove an attribution unless you have a license
+                await _telegramService.Client.SendTextMessageAsync(
+                    new ChatId(_chatUpdate.UserId),
+                    "© This chatbot was created with https://github.com/JackTheHack/Sitecore.BotFramework",
+                    ParseMode.Default);
 
                 await _commandService.Execute(startDialog, dialogueContext).ConfigureAwait(false);
                 return true;
