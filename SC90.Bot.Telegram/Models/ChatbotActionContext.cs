@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2;
 
 namespace SC90.Bot.Telegram.Models
@@ -11,6 +6,28 @@ namespace SC90.Bot.Telegram.Models
     {
         public ChatbotActionContext()
         {
+        }
+
+        public ChatbotActionContext(ChatbotCommandContext context, _DialogAction action)
+        {
+            ChatUpdate = context.ChatUpdate;
+            CurrentState = context.CurrentState;
+            CommandContext = context.CommandContext;
+            Chatbot = context.Chatbot;
+            ActionContext = action;
+            SessionKey = context.SessionKey;
+            SchedulingData = context.SchedulingData;
+        }
+
+        public ChatbotActionContext(ChatbotDialogueContext context, _DialogAction command, _Dialogue dialogue)
+        {
+            Chatbot = context.Chatbot;
+            ChatUpdate = context.ChatUpdate;
+            ActionContext = command;
+            CurrentState = context.CurrentState;
+            SessionKey = context.SessionKey;
+            DialogueContext = dialogue;
+            SchedulingData = context.SchedulingData;
         }
 
         public _Bot Chatbot { get; set; }

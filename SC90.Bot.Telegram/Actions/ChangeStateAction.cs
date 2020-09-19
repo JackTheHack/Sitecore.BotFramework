@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Glass.Mapper.Sc;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,10 +6,7 @@ using SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBo
 using SC90.Bot.Telegram.Abstractions;
 using SC90.Bot.Telegram.Constants;
 using SC90.Bot.Telegram.Models;
-using Sitecore.Data.Items;
 using Sitecore.DependencyInjection;
-using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
 
 namespace SC90.Bot.Telegram.Actions
 {

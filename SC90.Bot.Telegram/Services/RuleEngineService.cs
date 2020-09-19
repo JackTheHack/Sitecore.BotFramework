@@ -1,7 +1,9 @@
 using SC90.Bot.Telegram.Abstractions;
 using SC90.Bot.Telegram.Models;
 using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 using Sitecore.Rules;
+using System;
 
 namespace SC90.Bot.Telegram.Services
 {
@@ -17,7 +19,16 @@ namespace SC90.Bot.Telegram.Services
                 if (rule.Condition != null)
                 {
                     var stack = new RuleStack();
-                    rule.Condition.Evaluate(ruleContext, stack);
+
+                    try
+                    {
+                        rule.Condition.Evaluate(ruleContext, stack);
+                    }catch(Exception e)
+                    {
+                        ruleContext.Result = false;
+                        ruleContext.HasError = true;
+                        Log.Error("Failed to execute rule - " + e, this);
+                    }
  
                     if (ruleContext.IsAborted)
                     {

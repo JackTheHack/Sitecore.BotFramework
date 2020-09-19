@@ -38,15 +38,7 @@ namespace SC90.Bot.Telegram.Actions
 
             if (dialogue != null)
             {
-                var dialogueContext = new ChatbotDialogueContext()
-                {
-                    Chatbot = _context.Chatbot,
-                    ChatUpdate = _context.ChatUpdate,
-                    CurrentState = _context.CurrentState,
-                    DialogueContext = dialogue,
-                    SchedulingData = _context.SchedulingData,
-                    SessionKey = _context.SessionKey
-                };
+                var dialogueContext = new ChatbotDialogueContext(_context, dialogue);
 
                 await _commandService.Execute(dialogue, dialogueContext);
             }

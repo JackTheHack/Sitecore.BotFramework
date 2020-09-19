@@ -47,15 +47,8 @@ namespace SC90.Bot.Telegram.Actions
         public async Task Execute()
         {
             var item = _sitecoreContext.GetItem<Item>(_actionItem.Id);
-            
-            var conditionRuleContext = new ChatbotRuleContext()
-            {
-                Chatbot = _context.Chatbot,
-                ChatUpdate = _context.ChatUpdate,
-                CommandContext =  _context.CommandContext,
-                CurrentState = _context.CurrentState,
-                SessionId = _context.SessionKey
-            };
+
+            var conditionRuleContext = new ChatbotRuleContext(_context);
 
             if (_ruleEngineService.RunRules(item, IConditionConstants.RuleFieldName, conditionRuleContext))
             {

@@ -44,16 +44,7 @@ namespace SC90.Bot.Telegram.Services
             {
                 Sitecore.Diagnostics.Log.Info($"Running action - {action.Id}", this);
 
-                var actionContext = new ChatbotActionContext()
-                {
-                    ChatUpdate = context.ChatUpdate,
-                    CurrentState = context.CurrentState,
-                    CommandContext = context.CommandContext,
-                    Chatbot = context.Chatbot,
-                    ActionContext = action,
-                    SessionKey = context.SessionKey,
-                    SchedulingData = context.SchedulingData
-                };
+                var actionContext = new ChatbotActionContext(context, action);
 
                 await Execute(action, actionContext);
             }
@@ -73,16 +64,7 @@ namespace SC90.Bot.Telegram.Services
                 {
                     if (command == null) continue;
 
-                    var commandContext = new ChatbotActionContext()
-                    {
-                        Chatbot = context.Chatbot,
-                        ChatUpdate = context.ChatUpdate,
-                        ActionContext= command,
-                        CurrentState = context.CurrentState,
-                        SessionKey = context.SessionKey,
-                        DialogueContext = dialogue,
-                        SchedulingData = context.SchedulingData
-                    };
+                    var commandContext = new ChatbotActionContext(context, command, dialogue);
 
                     await Execute(command, commandContext);
                 }

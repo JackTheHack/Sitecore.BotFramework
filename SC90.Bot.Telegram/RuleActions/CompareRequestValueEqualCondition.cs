@@ -21,14 +21,7 @@ namespace SC90.Bot.Telegram.RuleActions
                 return false;
             }
 
-            var pipelineContext = new ChatbotPipelineContext()
-            {
-                CurrentState = ruleContext.CurrentState,
-                Chatbot                = ruleContext.Chatbot,
-                CommandContext = ruleContext.CommandContext,
-                ChatUpdate = ruleContext.ChatUpdate,
-                SessionId = ruleContext.SessionId
-            };
+            var pipelineContext = new ChatbotPipelineContext(ruleContext);
 
             var value1 = ruleContext.ChatUpdate?.Message;
             if (value1 == null) value1 = string.Empty;

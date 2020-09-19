@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2;
 
 namespace SC90.Bot.Telegram.Models
@@ -11,6 +6,24 @@ namespace SC90.Bot.Telegram.Models
     {
         public ChatbotPipelineContext()
         {
+        }
+
+        public ChatbotPipelineContext(ChatbotActionContext _context)
+        {
+            CurrentState = _context.CurrentState;
+            Chatbot = _context.Chatbot;
+            CommandContext = _context.CommandContext;
+            ChatUpdate = _context.ChatUpdate;
+            SessionId = _context.SessionKey;
+        }
+
+        public ChatbotPipelineContext(ChatbotRuleContext ruleContext)
+        {
+            CurrentState = ruleContext.CurrentState;
+            Chatbot = ruleContext.Chatbot;
+            CommandContext = ruleContext.CommandContext;
+            ChatUpdate = ruleContext.ChatUpdate;
+            SessionId = ruleContext.SessionId;
         }
 
         public _Bot Chatbot { get; set; }

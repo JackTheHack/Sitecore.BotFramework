@@ -12,6 +12,7 @@ using SC90.Bot.Telegram.Constants;
 using SC90.Bot.Telegram.Models;
 using Sitecore.Data.Items;
 using Sitecore.DependencyInjection;
+using Sitecore.Pipelines;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
@@ -52,7 +53,13 @@ namespace SC90.Bot.Telegram.Actions
                 }
 
                 var value = _actionItem.Variables.Get(variable);
-                //TODO: replace tokens here for value
+
+                var pipelineContext = new ChatbotPipelineContext(_context);
+
+                var tokenArgs = new ResolveTokenPipelineArgs() { Value = value, BotContext = pipelineContext };
+                CorePipeline.Run("resolveBotTokens", tokenArgs);
+                var value1 = tokenArgs.Value;
+
                 if (!string.IsNullOrEmpty(value))
                 {
                     await _sessionProvider.Set(_context.SessionKey, SessionConstants.VariablePrefix+variable, value);

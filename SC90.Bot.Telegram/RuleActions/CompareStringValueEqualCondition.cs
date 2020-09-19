@@ -17,14 +17,7 @@ namespace SC90.Bot.Telegram.RuleActions
 
         protected override bool Execute(T ruleContext)
         {
-            var pipelineContext = new ChatbotPipelineContext()
-            {
-                CurrentState = ruleContext.CurrentState,
-                Chatbot                = ruleContext.Chatbot,
-                CommandContext = ruleContext.CommandContext,
-                ChatUpdate = ruleContext.ChatUpdate,
-                SessionId = ruleContext.SessionId
-            };
+            var pipelineContext = new ChatbotPipelineContext(ruleContext);
 
             var tokenArgs = new ResolveTokenPipelineArgs() {Value = Value1, BotContext = pipelineContext};
             CorePipeline.Run("resolveBotTokens", tokenArgs);
