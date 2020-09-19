@@ -25,7 +25,19 @@ namespace SC90.Bot.Telegram.Pipelines.resolveBotTokens
 
             var sessionTokenMatches = Regex.Matches(resolveTokenArgs.Value, @"@\[\[(\w+)\]\]");
 
-            var sessionDocument = sessionProvider.GetSessionDocument(resolveTokenArgs.BotContext.SessionId).Result;
+            var sessionDocumentTask = sessionProvider.GetSessionDocument(resolveTokenArgs.BotContext.SessionId);
+
+
+            BsonDocument sessionDocument = null;
+
+            if(sessionDocumentTask.Wait(5000))
+            {
+                sessionDocument = sessionDocumentTask.Result;
+            }
+            else
+            {
+                Sitecore.Diagnostics.Log.Error("Session document haven't loaded...", this);
+            }
 
             if (sessionDocument != null &&
                 sessionTokenMatches != null && 
@@ -41,7 +53,8 @@ namespace SC90.Bot.Telegram.Pipelines.resolveBotTokens
 
             var contextItemTokenMatches = Regex.Matches(resolveTokenArgs.Value, @"@\(\((\w+)\)\)");
 
-            if (contextItemTokenMatches != null && 
+            if (sessionDocument != null &&
+                contextItemTokenMatches != null && 
                 contextItemTokenMatches.Count > 0)
             {
                 if (sessionDocument.Contains(SessionConstants.Item))

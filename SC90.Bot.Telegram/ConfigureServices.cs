@@ -17,11 +17,11 @@ namespace SC90.Bot.Telegram
             var schedulerService = new SchedulerService();
             schedulerService.Initialize().Wait();
 
+            services.AddScoped<ISessionProvider, MongoSessionProvider>();
             services.AddScoped<IBotRequestContext, BotRequestContext>();
             services.AddSingleton<ISchedulerService, SchedulerService>(x => schedulerService);
             services.AddTransient<ITelegramService, TelegramService>();
             services.AddTransient<ISitecoreBotService, SitecoreBotService>();
-            services.AddTransient<ISessionProvider, MongoSessionProvider>();
             services.AddTransient<IRuleEngineService, RuleEngineService>();
             services.AddTransient<ICommandService, CommandService>();
             services.AddTransient<IDialogActionFactory, DialogActionFactory>();

@@ -11,21 +11,33 @@ namespace SC90.Bot.Telegram.Services
 {
     public class MongoSessionProvider : ISessionProvider
     {
-        private readonly string _connectionString;
-        private readonly MongoClient _mongoClient;
+        private static readonly string _connectionString;
+        private static readonly MongoClient _mongoClient;
         private readonly string _dbName;
+        private Dictionary<string, BsonDocument> _sessionCache = new Dictionary<string, BsonDocument>();
 
-        public MongoSessionProvider()
+        static MongoSessionProvider()
         {
             _connectionString = Sitecore.Configuration.Settings.GetSetting("BotFramework:mongoSessionDb");
-            _dbName = Sitecore.Configuration.Settings.GetSetting("BotFramework:MongoSessionDbName", "BotSessions");
             var clientSettings = MongoClientSettings.FromConnectionString(_connectionString);
             clientSettings.ConnectTimeout = TimeSpan.FromSeconds(5);
             _mongoClient = new MongoClient(clientSettings);
+            var startMongoSessionTask = _mongoClient.StartSessionAsync();
+            startMongoSessionTask.Wait(2000);
+        }
+
+        public MongoSessionProvider()
+        {
+            _dbName = Sitecore.Configuration.Settings.GetSetting("BotFramework:MongoSessionDbName", "BotSessions");
         }
 
         public async Task<BsonValue> Get(string sessionId, string fieldName)
         {
+            if(_sessionCache.ContainsKey(sessionId))
+            {
+                return _sessionCache[sessionId].GetValue(fieldName);
+            }
+
             var db = _mongoClient.GetDatabase(_dbName);
             var sessionCollection = db?.GetCollection<BsonDocument>("Sessions");
 
@@ -46,6 +58,11 @@ namespace SC90.Bot.Telegram.Services
 
         public async Task Set(string sessionId, string fieldName, BsonValue value)
         {
+            if(_sessionCache.ContainsKey(sessionId))
+            {
+                _sessionCache.Remove(sessionId);
+            }
+
             var db = _mongoClient.GetDatabase(_dbName);
             var sessionCollection = db?.GetCollection<BsonDocument>("Sessions", new MongoCollectionSettings()
             {
@@ -63,12 +80,15 @@ namespace SC90.Bot.Telegram.Services
             await sessionCollection.UpdateOneAsync(filter, new BsonDocument(){{"$set", sessionDoc}}, new UpdateOptions()
             {
                 IsUpsert = true
-            });
+            });            
         }
 
         public async Task<BsonDocument> GetSessionDocument(string sessionId)
         {
-            await _mongoClient.StartSessionAsync();
+            if(_sessionCache.ContainsKey(sessionId))
+            {
+                return _sessionCache[sessionId];
+            }
 
             var db = _mongoClient.GetDatabase(_dbName);
 
@@ -80,7 +100,10 @@ namespace SC90.Bot.Telegram.Services
             var filter = new BsonDocument();
             filter.Set("UserId", sessionId);
 
-            var result = await sessionCollection.FindAsync(filter);
+            var result = await sessionCollection.FindAsync(filter, new FindOptions<BsonDocument, BsonDocument>()
+            {
+                BatchSize = 1
+            });
 
             var sessionFound = result.FirstOrDefault();
 
@@ -100,15 +123,19 @@ namespace SC90.Bot.Telegram.Services
 
             session.Set("UserId", sessionId);
 
-
             await sessionCollection.UpdateOneAsync(filter, 
                 new BsonDocument { {"$set", session }}, 
                 new UpdateOptions(){ IsUpsert = true});
+
+            _sessionCache.Add(sessionId, session);
         }
 
         public async Task Clear(string sessionId)
         {
-            await _mongoClient.StartSessionAsync();
+            if(_sessionCache.ContainsKey(sessionId))
+            {
+                _sessionCache.Remove(sessionId);
+            }
 
             var db = _mongoClient.GetDatabase(_dbName);
 
@@ -121,12 +148,15 @@ namespace SC90.Bot.Telegram.Services
             var filter = new BsonDocument();
             filter.Set("UserId", sessionId);
 
-            var deleteResult = await sessionCollection.DeleteManyAsync(filter);
+            await sessionCollection.DeleteManyAsync(filter);
         }
 
         public async Task<bool> HasSessionDocument(string sessionId)
         {
-            await _mongoClient.StartSessionAsync();
+            if(_sessionCache.ContainsKey(sessionId))
+            {
+                return true;
+            }
 
             var db = _mongoClient.GetDatabase(_dbName);
 
@@ -138,7 +168,10 @@ namespace SC90.Bot.Telegram.Services
             var filter = new BsonDocument();
             filter.Set("UserId", sessionId);
 
-            var result = await sessionCollection.FindAsync(filter);
+            var result = await sessionCollection.FindAsync(filter, new FindOptions<BsonDocument, BsonDocument>()
+            {
+                BatchSize = 1
+            });
 
             var sessionFound = result.Any();
 
