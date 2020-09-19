@@ -15,7 +15,7 @@ name: __Base template
 key: __base template
 content-length: 38
 
-{504CB6E2-55FF-473D-BB24-B8BF5E9DE02F}
+{197AF2FF-8942-479A-9EB8-A2F26CE8CE4E}
 ----field----
 field: {F7D48A55-2158-4F02-9356-756654404F73}
 name: __Standard values
@@ -33,7 +33,7 @@ Software/32x32/branch.png
 ----version----
 language: en
 version: 1
-revision: 27e57865-826a-433a-8f99-6b0ae02b67ad
+revision: 26620733-18fc-4f86-bfc6-d671c8fbf557
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-27e57865-826a-433a-8f99-6b0ae02b67ad
+26620733-18fc-4f86-bfc6-d671c8fbf557
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20200601T041436Z
+20200919T053055Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

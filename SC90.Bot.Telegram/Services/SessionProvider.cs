@@ -83,7 +83,7 @@ namespace SC90.Bot.Telegram.Services
             });            
         }
 
-        public async Task<BsonDocument> GetSessionDocument(string sessionId)
+        public async Task<BsonDocument> GetSessionDocumentAsync(string sessionId)
         {
             if(_sessionCache.ContainsKey(sessionId))
             {
@@ -103,6 +103,34 @@ namespace SC90.Bot.Telegram.Services
             var result = await sessionCollection.FindAsync(filter, new FindOptions<BsonDocument, BsonDocument>()
             {
                 BatchSize = 1
+            });
+
+            var sessionFound = result.FirstOrDefault();
+
+            return sessionFound?.ToBsonDocument();
+        }
+
+        public BsonDocument GetSessionDocument(string sessionId)
+        {
+            if (_sessionCache.ContainsKey(sessionId))
+            {
+                return _sessionCache[sessionId];
+            }
+
+            var db = _mongoClient.GetDatabase(_dbName);
+
+            var sessionCollection = db?.GetCollection<BsonDocument>("Sessions", new MongoCollectionSettings()
+            {
+                AssignIdOnInsert = true
+            });
+
+            var filter = new BsonDocument();
+            filter.Set("UserId", sessionId);
+
+            var result = sessionCollection.Find(filter, new FindOptions()
+            {
+                BatchSize = 1,
+                MaxTime = TimeSpan.FromSeconds(5)
             });
 
             var sessionFound = result.FirstOrDefault();

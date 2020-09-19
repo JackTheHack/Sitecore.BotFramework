@@ -88,7 +88,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 09a53c3b-f4ac-4877-9900-7d4c9da61f1e</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISetIntervalConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISetInterval : IGlassBase 
+	public partial interface ISetInterval : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The CronDescription field.
@@ -183,6 +183,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID ParametersFieldId = new ID("f2b4be8d-89dc-43fb-be99-5c59f9034f97");
 			public const string ParametersFieldName = "Parameters";
 			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -263,6 +271,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(ISetIntervalConstants.ParametersFieldName)]
 				public virtual System.Collections.Specialized.NameValueCollection Parameters  {get; set;}
+					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetIntervalConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetIntervalConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
 					
 			
 	}
@@ -370,6 +400,26 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 	[SitecoreType(TemplateId=I_DialogActionConstants.TemplateIdString )] //, Cachable = true
 	public partial interface I_DialogAction : IGlassBase 
 	{
+								/// <summary>
+					/// The FallbackItem field.
+					/// <para></para>
+					/// <para>Field Type: Droptree</para>		
+					/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(I_DialogActionConstants.FallbackItemFieldName)]
+					Guid FallbackItem  {get; set;}
+			
+								/// <summary>
+					/// The ReplaceTokens field.
+					/// <para></para>
+					/// <para>Field Type: Checkbox</para>		
+					/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+					/// <para>Custom Data: </para>
+					/// </summary>
+					[SitecoreField(I_DialogActionConstants.ReplaceTokensFieldName)]
+					bool ReplaceTokens  {get; set;}
+			
 				}
 
 
@@ -379,6 +429,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 			public static readonly ID TemplateId = new ID(TemplateIdString);
 			public const string TemplateName = "_DialogAction";
 
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -394,6 +452,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.Siteco
 	public partial class _DialogAction  : GlassBase, I_DialogAction 
 	{
 	   
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(I_DialogActionConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(I_DialogActionConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
+					
 			
 	}
 }
@@ -528,7 +608,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 2ecdf09d-0bb6-4071-9e59-b3135bae1248</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ICustomActionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ICustomAction : IGlassBase 
+	public partial interface ICustomAction : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The Item field.
@@ -567,6 +647,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID TypeFieldId = new ID("b847aa65-83f8-48c3-b29b-131dc4d693af");
 			public const string TypeFieldName = "Type";
 			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -604,6 +692,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[SitecoreField(ICustomActionConstants.TypeFieldName)]
 				public virtual string Type  {get; set;}
 					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ICustomActionConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ICustomActionConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
+					
 			
 	}
 }
@@ -618,7 +728,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 2f2e8343-91ae-40b0-a0d0-f4fbd2bfed96</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISetTimeoutConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISetTimeout : IGlassBase 
+	public partial interface ISetTimeout : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The EventName field.
@@ -713,6 +823,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID TimeoutSecondsFieldId = new ID("d5cd9e91-b956-4fe7-9e74-5c67e3a08b54");
 			public const string TimeoutSecondsFieldName = "TimeoutSeconds";
 			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -794,6 +912,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[SitecoreField(ISetTimeoutConstants.TimeoutSecondsFieldName)]
 				public virtual float TimeoutSeconds  {get; set;}
 					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetTimeoutConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetTimeoutConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
+					
 			
 	}
 }
@@ -848,7 +988,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 374a576c-9474-4d09-8ca1-c76ae2f032bc</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IChangeStateConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IChangeState : IGlassBase 
+	public partial interface IChangeState : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The NewState field.
@@ -872,6 +1012,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 					
 			public static readonly ID NewStateFieldId = new ID("565cb52f-c05f-4279-bc11-d0392eae65ee");
 			public const string NewStateFieldName = "NewState";
+			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
 			
 			
 
@@ -898,6 +1046,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(IChangeStateConstants.NewStateFieldName)]
 				public virtual Guid NewState  {get; set;}
+					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IChangeStateConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IChangeStateConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
 					
 			
 	}
@@ -1098,7 +1268,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 3fb6cad6-c90e-498d-a198-b72be1e79d47</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISendMessageConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISendMessage : IGlassBase 
+	public partial interface ISendMessage : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The FieldName field.
@@ -1221,6 +1391,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID UseMarkdownFieldId = new ID("d2bc6e49-6b34-4921-beeb-7b14e081bf25");
 			public const string UseMarkdownFieldName = "UseMarkdown";
 			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -1323,6 +1501,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(ISendMessageConstants.UseMarkdownFieldName)]
 				public virtual bool UseMarkdown  {get; set;}
+					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISendMessageConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISendMessageConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
 					
 			
 	}
@@ -2028,17 +2228,17 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 6e103180-f9d0-4e60-b940-8f336dbfe973</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISetContextItemConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISetContextItem : IGlassBase 
+	public partial interface ISetContextItem : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
-					/// The Item field.
+					/// The ContextItem field.
 					/// <para></para>
 					/// <para>Field Type: Droptree</para>		
 					/// <para>Field ID: c1233ac5-de54-49db-b2f2-f5ed98563a97</para>
 					/// <para>Custom Data: </para>
 					/// </summary>
-					[SitecoreField(ISetContextItemConstants.ItemFieldName)]
-					Guid Item  {get; set;}
+					[SitecoreField(ISetContextItemConstants.ContextItemFieldName)]
+					Guid ContextItem  {get; set;}
 			
 								/// <summary>
 					/// The Query field.
@@ -2060,12 +2260,20 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public const string TemplateName = "SetContextItem";
 
 					
-			public static readonly ID ItemFieldId = new ID("c1233ac5-de54-49db-b2f2-f5ed98563a97");
-			public const string ItemFieldName = "Item";
+			public static readonly ID ContextItemFieldId = new ID("c1233ac5-de54-49db-b2f2-f5ed98563a97");
+			public const string ContextItemFieldName = "ContextItem";
 			
 					
 			public static readonly ID QueryFieldId = new ID("65578a74-926e-45cd-acd4-e9272d760195");
 			public const string QueryFieldName = "Query";
+			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
 			
 			
 
@@ -2083,15 +2291,15 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	{
 	   
 						/// <summary>
-				/// The Item field.
+				/// The ContextItem field.
 				/// <para></para>
 				/// <para>Field Type: Droptree</para>		
 				/// <para>Field ID: c1233ac5-de54-49db-b2f2-f5ed98563a97</para>
 				/// <para>Custom Data: </para>
 				/// </summary>
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
-				[SitecoreField(ISetContextItemConstants.ItemFieldName)]
-				public virtual Guid Item  {get; set;}
+				[SitecoreField(ISetContextItemConstants.ContextItemFieldName)]
+				public virtual Guid ContextItem  {get; set;}
 					
 						/// <summary>
 				/// The Query field.
@@ -2103,6 +2311,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(ISetContextItemConstants.QueryFieldName)]
 				public virtual object /* UNKNOWN */ Query  {get; set;}
+					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetContextItemConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetContextItemConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
 					
 			
 	}
@@ -2118,7 +2348,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 719bdbba-9c8a-4312-a13d-10c2f57ff326</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISetSessionVariableConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISetSessionVariable : IGlassBase 
+	public partial interface ISetSessionVariable : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The Variables field.
@@ -2142,6 +2372,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 					
 			public static readonly ID VariablesFieldId = new ID("2635cf46-8ba6-4cca-abb5-a36dcf14a738");
 			public const string VariablesFieldName = "Variables";
+			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
 			
 			
 
@@ -2169,6 +2407,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[SitecoreField(ISetSessionVariableConstants.VariablesFieldName)]
 				public virtual System.Collections.Specialized.NameValueCollection Variables  {get; set;}
 					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetSessionVariableConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISetSessionVariableConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
+					
 			
 	}
 }
@@ -2183,7 +2443,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 877a013a-8b95-48d7-b106-9b0459a9904a</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IStopJobConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IStopJob : IGlassBase 
+	public partial interface IStopJob : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The IsGlobal field.
@@ -2222,6 +2482,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID JobIdFieldId = new ID("55e0dcf5-fbba-4dde-b923-ddfc17d26ab8");
 			public const string JobIdFieldName = "JobId";
 			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -2259,6 +2527,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[SitecoreField(IStopJobConstants.JobIdFieldName)]
 				public virtual string JobId  {get; set;}
 					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IStopJobConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IStopJobConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
+					
 			
 	}
 }
@@ -2273,7 +2563,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: 91f5f934-1319-48fc-acfa-62ed7967c342</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ICarouselConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ICarousel : IGlassBase 
+	public partial interface ICarousel : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 				}
 
@@ -2284,6 +2574,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID TemplateId = new ID(TemplateIdString);
 			public const string TemplateName = "Carousel";
 
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -2299,6 +2597,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	public partial class Carousel  : GlassBase, ICarousel 
 	{
 	   
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ICarouselConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ICarouselConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
+					
 			
 	}
 }
@@ -2868,7 +3188,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: b7f4bee9-0674-4e75-8846-bbf878e785c6</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IClearSessionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface IClearSession : IGlassBase 
+	public partial interface IClearSession : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 				}
 
@@ -2879,6 +3199,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID TemplateId = new ID(TemplateIdString);
 			public const string TemplateName = "ClearSession";
 
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -2894,6 +3222,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	public partial class ClearSession  : GlassBase, IClearSession 
 	{
 	   
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IClearSessionConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IClearSessionConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
+					
 			
 	}
 }
@@ -3288,7 +3638,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: d83af18f-54f5-4744-9efe-cd4aa78e0575</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISendImageCardConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISendImageCard : IGlassBase 
+	public partial interface ISendImageCard : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The Image field.
@@ -3327,6 +3677,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID ItemFieldId = new ID("51dc0318-aee5-40d5-8941-6a877ae3bedf");
 			public const string ItemFieldName = "Item";
 			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -3364,6 +3722,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[SitecoreField(ISendImageCardConstants.ItemFieldName)]
 				public virtual Guid Item  {get; set;}
 					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISendImageCardConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISendImageCardConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
+					
 			
 	}
 }
@@ -3389,6 +3769,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID TemplateId = new ID(TemplateIdString);
 			public const string TemplateName = "DialogAction";
 
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -3404,6 +3792,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	public partial class DialogAction  : GlassBase, IDialogAction 
 	{
 	   
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IDialogActionConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IDialogActionConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
+					
 			
 	}
 }
@@ -3458,7 +3868,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: eaed557d-2b31-4a25-be11-99a6db070a38</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=ISendAttachmentCardConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ISendAttachmentCard : IGlassBase 
+	public partial interface ISendAttachmentCard : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The Attachment field.
@@ -3497,6 +3907,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 			public static readonly ID ItemFieldId = new ID("2840a5f7-9c9b-4e37-8219-1e5f3e1e360c");
 			public const string ItemFieldName = "Item";
 			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
+			
 			
 
 	}
@@ -3533,6 +3951,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(ISendAttachmentCardConstants.ItemFieldName)]
 				public virtual Guid Item  {get; set;}
+					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISendAttachmentCardConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(ISendAttachmentCardConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
 					
 			
 	}
@@ -3603,7 +4043,7 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 	/// <para>ID: fa20c787-7c17-4e30-9f7c-2713a7e6a652</para>	
 	/// </summary>
 	[SitecoreType(TemplateId=IConditionConstants.TemplateIdString )] //, Cachable = true
-	public partial interface ICondition : IGlassBase 
+	public partial interface ICondition : IGlassBase , global::SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Foundation.SitecoreBotFrameworkV2.I_DialogAction
 	{
 								/// <summary>
 					/// The Rule field.
@@ -3627,6 +4067,14 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 					
 			public static readonly ID RuleFieldId = new ID("537af444-1a00-4aea-a8bc-b2a6e90cbda0");
 			public const string RuleFieldName = "Rule";
+			
+					
+			public static readonly ID FallbackItemFieldId = new ID("0588d2e5-55ac-4994-8b46-ae1c3c927aff");
+			public const string FallbackItemFieldName = "FallbackItem";
+			
+					
+			public static readonly ID ReplaceTokensFieldId = new ID("a28bd120-83f1-4e17-8b0e-3cdfd47583cd");
+			public const string ReplaceTokensFieldName = "ReplaceTokens";
 			
 			
 
@@ -3653,6 +4101,28 @@ namespace SC90.Bot.CodeGen.SC90.Bot.CodeGen.sitecore.templates.Feature.SitecoreB
 				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
 				[SitecoreField(IConditionConstants.RuleFieldName)]
 				public virtual object /* UNKNOWN */ Rule  {get; set;}
+					
+						/// <summary>
+				/// The FallbackItem field.
+				/// <para></para>
+				/// <para>Field Type: Droptree</para>		
+				/// <para>Field ID: 0588d2e5-55ac-4994-8b46-ae1c3c927aff</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IConditionConstants.FallbackItemFieldName)]
+				public virtual Guid FallbackItem  {get; set;}
+					
+						/// <summary>
+				/// The ReplaceTokens field.
+				/// <para></para>
+				/// <para>Field Type: Checkbox</para>		
+				/// <para>Field ID: a28bd120-83f1-4e17-8b0e-3cdfd47583cd</para>
+				/// <para>Custom Data: </para>
+				/// </summary>
+				[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Team Development for Sitecore - GlassItem.tt", "1.0")]
+				[SitecoreField(IConditionConstants.ReplaceTokensFieldName)]
+				public virtual bool ReplaceTokens  {get; set;}
 					
 			
 	}

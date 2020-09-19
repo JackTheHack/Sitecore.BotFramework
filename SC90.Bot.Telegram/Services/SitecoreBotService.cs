@@ -56,7 +56,7 @@ namespace SC90.Bot.Telegram.Services
 
             _sessionId = jobData.SessionId;
 
-            var sessionDocument = await _session.GetSessionDocument(jobData.SessionId);
+            var sessionDocument = await _session.GetSessionDocumentAsync(jobData.SessionId);
 
             _globalState = _sitecoreContext.GetItem<_State>(bot.GlobalState);
 
@@ -103,7 +103,7 @@ namespace SC90.Bot.Telegram.Services
             Log.Info("Running chatbot update", this);
             
             _sessionId = sessionKey;
-            _sessionDocument = await _session.GetSessionDocument(sessionKey);
+            _sessionDocument = await _session.GetSessionDocumentAsync(sessionKey);
             _isNewSession = _sessionDocument == null;
 
             try
@@ -126,7 +126,7 @@ namespace SC90.Bot.Telegram.Services
                     return;
                 }
 
-                Log.Info($"Current chatbot state - {_currentState.Id}", this);
+                Log.Info($"Current chatbot state - {_currentState.Id} {_currentState.Name}", this);
 
                 _globalState = _sitecoreContext.GetItem<_State>(_chatBot.GlobalState);
 
@@ -151,9 +151,11 @@ namespace SC90.Bot.Telegram.Services
                     SessionKey = sessionKey
                 };
 
-                Log.Info($"Running command - {command.Id}", this);
+                Log.Info($"Running command - {command.Id} {command.Name}", this);
 
                 await _commandService.Execute(command, commandContext);
+
+                Log.Info("Chatbot request handled.",  this);
             }
             catch (Exception e)
             {

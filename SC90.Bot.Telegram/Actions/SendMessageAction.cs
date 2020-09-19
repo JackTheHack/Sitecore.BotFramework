@@ -11,6 +11,7 @@ using SC90.Bot.Telegram.Abstractions;
 using SC90.Bot.Telegram.Models;
 using Sitecore.Data.Items;
 using Sitecore.DependencyInjection;
+using Sitecore.Pipelines;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
@@ -50,11 +51,17 @@ namespace SC90.Bot.Telegram.Actions
             {
                 Sitecore.Diagnostics.Log.Warn("Can't send message without user context (probably action is running in the global scheduler event which is not supported", this);
                 return;
-            }            
+            }
+
+            var pipelineContext = new ChatbotPipelineContext(_context);
+
+            var tokenArgs = new ResolveTokenPipelineArgs() { Value = _actionItem.Text, BotContext = pipelineContext };
+            CorePipeline.Run("resolveBotTokens", tokenArgs);
+            var value1 = tokenArgs.Value;
 
             await _telegramService.Client.SendTextMessageAsync(
                 new ChatId(_context.ChatUpdate.UserId), 
-                _actionItem.Text,
+                value1,
                 _actionItem.UseMarkdown ? ParseMode.MarkdownV2 : ParseMode.Default);
         }
     }

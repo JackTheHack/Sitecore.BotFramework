@@ -62,10 +62,9 @@ namespace SC90.Bot.Telegram.Actions
 
                 if (!string.IsNullOrEmpty(value))
                 {
-                    await _sessionProvider.Set(_context.SessionKey, SessionConstants.VariablePrefix+variable, value);
+                    await _sessionProvider.Set(_context.SessionKey, SessionConstants.VariablePrefix+variable, value1);
                 }
             }
-            throw new NotImplementedException();
         }
     }
 }

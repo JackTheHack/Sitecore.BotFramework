@@ -8,7 +8,8 @@ namespace SC90.Bot.Telegram.Constants
 {
     public static class SessionConstants
     {
-        public const string VariablePrefix = "Vars.";
+        public const string VariablesElement = "Vars";
+        public const string VariablePrefix = VariablesElement + ".";
         public const string State = "State";
         public const string Item = "Item";
     }

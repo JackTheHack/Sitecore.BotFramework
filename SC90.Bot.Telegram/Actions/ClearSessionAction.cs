@@ -42,7 +42,7 @@ namespace SC90.Bot.Telegram.Actions
 
         public async Task Execute()
         {
-            var sessionDocument = await _sessionProvider.GetSessionDocument(_context.SessionKey);
+            var sessionDocument = await _sessionProvider.GetSessionDocumentAsync(_context.SessionKey);
             foreach (var sessionDocumentName in sessionDocument.Names.ToList())
             {
                 if (sessionDocumentName.StartsWith(SessionConstants.VariablePrefix))

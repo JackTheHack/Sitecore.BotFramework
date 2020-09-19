@@ -38,10 +38,10 @@ namespace SC90.Bot.Telegram.Actions
         {
             _actionItem = _sitecoreContext.GetItem<SetContextItem>(action.Id);
 
-            if (_actionItem.Item != Guid.Empty)
+            if (_actionItem.FallbackItem != Guid.Empty)
             {
                 //go to datasource if specified
-                _actionItem = _sitecoreContext.GetItem<SetContextItem>(_actionItem.Item);
+                _actionItem = _sitecoreContext.GetItem<SetContextItem>(_actionItem.FallbackItem);
             }
 
             _context = context;
@@ -49,7 +49,7 @@ namespace SC90.Bot.Telegram.Actions
 
         public async Task Execute()
         {
-            await _sessionProvider.Set(_context.SessionKey, SessionConstants.Item, _actionItem.Item);
+            await _sessionProvider.Set(_context.SessionKey, SessionConstants.Item, _actionItem.ContextItem);
         }
     }
 }

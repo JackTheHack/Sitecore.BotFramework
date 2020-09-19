@@ -2,9 +2,9 @@
 version: 1
 id: {C1233AC5-DE54-49DB-B2F2-F5ED98563A97}
 database: master
-path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Actions/SetContextItem/Content/Item
+path: /sitecore/templates/Feature/SitecoreBotFrameworkV2/Actions/SetContextItem/Content/ContextItem
 parent: {3CB18D20-2AA4-4D9F-ACE4-540342829294}
-name: Item
+name: ContextItem
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
@@ -26,7 +26,7 @@ content-length: 3
 ----version----
 language: en
 version: 1
-revision: 0b2ed2d0-b2ab-432f-9998-21efbb19e901
+revision: 3f948d51-8fc6-487f-a93b-92b1782bdd66
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -41,14 +41,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-0b2ed2d0-b2ab-432f-9998-21efbb19e901
+3f948d51-8fc6-487f-a93b-92b1782bdd66
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20200601T065434Z
+20200919T052710Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

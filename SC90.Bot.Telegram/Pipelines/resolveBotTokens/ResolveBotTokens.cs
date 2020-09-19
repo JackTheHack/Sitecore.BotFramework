@@ -25,36 +25,31 @@ namespace SC90.Bot.Telegram.Pipelines.resolveBotTokens
 
             var sessionTokenMatches = Regex.Matches(resolveTokenArgs.Value, @"@\[\[(\w+)\]\]");
 
-            var sessionDocumentTask = sessionProvider.GetSessionDocument(resolveTokenArgs.BotContext.SessionId);
-
-
-            BsonDocument sessionDocument = null;
-
-            if(sessionDocumentTask.Wait(5000))
-            {
-                sessionDocument = sessionDocumentTask.Result;
-            }
-            else
-            {
-                Sitecore.Diagnostics.Log.Error("Session document haven't loaded...", this);
-            }
+            var sessionDocument = sessionProvider.GetSessionDocument(resolveTokenArgs.BotContext.SessionId);
 
             if (sessionDocument != null &&
-                sessionTokenMatches != null && 
+                sessionDocument.Contains(SessionConstants.VariablesElement) &&
+                sessionTokenMatches != null &&
                 sessionTokenMatches.Count > 0)
-            {                
+            {
+                var sessionVars = sessionDocument.GetValue(SessionConstants.VariablesElement);
 
+                if (sessionVars != null)
+                {
                     foreach (Match match in sessionTokenMatches)
                     {
-                        var sessionValue = sessionDocument.GetValue(match.Groups[1].Value, new BsonString(string.Empty));
-                        resolveTokenArgs.Value = resolveTokenArgs.Value.Replace(match.Value, sessionValue.ToString());                    
+                        string varName = match.Groups[1].Value;
+
+                        var sessionValue = sessionVars.AsBsonDocument.GetValue(varName, new BsonString(string.Empty));
+                        resolveTokenArgs.Value = resolveTokenArgs.Value.Replace(match.Value, sessionValue.ToString());
                     }
+                }
             }
 
             var contextItemTokenMatches = Regex.Matches(resolveTokenArgs.Value, @"@\(\((\w+)\)\)");
 
             if (sessionDocument != null &&
-                contextItemTokenMatches != null && 
+                contextItemTokenMatches != null &&
                 contextItemTokenMatches.Count > 0)
             {
                 if (sessionDocument.Contains(SessionConstants.Item))
@@ -64,13 +59,13 @@ namespace SC90.Bot.Telegram.Pipelines.resolveBotTokens
                     {
                         var item = sitecoreService.GetItem<Item>(contextItem.AsGuid);
 
-                        if(item != null)
+                        if (item != null)
                         {
-                            foreach (Match match in sessionTokenMatches)
+                            foreach (Match match in contextItemTokenMatches)
                             {
                                 string fieldName = match.Groups[1].Value;
 
-                                if (!string.IsNullOrEmpty(fieldName) && 
+                                if (!string.IsNullOrEmpty(fieldName) &&
                                     item.Fields[fieldName] != null)
                                 {
                                     var itemFieldValue = item.Fields[fieldName].Value;
@@ -79,7 +74,7 @@ namespace SC90.Bot.Telegram.Pipelines.resolveBotTokens
                             }
                         }
                     }
-                }                
+                }
             }
 
             //Z.Expressions.Eval.Compile()
